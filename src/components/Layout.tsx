@@ -48,7 +48,7 @@ const Layout = ({ children }: LayoutProps) => {
       </footer>
       
       {/* Randomly positioned stars for night sky effect */}
-      {Array.from({ length: 50 }).map((_, i) => (
+      {Array.from({ length: 80 }).map((_, i) => (
         <div 
           key={i}
           className="star"
@@ -58,6 +58,20 @@ const Layout = ({ children }: LayoutProps) => {
             top: `${Math.random() * 100}%`,
             left: `${Math.random() * 100}%`,
             animationDelay: `${Math.random() * 4}s`
+          }}
+        ></div>
+      ))}
+      
+      {/* Add a few shooting stars */}
+      {Array.from({ length: 3 }).map((_, i) => (
+        <div 
+          key={`shooting-${i}`}
+          className="shooting-star"
+          style={{
+            top: `${Math.random() * 50}%`,
+            left: `${Math.random() * 50}%`,
+            animationDelay: `${Math.random() * 10 + 2}s`,
+            animationDuration: `${Math.random() * 3 + 4}s`
           }}
         ></div>
       ))}

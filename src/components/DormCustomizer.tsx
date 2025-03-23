@@ -2,6 +2,16 @@
 import { useState, useRef, useEffect } from "react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { toast } from "sonner";
+import { 
+  Bed, 
+  BookOpen, 
+  Desk, 
+  Lamp, 
+  ShieldCheck, 
+  Paintbrush, 
+  Sparkles, 
+  Moon 
+} from "lucide-react";
 
 type DormItem = {
   id: string;
@@ -14,7 +24,7 @@ type DormItem = {
     ravenclaw: string;
     hufflepuff: string;
   };
-  imageUrl?: string; // For drag-drop items
+  icon: React.ReactNode;
   width?: number;
   height?: number;
 };
@@ -57,6 +67,7 @@ const dormSections: DormSection[] = [
           ravenclaw: "with blue and bronze satin curtains",
           hufflepuff: "with yellow and black cotton curtains",
         },
+        icon: <Bed size={48} />,
         width: 180,
         height: 150,
       },
@@ -71,6 +82,7 @@ const dormSections: DormSection[] = [
           ravenclaw: "with eagle constellations that occasionally fly",
           hufflepuff: "with badger constellations that twinkle warmly",
         },
+        icon: <Bed size={48} className="magic-shine" />,
         width: 180,
         height: 150,
       },
@@ -85,6 +97,7 @@ const dormSections: DormSection[] = [
           ravenclaw: "with tiny twinkling stars floating beneath",
           hufflepuff: "with a gentle golden aura of warmth below",
         },
+        icon: <Bed size={48} className="opacity-80" />,
         width: 180,
         height: 150,
       },
@@ -106,6 +119,7 @@ const dormSections: DormSection[] = [
           ravenclaw: "with bronze astronomical instruments built in",
           hufflepuff: "with warm honey-colored wood and rounded edges",
         },
+        icon: <Desk size={40} />,
         width: 120,
         height: 80,
       },
@@ -120,6 +134,7 @@ const dormSections: DormSection[] = [
           ravenclaw: "that sorts items by subject and relevance",
           hufflepuff: "that gently reminds you of homework deadlines",
         },
+        icon: <Desk size={40} className="magic-shine" />,
         width: 120,
         height: 80,
       },
@@ -134,6 +149,7 @@ const dormSections: DormSection[] = [
           ravenclaw: "that anticipates when you need to study",
           hufflepuff: "that ensures comfortable posture while working",
         },
+        icon: <Desk size={40} className="opacity-80" />,
         width: 100,
         height: 60,
       },
@@ -155,6 +171,7 @@ const dormSections: DormSection[] = [
           ravenclaw: "with a wise eagle whose feathers shimmer in the light",
           hufflepuff: "with a friendly badger that occasionally nods to you",
         },
+        icon: <ShieldCheck size={36} />,
         width: 80,
         height: 120,
       },
@@ -169,6 +186,7 @@ const dormSections: DormSection[] = [
           ravenclaw: "illustrating complex magical theories and discoveries",
           hufflepuff: "portraying serene magical gardens and creatures",
         },
+        icon: <Paintbrush size={36} className="magic-shine" />,
         width: 100,
         height: 80,
       },
@@ -183,6 +201,7 @@ const dormSections: DormSection[] = [
           ravenclaw: "that tracks actual star movements in real-time",
           hufflepuff: "that gently glows with a warm light at night",
         },
+        icon: <Moon size={36} />,
         width: 90,
         height: 90,
       },
@@ -204,6 +223,7 @@ const dormSections: DormSection[] = [
           ravenclaw: "that adjust their brightness based on your reading",
           hufflepuff: "that emit a warm, cozy glow and pleasant scent",
         },
+        icon: <Lamp size={32} />,
         width: 40,
         height: 60,
       },
@@ -218,6 +238,7 @@ const dormSections: DormSection[] = [
           ravenclaw: "that changes color based on your thoughts",
           hufflepuff: "that brightens when friends enter the room",
         },
+        icon: <Moon size={32} className="magic-shine" />,
         width: 50,
         height: 50,
       },
@@ -232,6 +253,7 @@ const dormSections: DormSection[] = [
           ravenclaw: "shaped as an owl that hoots the hour",
           hufflepuff: "resembling a badger that purrs softly",
         },
+        icon: <Sparkles size={32} />,
         width: 60,
         height: 70,
       },
@@ -497,8 +519,13 @@ const DormCustomizer = () => {
                   : 'border-white/10 hover:border-white/30'}`}
               onClick={() => handleItemSelect(section.id, item.id)}
             >
-              <h4 className="font-medium mb-2">{item.name}</h4>
-              <p className="text-sm text-foreground/70 mb-3">{item.description}</p>
+              <div className="flex flex-col items-center mb-3">
+                <div className={`text-${selectedHouse}-primary mb-2`}>
+                  {item.icon}
+                </div>
+                <h4 className="font-medium">{item.name}</h4>
+              </div>
+              <p className="text-sm text-foreground/70 mb-2">{item.description}</p>
               <p className="text-sm italic">{item.houseStyles[selectedHouse]}</p>
             </div>
           ))}
@@ -571,11 +598,22 @@ const DormCustomizer = () => {
               const isBeingDragged = draggingItem && draggingItem.id === item.id;
               const itemPosition = isBeingDragged ? draggingItem : item;
               
+              // Get house-specific color for the item
+              const houseColor = (() => {
+                switch(selectedHouse) {
+                  case 'gryffindor': return 'text-gryffindor-primary';
+                  case 'slytherin': return 'text-slytherin-primary';
+                  case 'ravenclaw': return 'text-ravenclaw-primary';
+                  case 'hufflepuff': return 'text-hufflepuff-primary';
+                  default: return 'text-white';
+                }
+              })();
+              
               return (
                 <div 
                   key={item.id}
                   className={`draggable absolute flex items-center justify-center 
-                    ${isBeingDragged ? 'dragging shadow-lg' : ''}`}
+                    ${isBeingDragged ? 'dragging shadow-lg' : ''} ${dormItem.category === 'magical' ? 'magic-particles-container' : ''}`}
                   style={{
                     left: `${itemPosition.x}px`,
                     top: `${itemPosition.y}px`,
@@ -585,11 +623,11 @@ const DormCustomizer = () => {
                   }}
                   onMouseDown={(e) => handleMouseDown(e, item)}
                 >
-                  <div className={`w-full h-full rounded bg-${selectedHouse}-primary/20 border border-${selectedHouse}-primary/30 p-2 flex flex-col items-center justify-center`}>
-                    <span className="text-xs font-medium">{dormItem.name}</span>
-                    <div className="text-[10px] opacity-70 text-center mt-1">
-                      {dormItem.houseStyles[selectedHouse].slice(0, 30)}{dormItem.houseStyles[selectedHouse].length > 30 ? '...' : ''}
+                  <div className={`w-full h-full rounded glass-card p-2 flex flex-col items-center justify-center border border-${selectedHouse}-primary/30`}>
+                    <div className={`${houseColor} mb-1 transform ${dormItem.category === 'magical' ? 'magic-shine' : ''}`}>
+                      {dormItem.icon}
                     </div>
+                    <span className="text-xs font-medium text-center">{dormItem.name}</span>
                   </div>
                 </div>
               );
@@ -616,10 +654,21 @@ const DormCustomizer = () => {
               
               if (!section || !item) return null;
               
+              // Get house-specific color for the item
+              const houseColor = (() => {
+                switch(selectedHouse) {
+                  case 'gryffindor': return 'text-gryffindor-primary';
+                  case 'slytherin': return 'text-slytherin-primary';
+                  case 'ravenclaw': return 'text-ravenclaw-primary';
+                  case 'hufflepuff': return 'text-hufflepuff-primary';
+                  default: return 'text-white';
+                }
+              })();
+              
               return (
                 <div 
                   key={`palette-${sectionId}`}
-                  className={`p-3 rounded border border-${selectedHouse}-primary/30 bg-${selectedHouse}-primary/10 cursor-pointer hover:bg-${selectedHouse}-primary/20 transition-colors`}
+                  className={`p-3 rounded border border-${selectedHouse}-primary/30 bg-${selectedHouse}-primary/10 cursor-pointer hover:bg-${selectedHouse}-primary/20 transition-colors flex items-center`}
                   onClick={() => {
                     // Create a new draggable item when clicked from palette
                     const newItem: PlacedItem = {
@@ -639,8 +688,13 @@ const DormCustomizer = () => {
                     toast.success(`Added ${item.name}`);
                   }}
                 >
-                  <h4 className="font-medium text-sm">{item.name}</h4>
-                  <p className="text-xs opacity-70 mt-1">Click to add</p>
+                  <div className={`${houseColor} mr-3 ${item.category === 'magical' ? 'magic-shine' : ''}`}>
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-sm">{item.name}</h4>
+                    <p className="text-xs opacity-70">Click to add</p>
+                  </div>
                 </div>
               );
             })}
@@ -687,11 +741,29 @@ const DormCustomizer = () => {
                 
                 if (!item) return null;
                 
+                // Get house-specific color for the item
+                const houseColor = (() => {
+                  switch(selectedHouse) {
+                    case 'gryffindor': return 'text-gryffindor-primary';
+                    case 'slytherin': return 'text-slytherin-primary';
+                    case 'ravenclaw': return 'text-ravenclaw-primary';
+                    case 'hufflepuff': return 'text-hufflepuff-primary';
+                    default: return 'text-white';
+                  }
+                })();
+                
                 return (
                   <div key={section.id} className="bg-white/5 rounded-lg p-4 backdrop-blur-sm">
-                    <h4 className="font-medium mb-2">{section.name}: {item.name}</h4>
-                    <p>{item.description}</p>
-                    <p className="mt-2 italic">{item.houseStyles[selectedHouse]}</p>
+                    <div className="flex items-center">
+                      <div className={`${houseColor} mr-3 ${item.category === 'magical' ? 'magic-shine' : ''}`}>
+                        {item.icon}
+                      </div>
+                      <div>
+                        <h4 className="font-medium mb-2">{section.name}: {item.name}</h4>
+                        <p>{item.description}</p>
+                        <p className="mt-2 italic">{item.houseStyles[selectedHouse]}</p>
+                      </div>
+                    </div>
                   </div>
                 );
               })}
