@@ -26,12 +26,12 @@ const Layout = ({ children }: LayoutProps) => {
   }, [location]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-midnight text-midnight-foreground">
+    <div className="min-h-screen flex flex-col bg-midnight text-midnight-foreground night-sky">
       <Navbar />
-      <main id="main-content" className="flex-grow pt-16 md:pt-20">
+      <main id="main-content" className="flex-grow pt-16 md:pt-20 relative z-10">
         {children}
       </main>
-      <footer className="bg-midnight-dark text-midnight-foreground py-6 mt-12">
+      <footer className="bg-midnight-dark text-midnight-foreground py-6 mt-12 relative z-10 border-t border-white/10">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
@@ -46,6 +46,21 @@ const Layout = ({ children }: LayoutProps) => {
           </div>
         </div>
       </footer>
+      
+      {/* Randomly positioned stars for night sky effect */}
+      {Array.from({ length: 50 }).map((_, i) => (
+        <div 
+          key={i}
+          className="star"
+          style={{
+            width: `${Math.random() * 3 + 1}px`,
+            height: `${Math.random() * 3 + 1}px`,
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 4}s`
+          }}
+        ></div>
+      ))}
     </div>
   );
 };
