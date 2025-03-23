@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen, Wand2, Bookmark, ScrollText } from "lucide-react";
@@ -210,7 +209,7 @@ const Index = () => {
               </Link>
             </CustomButton>
             
-            <CustomButton variant="secondary" size="lg" asChild>
+            <CustomButton variant="default" size="lg" asChild>
               <Link to="/dorm-designer">
                 Design Your Dorm
               </Link>
