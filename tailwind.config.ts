@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,6 +53,34 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+                // Custom Hogwarts house colors
+                gryffindor: {
+                    primary: '#740001',
+                    secondary: '#D3A625',
+                    light: '#AE0001'
+                },
+                slytherin: {
+                    primary: '#1A472A',
+                    secondary: '#5D5D5D',
+                    light: '#2A623D'
+                },
+                ravenclaw: {
+                    primary: '#0E1A40',
+                    secondary: '#946B2D',
+                    light: '#222F5B'
+                },
+                hufflepuff: {
+                    primary: '#ECB939',
+                    secondary: '#372E29',
+                    light: '#F0C75E'
+                },
+                parchment: '#F5F0E1',
+                ink: '#2A2922',
+                hogwarts: {
+                    stone: '#6E6A65',
+                    wood: '#5C4033',
+                    gold: '#D4AF37'
+                },
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -70,25 +99,48 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0', opacity: '0' },
+					to: { height: 'var(--radix-accordion-content-height)', opacity: '1' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
-				}
+					from: { height: 'var(--radix-accordion-content-height)', opacity: '1' },
+					to: { height: '0', opacity: '0' }
+				},
+                'float': {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-10px)' }
+                },
+                'glow': {
+                    '0%, 100%': { opacity: '1' },
+                    '50%': { opacity: '0.7' }
+                },
+                'fade-in': {
+                    '0%': { opacity: '0', transform: 'translateY(10px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' }
+                },
+                'page-transition-in': {
+                    '0%': { opacity: '0', transform: 'scale(0.98)' },
+                    '100%': { opacity: '1', transform: 'scale(1)' }
+                },
+                'page-transition-out': {
+                    '0%': { opacity: '1', transform: 'scale(1)' },
+                    '100%': { opacity: '0', transform: 'scale(1.02)' }
+                },
+                'magic-particles': {
+                    '0%': { transform: 'translateY(0) rotate(0deg)', opacity: '0' },
+                    '50%': { opacity: '1' },
+                    '100%': { transform: 'translateY(-100px) rotate(360deg)', opacity: '0' }
+                }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+                'float': 'float 6s ease-in-out infinite',
+                'glow': 'glow 3s ease-in-out infinite',
+                'fade-in': 'fade-in 0.5s ease-out',
+                'page-in': 'page-transition-in 0.4s ease-out',
+                'page-out': 'page-transition-out 0.4s ease-in',
+                'magic-particles': 'magic-particles 3s ease-out infinite'
 			}
 		}
 	},
