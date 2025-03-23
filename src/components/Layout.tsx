@@ -26,22 +26,22 @@ const Layout = ({ children }: LayoutProps) => {
   }, [location]);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-midnight text-midnight-foreground">
       <Navbar />
       <main id="main-content" className="flex-grow pt-16 md:pt-20">
         {children}
       </main>
-      <footer className="bg-primary text-primary-foreground py-6 mt-12">
+      <footer className="bg-midnight-dark text-midnight-foreground py-6 mt-12">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
-              <h3 className="font-magical text-lg">Dumbledore's Army Magazine</h3>
+              <h3 className="font-magical text-lg text-stars">Dumbledore's Army Magazine</h3>
               <p className="text-sm opacity-80">© {new Date().getFullYear()} Wizarding World Publications</p>
             </div>
             <div className="flex gap-6">
-              <a href="#" className="text-primary-foreground hover:text-secondary transition-colors duration-200">About</a>
-              <a href="#" className="text-primary-foreground hover:text-secondary transition-colors duration-200">Contact</a>
-              <a href="#" className="text-primary-foreground hover:text-secondary transition-colors duration-200">Subscribe</a>
+              <a href="#" className="text-midnight-foreground hover:text-stars transition-colors duration-200">About</a>
+              <a href="#" className="text-midnight-foreground hover:text-stars transition-colors duration-200">Contact</a>
+              <a href="#" className="text-midnight-foreground hover:text-stars transition-colors duration-200">Subscribe</a>
             </div>
           </div>
         </div>

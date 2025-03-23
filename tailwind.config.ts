@@ -74,6 +74,14 @@ export default {
                     secondary: '#372E29',
                     light: '#F0C75E'
                 },
+                // New midnight theme colors
+                midnight: {
+                    DEFAULT: '#0E1A40', // Dark blue base
+                    dark: '#080F24',    // Darker blue for footer/header
+                    light: '#1C2B59',   // Lighter blue for hover states
+                    foreground: '#E8EBF7', // Light text for good contrast
+                },
+                stars: '#D4AF37', // Gold color for accents like stars
                 parchment: '#F5F0E1',
                 ink: '#2A2922',
                 hogwarts: {
@@ -130,6 +138,11 @@ export default {
                     '0%': { transform: 'translateY(0) rotate(0deg)', opacity: '0' },
                     '50%': { opacity: '1' },
                     '100%': { transform: 'translateY(-100px) rotate(360deg)', opacity: '0' }
+                },
+                'twinkling': {
+                    '0%': { opacity: '0.3' },
+                    '50%': { opacity: '1' },
+                    '100%': { opacity: '0.3' }
                 }
 			},
 			animation: {
@@ -140,8 +153,13 @@ export default {
                 'fade-in': 'fade-in 0.5s ease-out',
                 'page-in': 'page-transition-in 0.4s ease-out',
                 'page-out': 'page-transition-out 0.4s ease-in',
-                'magic-particles': 'magic-particles 3s ease-out infinite'
-			}
+                'magic-particles': 'magic-particles 3s ease-out infinite',
+                'twinkle': 'twinkling 4s ease-in-out infinite'
+			},
+            backgroundImage: {
+                'night-sky': 'radial-gradient(circle at 100% 100%, #080F24 0%, #0E1A40 40%, #1C2B59 100%)',
+                'stars': 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\' viewBox=\'0 0 800 800\'%3E%3Cg fill=\'none\' stroke=\'%23FFFFFF\' stroke-opacity=\'0.3\'%3E%3Ccircle r=\'1\' cx=\'100\' cy=\'100\'/%3E%3Ccircle r=\'1\' cx=\'200\' cy=\'200\'/%3E%3Ccircle r=\'1\' cx=\'300\' cy=\'300\'/%3E%3Ccircle r=\'1\' cx=\'400\' cy=\'400\'/%3E%3Ccircle r=\'0.5\' cx=\'500\' cy=\'500\'/%3E%3Ccircle r=\'0.5\' cx=\'600\' cy=\'600\'/%3E%3Ccircle r=\'0.5\' cx=\'700\' cy=\'700\'/%3E%3Ccircle r=\'0.5\' cx=\'50\' cy=\'50\'/%3E%3Ccircle r=\'0.5\' cx=\'150\' cy=\'150\'/%3E%3Ccircle r=\'0.5\' cx=\'250\' cy=\'250\'/%3E%3C/g%3E%3C/svg%3E")',
+            }
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
