@@ -84,6 +84,7 @@
   .magic-shine {
     position: relative;
     overflow: hidden;
+    color: white;
   }
   
   .magic-shine::after {
@@ -234,5 +235,59 @@
 
   .glass-card {
     @apply backdrop-blur-md bg-white/5 border border-white/10 rounded-lg shadow-lg;
+  }
+
+  /* Custom scrollbar for a magical feel */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  /* Dorm item styles */
+  .dorm-item {
+    @apply relative cursor-move transition-all duration-200;
+  }
+  
+  .dorm-item:hover {
+    @apply transform scale-105;
+  }
+  
+  .dorm-item-icon {
+    @apply text-white p-2 rounded-full flex items-center justify-center;
+  }
+  
+  .dorm-item-name {
+    @apply text-white text-xs mt-1 bg-black/40 px-2 py-0.5 rounded-md backdrop-blur-sm;
+  }
+  
+  /* House-themed styles */
+  .gryffindor-accent {
+    @apply bg-gryffindor-primary text-white;
+  }
+  
+  .slytherin-accent {
+    @apply bg-slytherin-primary text-white;
+  }
+  
+  .ravenclaw-accent {
+    @apply bg-ravenclaw-primary text-white;
+  }
+  
+  .hufflepuff-accent {
+    @apply bg-hufflepuff-primary text-white;
   }
 }
