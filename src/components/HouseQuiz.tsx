@@ -179,10 +179,10 @@ const HouseQuiz = () => {
             <h2 className="text-4xl font-bold mb-6 font-magical">{houseData.name}</h2>
             
             <div className="bg-white/90 backdrop-blur-sm p-6 rounded-lg shadow-lg mb-8 border border-hogwarts-gold/30">
-              <p className="italic mb-4">"{houseData.motto}"</p>
-              <p className="mb-6">{houseData.description}</p>
+              <p className="italic mb-4 text-black">"{houseData.motto}"</p>
+              <p className="mb-6 text-black">{houseData.description}</p>
               
-              <div className="grid grid-cols-2 gap-4 text-sm">
+              <div className="grid grid-cols-2 gap-4 text-sm text-black">
                 <div>
                   <h4 className="font-semibold">House Colors</h4>
                   <p>{houseData.colors}</p>
@@ -232,7 +232,7 @@ const HouseQuiz = () => {
       <div className="relative z-10">
         <div className="mb-8">
           <div className="flex justify-between items-center mb-2">
-            <p className="text-sm text-foreground/70">Question {currentQuestion + 1} of {questions.length}</p>
+            <p className="text-sm text-black">Question {currentQuestion + 1} of {questions.length}</p>
             <div className="flex items-center gap-1">
               {questions.map((_, index) => (
                 <div 
@@ -250,7 +250,7 @@ const HouseQuiz = () => {
           </div>
         </div>
         
-        <h2 className="text-xl md:text-2xl font-semibold mb-6">{question.text}</h2>
+        <h2 className="text-xl md:text-2xl font-semibold mb-6 text-black">{question.text}</h2>
         
         <div className="space-y-3">
           {question.options.map((option) => (
@@ -261,7 +261,7 @@ const HouseQuiz = () => {
             >
               <span className="flex items-center">
                 <span className="w-5 h-5 rounded-full border-2 border-foreground/30 group-hover:border-primary flex-shrink-0 mr-3 transition-colors"></span>
-                <span>{option.text}</span>
+                <span className="text-black">{option.text}</span>
               </span>
             </button>
           ))}
