@@ -27,13 +27,13 @@ const About = () => {
         <ul className="text-white space-y-2">
           <li className="flex items-center">
             <span className="font-bold mr-2">Instagram:</span> 
-            <a href="https://instagram.com/dumbledoresarmymagazine" className="text-primary hover:underline transition-all">
+            <a href="https://instagram.com/dumbledoresarmymagazine" className="text-white hover:underline transition-all">
               @dumbledoresarmymagazine
             </a>
           </li>
           <li className="flex items-center">
             <span className="font-bold mr-2">Email:</span> 
-            <a href="mailto:dumbledoresarmymagazine@gmail.com" className="text-primary hover:underline transition-all">
+            <a href="mailto:dumbledoresarmymagazine@gmail.com" className="text-white hover:underline transition-all">
               dumbledoresarmymagazine@gmail.com
             </a>
           </li>
