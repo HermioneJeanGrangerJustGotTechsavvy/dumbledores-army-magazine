@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -34,6 +33,9 @@ const Navbar = () => {
     { name: "Sorting Hat", path: "/house-sorting" },
     { name: "Dorm Designer", path: "/dorm-designer" },
     { name: "Classes", path: "/classes" },
+    { name: "Writing", path: "/writing" },
+    { name: "Issues", path: "/issues" },
+    { name: "About", path: "/about" },
   ];
 
   return (
@@ -94,7 +96,7 @@ const Navbar = () => {
       <div
         className={`md:hidden absolute w-full transition-all duration-300 origin-top ${
           isMenuOpen 
-            ? "max-h-[320px] opacity-100" 
+            ? "max-h-[480px] opacity-100" 
             : "max-h-0 opacity-0 pointer-events-none"
         } overflow-hidden bg-background/95 backdrop-blur-md`}
       >

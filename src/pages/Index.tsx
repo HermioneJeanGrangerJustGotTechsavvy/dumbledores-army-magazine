@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen, Wand2, Bookmark, ScrollText } from "lucide-react";
@@ -66,8 +67,12 @@ const Index = () => {
               <span className="block mt-2">Magazine</span>
             </h1>
             
+            <h2 className={`mb-4 text-2xl md:text-3xl font-magical text-white transition-all duration-700 delay-200 transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              "Hogwarts is Our Home"
+            </h2>
+            
             <p className={`mb-8 md:text-lg text-foreground/80 max-w-2xl mx-auto transition-all duration-700 delay-300 transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              Discover the magic of storytelling, get sorted into your Hogwarts house, design your dream dormitory, and master the art of wizarding creativity.
+              Presenting the magical crossover like never before. Discover the magic of storytelling, get sorted into your Hogwarts house, design your dream dormitory, and master the art of wizarding creativity.
             </p>
             
             <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-700 delay-450 transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
