@@ -64,10 +64,12 @@ const Index = () => {
               <span className="block font-magical bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 Dumbledore's Army
               </span>
-              <span className="block mt-2">Magazine</span>
+              <span className="block mt-2 font-magical bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                Magazine
+              </span>
             </h1>
             
-            <h2 className={`mb-4 text-2xl md:text-3xl font-magical text-white transition-all duration-700 delay-200 transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <h2 className={`mb-4 text-2xl md:text-3xl font-magical text-gryffindor-primary transition-all duration-700 delay-200 transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
               "Hogwarts is Our Home"
             </h2>
             

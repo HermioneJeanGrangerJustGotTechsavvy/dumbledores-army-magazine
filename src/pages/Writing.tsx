@@ -1,7 +1,6 @@
 
 import { useState, useEffect } from "react";
 import { CustomButton } from "@/components/ui/custom-button";
-import { toast } from "sonner";
 
 // Sample blog posts data - in a real implementation, this would come from a CMS or database
 const samplePosts = [
@@ -38,13 +37,6 @@ const Writing = () => {
     setLoaded(true);
   }, []);
 
-  const showAdminInfo = () => {
-    toast("Admin Information", {
-      description: "To add new blog posts, you'll need to update the posts array in the Writing.tsx file or connect to a content management system.",
-      duration: 5000,
-    });
-  };
-
   return (
     <div className="container mx-auto px-4 py-12 max-w-6xl">
       <div className={`text-center mb-12 transition-all duration-700 transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
@@ -52,12 +44,6 @@ const Writing = () => {
         <p className="text-white max-w-3xl mx-auto">
           A collection of articles, tips, and stories about magical writing from the wizarding world.
         </p>
-        
-        <div className="mt-4">
-          <CustomButton variant="outline" size="sm" onClick={showAdminInfo}>
-            Admin Info
-          </CustomButton>
-        </div>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
