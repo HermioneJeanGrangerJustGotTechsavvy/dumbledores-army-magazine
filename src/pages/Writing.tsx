@@ -2,9 +2,21 @@
 import { useState, useEffect } from "react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { useToast } from "@/hooks/use-toast";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 
-// Sample blog posts data - in a real implementation, this would come from a CMS or database
-const samplePosts = [
+// This type definition will be useful when integrating with a CMS
+export interface BlogPost {
+  id: number;
+  title: string;
+  excerpt: string;
+  author: string;
+  date: string;
+  image: string;
+  content: string;
+}
+
+// Sample blog posts data - this will be replaced with data from the CMS
+const samplePosts: BlogPost[] = [
   {
     id: 1,
     title: "The Art of Magical Storytelling",
@@ -34,24 +46,56 @@ const samplePosts = [
   }
 ];
 
+// This is where we would fetch content from a CMS
+// In a real implementation, this function would connect to your CMS API
+const fetchPostsFromCMS = async (): Promise<BlogPost[]> => {
+  // In a real implementation, we would fetch from a CMS API here
+  // For example:
+  // const response = await fetch('https://your-cms-api.com/posts');
+  // return await response.json();
+  
+  // For now, just return sample data with a delay to simulate a network request
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(samplePosts), 1000);
+  });
+};
+
 const Writing = () => {
   const [loaded, setLoaded] = useState(false);
-  const [posts, setPosts] = useState(samplePosts);
+  const [loading, setLoading] = useState(true);
+  const [posts, setPosts] = useState<BlogPost[]>([]);
   const { toast } = useToast();
   
   useEffect(() => {
-    setLoaded(true);
+    const loadPosts = async () => {
+      try {
+        setLoading(true);
+        const data = await fetchPostsFromCMS();
+        setPosts(data);
+      } catch (error) {
+        console.error("Failed to load posts:", error);
+        toast({
+          title: "Error",
+          description: "Failed to load blog posts. Please try again later.",
+          variant: "destructive",
+        });
+      } finally {
+        setLoading(false);
+        setLoaded(true);
+      }
+    };
     
-    // This is where we would fetch posts from a CMS API
-    // Example:
-    // fetchPostsFromCMS().then(data => setPosts(data));
-  }, []);
+    loadPosts();
+  }, [toast]);
 
-  // This function would be called when clicking on a post
+  // This function would be called when clicking on a post to view the full content
   const handleReadMore = (postId: number) => {
-    // For now, just show a toast notification
+    // In a real implementation, this would navigate to a full post page
+    // or open a modal with the full content
+    const post = posts.find(p => p.id === postId);
+    
     toast({
-      title: "Content Management System",
+      title: post?.title || "Blog Post",
       description: "In a real implementation, this would open the full post from your CMS.",
     });
   };
@@ -65,34 +109,56 @@ const Writing = () => {
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {posts.map((post, index) => (
-          <div 
-            key={post.id}
-            className={`bg-midnight-dark/70 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden shadow-lg transition-all duration-700 delay-${150 + index * 100} transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-          >
-            <div className="h-48 overflow-hidden">
-              <img 
-                src={post.image} 
-                alt={post.title} 
-                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-              />
+      {loading ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[1, 2, 3].map((i) => (
+            <Card key={i} className="bg-midnight-dark/70 backdrop-blur-sm border border-white/10 shadow-lg">
+              <div className="h-48 bg-gray-800 animate-pulse"></div>
+              <CardHeader>
+                <div className="h-4 bg-gray-700 rounded animate-pulse mb-2 w-1/3"></div>
+                <div className="h-6 bg-gray-700 rounded animate-pulse w-full"></div>
+              </CardHeader>
+              <CardContent>
+                <div className="h-4 bg-gray-700 rounded animate-pulse mb-2 w-full"></div>
+                <div className="h-4 bg-gray-700 rounded animate-pulse mb-2 w-5/6"></div>
+                <div className="h-4 bg-gray-700 rounded animate-pulse mb-2 w-4/6"></div>
+              </CardContent>
+              <CardFooter>
+                <div className="h-4 bg-gray-700 rounded animate-pulse w-1/4"></div>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {posts.map((post, index) => (
+            <div 
+              key={post.id}
+              className={`bg-midnight-dark/70 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden shadow-lg transition-all duration-700 delay-${150 + index * 100} transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+            >
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src={post.image} 
+                  alt={post.title} 
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <div className="text-primary text-sm mb-2">{post.date} • by {post.author}</div>
+                <h3 className="text-xl font-bold mb-2 text-white">{post.title}</h3>
+                <p className="text-white/80 mb-4">{post.excerpt}</p>
+                <CustomButton 
+                  variant="link" 
+                  className="text-primary p-0"
+                  onClick={() => handleReadMore(post.id)}
+                >
+                  Read More
+                </CustomButton>
+              </div>
             </div>
-            <div className="p-6">
-              <div className="text-primary text-sm mb-2">{post.date} • by {post.author}</div>
-              <h3 className="text-xl font-bold mb-2 text-white">{post.title}</h3>
-              <p className="text-white/80 mb-4">{post.excerpt}</p>
-              <CustomButton 
-                variant="link" 
-                className="text-primary p-0"
-                onClick={() => handleReadMore(post.id)}
-              >
-                Read More
-              </CustomButton>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
       
       <div className={`mt-16 bg-primary/10 border border-primary/20 rounded-lg p-6 text-center transition-all duration-700 delay-450 transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
         <h2 className="text-2xl font-bold mb-3 text-white">Submit Your Writing</h2>
