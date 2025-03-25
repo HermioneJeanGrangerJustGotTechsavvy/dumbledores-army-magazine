@@ -1,8 +1,8 @@
-
 import { useState, useEffect } from "react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { getBlogPosts } from "@/services/contentful";
 
 // This type definition will be useful when integrating with a CMS
 export interface BlogPost {
@@ -70,7 +70,7 @@ const Writing = () => {
     const loadPosts = async () => {
       try {
         setLoading(true);
-        const data = await fetchPostsFromCMS();
+        const data = await getBlogPosts();
         setPosts(data);
       } catch (error) {
         console.error("Failed to load posts:", error);
