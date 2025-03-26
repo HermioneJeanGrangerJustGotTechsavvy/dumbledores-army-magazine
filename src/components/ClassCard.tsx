@@ -39,6 +39,18 @@ const ClassCard = ({
     hufflepuff: "from-hufflepuff-primary/20 to-hufflepuff-secondary/20",
   } : null;
   
+  // New function to get title color based on house
+  const getTitleColor = () => {
+    if (!house) return "text-foreground";
+    
+    switch (house) {
+      case "gryffindor": return "text-gryffindor-primary";
+      case "slytherin": return "text-slytherin-primary";
+      case "ravenclaw": return "text-ravenclaw-primary";
+      case "hufflepuff": return "text-hufflepuff-primary";
+    }
+  };
+  
   return (
     <div 
       className={`bg-card border border-border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 ${hovered ? "transform -translate-y-1" : ""}`}
@@ -49,7 +61,7 @@ const ClassCard = ({
       
       <div className="p-6">
         <div className="flex justify-between items-start mb-4">
-          <h3 className="text-xl font-semibold">{title}</h3>
+          <h3 className={`text-xl font-semibold ${getTitleColor()}`}>{title}</h3>
           <span className={`px-2 py-1 rounded text-xs font-medium ${getLevelColor()}`}>
             {level}
           </span>
