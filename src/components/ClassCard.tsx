@@ -80,11 +80,11 @@ const ClassCard = ({
           </span>
         </div>
         
-        <p className="text-white/90 mb-4">{description}</p>
+        <p className="text-white mb-4">{description}</p>
         
         <div className="text-sm mb-4">
           <span className="font-medium text-white">Professor:</span>{" "}
-          <span className="text-white/90">{professor}</span>
+          <span className="text-white">{professor}</span>
         </div>
         
         <div className="mb-6">
