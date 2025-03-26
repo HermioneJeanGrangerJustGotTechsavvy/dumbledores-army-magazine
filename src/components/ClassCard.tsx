@@ -39,7 +39,7 @@ const ClassCard = ({
     hufflepuff: "from-hufflepuff-primary/20 to-hufflepuff-secondary/20",
   } : null;
   
-  // New function to get title color based on house
+  // Get title color based on house
   const getTitleColor = () => {
     if (!house) return "text-foreground";
     
