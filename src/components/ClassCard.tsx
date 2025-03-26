@@ -26,34 +26,47 @@ const ClassCard = ({
   
   const getLevelColor = () => {
     switch (level) {
-      case "Beginner": return "bg-green-100 text-green-700";
-      case "Intermediate": return "bg-blue-100 text-blue-700";
-      case "Advanced": return "bg-purple-100 text-purple-700";
+      case "Beginner": return "bg-green-100 text-green-800";
+      case "Intermediate": return "bg-blue-100 text-blue-800";
+      case "Advanced": return "bg-purple-100 text-purple-800";
     }
   };
   
+  // Get background gradient based on house
   const houseColors = house ? {
-    gryffindor: "from-gryffindor-primary/20 to-gryffindor-secondary/20",
-    slytherin: "from-slytherin-primary/20 to-slytherin-secondary/20",
-    ravenclaw: "from-ravenclaw-primary/20 to-ravenclaw-secondary/20",
-    hufflepuff: "from-hufflepuff-primary/20 to-hufflepuff-secondary/20",
+    gryffindor: "from-gryffindor-primary/30 to-gryffindor-secondary/30",
+    slytherin: "from-slytherin-primary/30 to-slytherin-secondary/30",
+    ravenclaw: "from-ravenclaw-primary/30 to-ravenclaw-secondary/30",
+    hufflepuff: "from-hufflepuff-primary/30 to-hufflepuff-secondary/30",
   } : null;
   
   // Get title color based on house
   const getTitleColor = () => {
-    if (!house) return "text-foreground";
+    if (!house) return "text-white";
     
     switch (house) {
-      case "gryffindor": return "text-gryffindor-primary";
-      case "slytherin": return "text-slytherin-primary";
-      case "ravenclaw": return "text-ravenclaw-primary";
+      case "gryffindor": return "text-gryffindor-secondary";
+      case "slytherin": return "text-slytherin-light";
+      case "ravenclaw": return "text-ravenclaw-secondary";
       case "hufflepuff": return "text-hufflepuff-primary";
+    }
+  };
+
+  // Get topic tag colors based on house
+  const getTopicColors = () => {
+    if (!house) return "bg-muted/30 text-white";
+    
+    switch (house) {
+      case "gryffindor": return "bg-gryffindor-primary/20 text-gryffindor-secondary";
+      case "slytherin": return "bg-slytherin-primary/20 text-slytherin-light";
+      case "ravenclaw": return "bg-ravenclaw-primary/20 text-ravenclaw-secondary";
+      case "hufflepuff": return "bg-hufflepuff-primary/20 text-hufflepuff-primary";
     }
   };
   
   return (
     <div 
-      className={`bg-card border border-border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 ${hovered ? "transform -translate-y-1" : ""}`}
+      className={`bg-midnight-dark/80 border border-white/10 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 ${hovered ? "transform -translate-y-1" : ""}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -67,19 +80,20 @@ const ClassCard = ({
           </span>
         </div>
         
-        <p className="text-foreground/70 mb-4">{description}</p>
+        <p className="text-white/90 mb-4">{description}</p>
         
         <div className="text-sm mb-4">
-          <span className="font-medium">Professor:</span> {professor}
+          <span className="font-medium text-white">Professor:</span>{" "}
+          <span className="text-white/90">{professor}</span>
         </div>
         
         <div className="mb-6">
-          <p className="text-sm font-medium mb-2">Topics covered:</p>
+          <p className="text-sm font-medium text-white mb-2">Topics covered:</p>
           <div className="flex flex-wrap gap-2">
             {topics.map((topic, index) => (
               <span 
                 key={index} 
-                className={`px-2 py-1 rounded-full text-xs bg-muted ${house ? `text-${house}-primary` : "text-primary"}`}
+                className={`px-2 py-1 rounded-full text-xs ${getTopicColors()}`}
               >
                 {topic}
               </span>
