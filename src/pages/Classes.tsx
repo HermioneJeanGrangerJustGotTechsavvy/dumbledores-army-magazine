@@ -238,15 +238,15 @@ const Classes = () => {
           <div className="p-6 md:p-8">
             <div className="flex justify-between items-start flex-wrap gap-4 mb-8">
               <div>
-                <h1 className="text-3xl font-bold mb-2">{selectedClass.title}</h1>
-                <p className="text-foreground/70">{selectedClass.description}</p>
+                <h1 className="text-3xl font-bold mb-2 text-black">{selectedClass.title}</h1>
+                <p className="text-black/80">{selectedClass.description}</p>
               </div>
               
               <div className="text-right">
-                <p className="text-sm">
+                <p className="text-sm text-black">
                   <span className="font-medium">Professor:</span> {selectedClass.professor}
                 </p>
-                <p className="text-sm">
+                <p className="text-sm text-black">
                   <span className="font-medium">Level:</span> {selectedClass.level}
                 </p>
               </div>
@@ -256,11 +256,11 @@ const Classes = () => {
               {/* Lesson navigation sidebar */}
               <div className="w-full md:w-64 flex-shrink-0">
                 <div className="bg-muted p-4 rounded-lg">
-                  <h3 className="font-semibold mb-3">Lesson Plan</h3>
+                  <h3 className="font-semibold mb-3 text-black">Lesson Plan</h3>
                   
                   <div className="space-y-2">
                     <button
-                      className={`w-full text-left p-2 rounded-md text-sm transition-colors ${activeLesson === 0 ? "bg-background border-l-2 border-primary pl-3" : "hover:bg-background/50"}`}
+                      className={`w-full text-left p-2 rounded-md text-sm transition-colors ${activeLesson === 0 ? "bg-background border-l-2 border-primary pl-3 text-black" : "hover:bg-background/50 text-black"}`}
                       onClick={() => setActiveLesson(0)}
                     >
                       Introduction
@@ -269,7 +269,7 @@ const Classes = () => {
                     {selectedClass.content.lessons.map((lesson, index) => (
                       <button
                         key={index}
-                        className={`w-full text-left p-2 rounded-md text-sm transition-colors ${activeLesson === index + 1 ? "bg-background border-l-2 border-primary pl-3" : "hover:bg-background/50"}`}
+                        className={`w-full text-left p-2 rounded-md text-sm transition-colors ${activeLesson === index + 1 ? "bg-background border-l-2 border-primary pl-3 text-black" : "hover:bg-background/50 text-black"}`}
                         onClick={() => setActiveLesson(index + 1)}
                       >
                         {lesson.title}
@@ -277,7 +277,7 @@ const Classes = () => {
                     ))}
                     
                     <button
-                      className={`w-full text-left p-2 rounded-md text-sm transition-colors ${activeLesson === selectedClass.content.lessons.length + 1 ? "bg-background border-l-2 border-primary pl-3" : "hover:bg-background/50"}`}
+                      className={`w-full text-left p-2 rounded-md text-sm transition-colors ${activeLesson === selectedClass.content.lessons.length + 1 ? "bg-background border-l-2 border-primary pl-3 text-black" : "hover:bg-background/50 text-black"}`}
                       onClick={() => setActiveLesson(selectedClass.content.lessons.length + 1)}
                     >
                       Conclusion
@@ -290,27 +290,27 @@ const Classes = () => {
               <div className="flex-grow">
                 {activeLesson === 0 ? (
                   <div className="animate-fade-in">
-                    <h2 className="text-2xl font-semibold mb-4">Introduction</h2>
-                    <p className="whitespace-pre-line">{selectedClass.content.introduction}</p>
+                    <h2 className="text-2xl font-semibold mb-4 text-black">Introduction</h2>
+                    <p className="whitespace-pre-line text-black">{selectedClass.content.introduction}</p>
                   </div>
                 ) : activeLesson === selectedClass.content.lessons.length + 1 ? (
                   <div className="animate-fade-in">
-                    <h2 className="text-2xl font-semibold mb-4">Conclusion</h2>
-                    <p className="whitespace-pre-line">{selectedClass.content.conclusion}</p>
+                    <h2 className="text-2xl font-semibold mb-4 text-black">Conclusion</h2>
+                    <p className="whitespace-pre-line text-black">{selectedClass.content.conclusion}</p>
                   </div>
                 ) : (
                   <div className="animate-fade-in">
-                    <h2 className="text-2xl font-semibold mb-4">
+                    <h2 className="text-2xl font-semibold mb-4 text-black">
                       {selectedClass.content.lessons[activeLesson - 1].title}
                     </h2>
-                    <p className="whitespace-pre-line mb-6">
+                    <p className="whitespace-pre-line mb-6 text-black">
                       {selectedClass.content.lessons[activeLesson - 1].content}
                     </p>
                     
                     {selectedClass.content.lessons[activeLesson - 1].exercise && (
                       <div className="bg-muted p-4 rounded-lg border-l-4 border-secondary">
-                        <h3 className="font-semibold mb-2">Writing Exercise</h3>
-                        <p>{selectedClass.content.lessons[activeLesson - 1].exercise}</p>
+                        <h3 className="font-semibold mb-2 text-black">Writing Exercise</h3>
+                        <p className="text-black">{selectedClass.content.lessons[activeLesson - 1].exercise}</p>
                       </div>
                     )}
                   </div>
