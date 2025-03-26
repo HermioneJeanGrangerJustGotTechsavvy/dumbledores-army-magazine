@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import HouseSorting from "./pages/HouseSorting";
 import DormDesigner from "./pages/DormDesigner";
 import Classes from "./pages/Classes";
+import ClassDetail from "./pages/ClassDetail";
 import Writing from "./pages/Writing";
 import Issues from "./pages/Issues";
 import About from "./pages/About";
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/house-sorting" element={<HouseSorting />} />
             <Route path="/dorm-designer" element={<DormDesigner />} />
             <Route path="/classes" element={<Classes />} />
+            <Route path="/classes/:id" element={<ClassDetail />} />
             <Route path="/writing" element={<Writing />} />
             <Route path="/issues" element={<Issues />} />
             <Route path="/about" element={<About />} />
