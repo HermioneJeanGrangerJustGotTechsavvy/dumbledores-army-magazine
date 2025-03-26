@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Search, X, BookOpen } from "lucide-react";
 import { toast } from "sonner";
@@ -632,5 +633,159 @@ const classes: Class[] = [
   }
 ];
 
-export
+// Define the Classes component
+const Classes = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedHouse, setSelectedHouse] = useState<string | null>(null);
+  const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
+  const [filteredClasses, setFilteredClasses] = useState<Class[]>(classes);
 
+  // Apply filters whenever search term, house, or level changes
+  useEffect(() => {
+    let filtered = classes;
+    
+    // Filter by search term
+    if (searchTerm) {
+      const term = searchTerm.toLowerCase();
+      filtered = filtered.filter(
+        (c) =>
+          c.title.toLowerCase().includes(term) ||
+          c.description.toLowerCase().includes(term) ||
+          c.professor.toLowerCase().includes(term) ||
+          c.topics.some((topic) => topic.toLowerCase().includes(term))
+      );
+    }
+    
+    // Filter by house
+    if (selectedHouse) {
+      filtered = filtered.filter((c) => c.house === selectedHouse);
+    }
+    
+    // Filter by level
+    if (selectedLevel) {
+      filtered = filtered.filter((c) => c.level === selectedLevel);
+    }
+    
+    setFilteredClasses(filtered);
+  }, [searchTerm, selectedHouse, selectedLevel]);
+
+  // Handle clicking a class card
+  const handleClassClick = (classData: Class) => {
+    // For now, just show a toast. In the future, this could navigate to a class detail page.
+    toast(`You selected the class: ${classData.title}`);
+  };
+
+  // Clear all filters
+  const clearFilters = () => {
+    setSearchTerm("");
+    setSelectedHouse(null);
+    setSelectedLevel(null);
+  };
+
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold text-white mb-8">Magical Writing Classes</h1>
+      
+      {/* Filters section */}
+      <div className="bg-midnight-medium/60 p-4 rounded-lg mb-8">
+        <div className="flex flex-col md:flex-row gap-4 mb-4">
+          {/* Search input */}
+          <div className="relative flex-1">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+            <input
+              type="text"
+              placeholder="Search classes..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full pl-10 pr-4 py-2 bg-midnight-dark text-white rounded-md border border-white/10 focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+            {searchTerm && (
+              <button
+                onClick={() => setSearchTerm("")}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2"
+              >
+                <X className="h-4 w-4 text-muted-foreground hover:text-white" />
+              </button>
+            )}
+          </div>
+          
+          {/* House filter */}
+          <div className="flex-shrink-0">
+            <select
+              value={selectedHouse || ""}
+              onChange={(e) => setSelectedHouse(e.target.value || null)}
+              className="w-full md:w-40 px-4 py-2 bg-midnight-dark text-white rounded-md border border-white/10 focus:outline-none focus:ring-2 focus:ring-primary"
+            >
+              <option value="">All Houses</option>
+              <option value="gryffindor">Gryffindor</option>
+              <option value="slytherin">Slytherin</option>
+              <option value="ravenclaw">Ravenclaw</option>
+              <option value="hufflepuff">Hufflepuff</option>
+            </select>
+          </div>
+          
+          {/* Level filter */}
+          <div className="flex-shrink-0">
+            <select
+              value={selectedLevel || ""}
+              onChange={(e) => setSelectedLevel(e.target.value || null)}
+              className="w-full md:w-40 px-4 py-2 bg-midnight-dark text-white rounded-md border border-white/10 focus:outline-none focus:ring-2 focus:ring-primary"
+            >
+              <option value="">All Levels</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+          </div>
+          
+          {/* Clear filters button */}
+          <button
+            onClick={clearFilters}
+            className="px-4 py-2 bg-midnight-dark text-white rounded-md border border-white/10 hover:bg-midnight-light"
+          >
+            Clear Filters
+          </button>
+        </div>
+        
+        {/* Results count */}
+        <div className="text-sm text-white">
+          <span className="font-medium">{filteredClasses.length}</span> 
+          {filteredClasses.length === 1 ? " class" : " classes"} found
+          {(searchTerm || selectedHouse || selectedLevel) && " matching your filters"}
+        </div>
+      </div>
+      
+      {/* Classes grid */}
+      {filteredClasses.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredClasses.map((classData) => (
+            <ClassCard
+              key={classData.id}
+              title={classData.title}
+              description={classData.description}
+              professor={classData.professor}
+              level={classData.level}
+              topics={classData.topics}
+              house={classData.house}
+              onClick={() => handleClassClick(classData)}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="bg-midnight-medium/60 p-8 rounded-lg text-center">
+          <BookOpen className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
+          <h3 className="text-xl font-semibold text-white mb-2">No Classes Found</h3>
+          <p className="text-muted-foreground mb-4">Try adjusting your search or filters to find what you're looking for.</p>
+          <button
+            onClick={clearFilters}
+            className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90"
+          >
+            Clear All Filters
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Classes;
