@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { CustomButton } from "@/components/ui/custom-button";
-import { Download, Copy, CheckCheck, X } from "lucide-react";
+import { Download, Copy, CheckCheck, X, Eye, EyeOff } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
 
@@ -49,6 +49,9 @@ const sampleIssues = [
   }
 ];
 
+// Admin password for accessing subscriber list - in a real app, this would be secured properly
+const ADMIN_PASSWORD = "hogwarts123";
+
 const Issues = () => {
   const [loaded, setLoaded] = useState(false);
   const [email, setEmail] = useState("");
@@ -56,6 +59,9 @@ const Issues = () => {
   const [subscribers, setSubscribers] = useState<string[]>([]);
   const [showSubscribers, setShowSubscribers] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [adminPassword, setAdminPassword] = useState("");
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const { toast } = useToast();
   
   useEffect(() => {
@@ -133,8 +139,34 @@ const Issues = () => {
     });
   };
 
-  const toggleSubscribersList = () => {
-    setShowSubscribers(!showSubscribers);
+  const handleAdminLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (adminPassword === ADMIN_PASSWORD) {
+      setIsAuthenticated(true);
+      setShowSubscribers(true);
+      setAdminPassword("");
+      
+      toast({
+        title: "Administrator Access Granted",
+        description: "You now have access to the subscriber list.",
+      });
+    } else {
+      toast({
+        title: "Access Denied",
+        description: "The password you entered is incorrect.",
+        variant: "destructive"
+      });
+    }
+  };
+
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
+
+  const logout = () => {
+    setIsAuthenticated(false);
+    setShowSubscribers(false);
   };
 
   return (
@@ -207,49 +239,92 @@ const Issues = () => {
         </form>
         
         <div className="mt-8 text-left">
-          <CustomButton
-            variant="outline"
-            className="text-white border-white/30 hover:bg-white/10"
-            onClick={toggleSubscribersList}
-          >
-            {showSubscribers ? "Hide Subscriber List" : "Show Subscriber List"}
-          </CustomButton>
-          
-          {showSubscribers && (
-            <div className="mt-4 p-4 bg-black/30 rounded-lg border border-white/10">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-lg font-semibold text-white">Subscribers ({subscribers.length})</h3>
-                {subscribers.length > 0 && (
-                  <CustomButton
-                    variant="outline"
-                    size="sm"
-                    className="text-white border-white/30 hover:bg-white/10"
-                    onClick={handleCopyEmails}
-                  >
-                    {copied ? <CheckCheck className="h-4 w-4 mr-1" /> : <Copy className="h-4 w-4 mr-1" />}
-                    {copied ? "Copied!" : "Copy All Emails"}
-                  </CustomButton>
-                )}
-              </div>
+          {!isAuthenticated ? (
+            <div>
+              <CustomButton
+                variant="outline"
+                className="text-white border-white/30 hover:bg-white/10"
+                onClick={() => setShowSubscribers(!showSubscribers)}
+              >
+                {showSubscribers ? "Hide Admin Login" : "Admin Access"}
+              </CustomButton>
               
-              {subscribers.length === 0 ? (
-                <p className="text-white/70 text-center py-4">No subscribers yet</p>
-              ) : (
-                <div className="max-h-60 overflow-y-auto">
-                  {subscribers.map((subscriberEmail, index) => (
-                    <div key={index} className="flex items-center justify-between py-2 border-b border-white/10 last:border-0">
-                      <span className="text-white">{subscriberEmail}</span>
+              {showSubscribers && (
+                <form onSubmit={handleAdminLogin} className="mt-4 p-4 bg-black/30 rounded-lg border border-white/10">
+                  <h3 className="text-lg font-semibold text-white mb-4">Administrator Login</h3>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="relative flex-1">
+                      <Input
+                        type={isPasswordVisible ? "text" : "password"}
+                        value={adminPassword}
+                        onChange={(e) => setAdminPassword(e.target.value)}
+                        placeholder="Enter admin password"
+                        className="h-10 bg-white/10 border border-white/20 text-white placeholder:text-white/50"
+                      />
                       <button
-                        onClick={() => handleRemoveSubscriber(subscriberEmail)}
-                        className="text-white/50 hover:text-white p-1 rounded-full hover:bg-white/10"
-                        aria-label="Remove subscriber"
+                        type="button"
+                        onClick={togglePasswordVisibility}
+                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white/50 hover:text-white"
                       >
-                        <X className="h-4 w-4" />
+                        {isPasswordVisible ? <EyeOff size={16} /> : <Eye size={16} />}
                       </button>
                     </div>
-                  ))}
-                </div>
+                    <CustomButton type="submit" className="sm:w-auto">
+                      Login
+                    </CustomButton>
+                  </div>
+                </form>
               )}
+            </div>
+          ) : (
+            <div>
+              <div className="flex justify-between items-center">
+                <h3 className="text-lg font-semibold text-white">Subscriber Management</h3>
+                <CustomButton
+                  variant="outline"
+                  size="sm"
+                  className="text-white border-white/30 hover:bg-white/10"
+                  onClick={logout}
+                >
+                  Logout
+                </CustomButton>
+              </div>
+              
+              <div className="mt-4 p-4 bg-black/30 rounded-lg border border-white/10">
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="text-lg font-semibold text-white">Subscribers ({subscribers.length})</h3>
+                  {subscribers.length > 0 && (
+                    <CustomButton
+                      variant="outline"
+                      size="sm"
+                      className="text-white border-white/30 hover:bg-white/10"
+                      onClick={handleCopyEmails}
+                    >
+                      {copied ? <CheckCheck className="h-4 w-4 mr-1" /> : <Copy className="h-4 w-4 mr-1" />}
+                      {copied ? "Copied!" : "Copy All Emails"}
+                    </CustomButton>
+                  )}
+                </div>
+                
+                {subscribers.length === 0 ? (
+                  <p className="text-white/70 text-center py-4">No subscribers yet</p>
+                ) : (
+                  <div className="max-h-60 overflow-y-auto">
+                    {subscribers.map((subscriberEmail, index) => (
+                      <div key={index} className="flex items-center justify-between py-2 border-b border-white/10 last:border-0">
+                        <span className="text-white">{subscriberEmail}</span>
+                        <button
+                          onClick={() => handleRemoveSubscriber(subscriberEmail)}
+                          className="text-white/50 hover:text-white p-1 rounded-full hover:bg-white/10"
+                          aria-label="Remove subscriber"
+                        >
+                          <X className="h-4 w-4" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           )}
         </div>
