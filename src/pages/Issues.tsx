@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { Download, Copy, CheckCheck, X, Eye, EyeOff } from "lucide-react";
@@ -50,7 +49,7 @@ const sampleIssues = [
 ];
 
 // Admin password for accessing subscriber list - in a real app, this would be secured properly
-const ADMIN_PASSWORD = "hogwarts123";
+const ADMIN_PASSWORD = "alohomora.unlock";
 
 const Issues = () => {
   const [loaded, setLoaded] = useState(false);
