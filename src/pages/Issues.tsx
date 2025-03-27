@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { Download } from "lucide-react";
-import { toast } from "sonner";
 
 // Sample issues data - in a real implementation, this would come from a CMS or database
 const sampleIssues = [
@@ -55,13 +54,6 @@ const Issues = () => {
     setLoaded(true);
   }, []);
 
-  const showAdminInfo = () => {
-    toast("Admin Information", {
-      description: "To add new issues, you'll need to update the issues array in the Issues.tsx file or connect to a content management system like Contentful.",
-      duration: 5000,
-    });
-  };
-
   return (
     <div className="container mx-auto px-4 py-12 max-w-6xl">
       <div className={`text-center mb-12 transition-all duration-700 transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
@@ -69,12 +61,6 @@ const Issues = () => {
         <p className="text-white max-w-3xl mx-auto">
           Browse and download all past issues of Dumbledore's Army Magazine in PDF format.
         </p>
-        
-        <div className="mt-4">
-          <CustomButton variant="outline" size="sm" onClick={showAdminInfo}>
-            Admin Info
-          </CustomButton>
-        </div>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
