@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Search, X, BookOpen } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 import ClassCard from "@/components/ClassCard";
 
 export type Class = {
@@ -22,7 +23,7 @@ export type Class = {
   };
 };
 
-const classes: Class[] = [
+export const classes: Class[] = [
   // GRYFFINDOR CLASSES (5)
   {
     id: "heroic-journey",
@@ -441,4 +442,302 @@ const classes: Class[] = [
         },
         {
           title: "Unintended Consequences",
-          content: "Well-designed magic ripples through your world in logical but sometimes unexpected ways. How would magical healing affect population growth and resource needs? How would magical communication change politics and warfare? How would magical education create new social hierarchies? Thinking through these consequences creates a more believable
+          content: "Well-designed magic ripples through your world in logical but sometimes unexpected ways. How would magical healing affect population growth and resource needs? How would magical communication change politics and warfare? How would magical education create new social hierarchies? Thinking through these consequences creates a more believable world and generates rich narrative possibilities.",
+          exercise: "Choose a common magical ability and analyze three unintended consequences it might have on society, technology, or the environment if it were widely available."
+        }
+      ],
+      conclusion: "The most compelling magical systems feel like discovering something that already exists rather than inventing something new. As you develop your system's logic, remember that the goal isn't scientific rigor but narrative satisfaction—rules that create interesting problems and solutions for your characters while feeling consistent within the world you've created."
+    }
+  },
+  
+  // HUFFLEPUFF CLASSES (5)
+  {
+    id: "magic-of-the-forest",
+    title: "The Magic of the Forest",
+    description: "Explore the magical creatures and magic of the forest.",
+    professor: "Professor Greenleaf",
+    level: "Beginner",
+    topics: ["Nature", "Creatures", "Magic"],
+    house: "hufflepuff",
+    content: {
+      introduction: "Welcome to The Magic of the Forest! In this class, we'll explore the magical creatures and magic of the forest, from the ancient to the mythical.",
+      lessons: [
+        {
+          title: "Forest Creatures",
+          content: "The forest is home to a wide variety of magical creatures. From the gentle pixies to the fierce centaurs, each has its own unique abilities and magic.",
+          exercise: "Write a short story about a magical creature from the forest."
+        },
+        {
+          title: "Forest Magic",
+          content: "The forest is a rich source of magical energy. Consider how you might use this energy to create spells or potions.",
+          exercise: "Create a spell or potion that uses the magic of the forest."
+        },
+        {
+          title: "Forest Lore",
+          content: "The forest is full of stories and legends. Consider how you might incorporate these into your magical stories.",
+          exercise: "Write a short story about a magical legend from the forest."
+        }
+      ],
+      conclusion: "The magic of the forest is a powerful tool for creating magical stories. As you explore this magical world, remember to draw inspiration from the creatures and magic of the forest."
+    }
+  },
+  {
+    id: "magic-of-the-sea",
+    title: "The Magic of the Sea",
+    description: "Explore the magical creatures and magic of the sea.",
+    professor: "Professor Bluebeard",
+    level: "Intermediate",
+    topics: ["Nature", "Creatures", "Magic"],
+    house: "hufflepuff",
+    content: {
+      introduction: "Welcome to The Magic of the Sea! In this class, we'll explore the magical creatures and magic of the sea, from the ancient to the mythical.",
+      lessons: [
+        {
+          title: "Sea Creatures",
+          content: "The sea is home to a wide variety of magical creatures. From the gentle mermaids to the fierce krakens, each has its own unique abilities and magic.",
+          exercise: "Write a short story about a magical creature from the sea."
+        },
+        {
+          title: "Sea Magic",
+          content: "The sea is a rich source of magical energy. Consider how you might use this energy to create spells or potions.",
+          exercise: "Create a spell or potion that uses the magic of the sea."
+        },
+        {
+          title: "Sea Lore",
+          content: "The sea is full of stories and legends. Consider how you might incorporate these into your magical stories.",
+          exercise: "Write a short story about a magical legend from the sea."
+        }
+      ],
+      conclusion: "The magic of the sea is a powerful tool for creating magical stories. As you explore this magical world, remember to draw inspiration from the creatures and magic of the sea."
+    }
+  },
+  {
+    id: "magic-of-the-air",
+    title: "The Magic of the Air",
+    description: "Explore the magical creatures and magic of the air.",
+    professor: "Professor Windweaver",
+    level: "Advanced",
+    topics: ["Nature", "Creatures", "Magic"],
+    house: "hufflepuff",
+    content: {
+      introduction: "Welcome to The Magic of the Air! In this class, we'll explore the magical creatures and magic of the air, from the ancient to the mythical.",
+      lessons: [
+        {
+          title: "Air Creatures",
+          content: "The air is home to a wide variety of magical creatures. From the gentle fairies to the fierce dragons, each has its own unique abilities and magic.",
+          exercise: "Write a short story about a magical creature from the air."
+        },
+        {
+          title: "Air Magic",
+          content: "The air is a rich source of magical energy. Consider how you might use this energy to create spells or potions.",
+          exercise: "Create a spell or potion that uses the magic of the air."
+        },
+        {
+          title: "Air Lore",
+          content: "The air is full of stories and legends. Consider how you might incorporate these into your magical stories.",
+          exercise: "Write a short story about a magical legend from the air."
+        }
+      ],
+      conclusion: "The magic of the air is a powerful tool for creating magical stories. As you explore this magical world, remember to draw inspiration from the creatures and magic of the air."
+    }
+  },
+  {
+    id: "magic-of-the-earth",
+    title: "The Magic of the Earth",
+    description: "Explore the magical creatures and magic of the earth.",
+    professor: "Professor Earthweaver",
+    level: "Beginner",
+    topics: ["Nature", "Creatures", "Magic"],
+    house: "hufflepuff",
+    content: {
+      introduction: "Welcome to The Magic of the Earth! In this class, we'll explore the magical creatures and magic of the earth, from the ancient to the mythical.",
+      lessons: [
+        {
+          title: "Earth Creatures",
+          content: "The earth is home to a wide variety of magical creatures. From the gentle earth spirits to the fierce dragons, each has its own unique abilities and magic.",
+          exercise: "Write a short story about a magical creature from the earth."
+        },
+        {
+          title: "Earth Magic",
+          content: "The earth is a rich source of magical energy. Consider how you might use this energy to create spells or potions.",
+          exercise: "Create a spell or potion that uses the magic of the earth."
+        },
+        {
+          title: "Earth Lore",
+          content: "The earth is full of stories and legends. Consider how you might incorporate these into your magical stories.",
+          exercise: "Write a short story about a magical legend from the earth."
+        }
+      ],
+      conclusion: "The magic of the earth is a powerful tool for creating magical stories. As you explore this magical world, remember to draw inspiration from the creatures and magic of the earth."
+    }
+  },
+  {
+    id: "magic-of-the-stars",
+    title: "The Magic of the Stars",
+    description: "Explore the magical creatures and magic of the stars.",
+    professor: "Professor Starweaver",
+    level: "Advanced",
+    topics: ["Nature", "Creatures", "Magic"],
+    house: "hufflepuff",
+    content: {
+      introduction: "Welcome to The Magic of the Stars! In this class, we'll explore the magical creatures and magic of the stars, from the ancient to the mythical.",
+      lessons: [
+        {
+          title: "Star Creatures",
+          content: "The stars are home to a wide variety of magical creatures. From the gentle stars to the fierce dragons, each has its own unique abilities and magic.",
+          exercise: "Write a short story about a magical creature from the stars."
+        },
+        {
+          title: "Star Magic",
+          content: "The stars are a rich source of magical energy. Consider how you might use this energy to create spells or potions.",
+          exercise: "Create a spell or potion that uses the magic of the stars."
+        },
+        {
+          title: "Star Lore",
+          content: "The stars are full of stories and legends. Consider how you might incorporate these into your magical stories.",
+          exercise: "Write a short story about a magical legend from the stars."
+        }
+      ],
+      conclusion: "The magic of the stars is a powerful tool for creating magical stories. As you explore this magical world, remember to draw inspiration from the creatures and magic of the stars."
+    }
+  }
+];
+
+const Classes = () => {
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedHouse, setSelectedHouse] = useState<string | null>(null);
+  const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
+
+  const filteredClasses = classes.filter((c) => {
+    const matchesSearch = 
+      c.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      c.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      c.professor.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      c.topics.some(topic => topic.toLowerCase().includes(searchTerm.toLowerCase()));
+    
+    const matchesHouse = selectedHouse ? c.house === selectedHouse : true;
+    const matchesLevel = selectedLevel ? c.level === selectedLevel : true;
+    
+    return matchesSearch && matchesHouse && matchesLevel;
+  });
+
+  const clearFilters = () => {
+    setSelectedHouse(null);
+    setSelectedLevel(null);
+    setSearchTerm("");
+  };
+
+  const handleClassClick = (classId: string) => {
+    navigate(`/classes/${classId}`);
+  };
+
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <div className="text-center mb-8">
+        <h1 className="text-3xl font-bold text-white">Magical Writing Classes</h1>
+        <p className="text-xl text-white/80 mt-2">
+          Explore our curriculum and master the art of magical storytelling
+        </p>
+      </div>
+
+      {/* Search and filters */}
+      <div className="bg-midnight-medium/60 rounded-lg p-4 mb-8">
+        <div className="flex flex-col md:flex-row gap-4 mb-4">
+          <div className="relative flex-grow">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+            <input
+              type="text"
+              placeholder="Search classes, topics, professors..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full pl-10 pr-4 py-2 bg-midnight-light/60 text-white rounded-md border border-white/10 focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+            {searchTerm && (
+              <button 
+                onClick={() => setSearchTerm("")}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
+              >
+                <X size={18} />
+              </button>
+            )}
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            <select
+              value={selectedHouse || ""}
+              onChange={(e) => setSelectedHouse(e.target.value || null)}
+              className="bg-midnight-light/60 text-white rounded-md border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+            >
+              <option value="">All Houses</option>
+              <option value="gryffindor">Gryffindor</option>
+              <option value="slytherin">Slytherin</option>
+              <option value="ravenclaw">Ravenclaw</option>
+              <option value="hufflepuff">Hufflepuff</option>
+            </select>
+
+            <select
+              value={selectedLevel || ""}
+              onChange={(e) => setSelectedLevel(e.target.value || null)}
+              className="bg-midnight-light/60 text-white rounded-md border border-white/10 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+            >
+              <option value="">All Levels</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+
+            {(selectedHouse || selectedLevel || searchTerm) && (
+              <button
+                onClick={clearFilters}
+                className="flex items-center bg-midnight-light/60 text-white rounded-md border border-white/10 px-3 py-2 hover:bg-midnight-light/80"
+              >
+                <X size={16} className="mr-1" />
+                Clear
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Results count */}
+        <div className="text-white/80 text-sm">
+          {filteredClasses.length === 0 ? (
+            <p>No classes found. Try adjusting your filters.</p>
+          ) : (
+            <p>Showing {filteredClasses.length} {filteredClasses.length === 1 ? 'class' : 'classes'}</p>
+          )}
+        </div>
+      </div>
+
+      {/* Classes grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredClasses.map((classItem) => (
+          <ClassCard 
+            key={classItem.id}
+            classData={classItem}
+            onClick={() => handleClassClick(classItem.id)}
+          />
+        ))}
+      </div>
+
+      {filteredClasses.length === 0 && (
+        <div className="flex flex-col items-center justify-center py-12">
+          <BookOpen className="text-white/40 mb-4" size={48} />
+          <h3 className="text-xl font-medium text-white mb-2">No Classes Found</h3>
+          <p className="text-white/60 text-center max-w-md mb-4">
+            We couldn't find any classes matching your current filters. Try adjusting your search or clearing the filters.
+          </p>
+          <button
+            onClick={clearFilters}
+            className="flex items-center bg-primary/80 hover:bg-primary text-white rounded-md px-4 py-2"
+          >
+            <X size={16} className="mr-2" />
+            Clear All Filters
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Classes;
