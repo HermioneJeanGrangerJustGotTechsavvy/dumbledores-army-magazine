@@ -1,8 +1,9 @@
 
 import { useState, useEffect } from "react";
 import { CustomButton } from "@/components/ui/custom-button";
-import { Download } from "lucide-react";
+import { Download, Copy, CheckCheck, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Input } from "@/components/ui/input";
 
 // Sample issues data - in a real implementation, this would come from a CMS or database
 const sampleIssues = [
@@ -52,10 +53,18 @@ const Issues = () => {
   const [loaded, setLoaded] = useState(false);
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [subscribers, setSubscribers] = useState<string[]>([]);
+  const [showSubscribers, setShowSubscribers] = useState(false);
+  const [copied, setCopied] = useState(false);
   const { toast } = useToast();
   
   useEffect(() => {
     setLoaded(true);
+    // Load subscribers from localStorage on component mount
+    const savedSubscribers = localStorage.getItem('magazine-subscribers');
+    if (savedSubscribers) {
+      setSubscribers(JSON.parse(savedSubscribers));
+    }
   }, []);
 
   const handleSubscribe = (e: React.FormEvent) => {
@@ -71,17 +80,61 @@ const Issues = () => {
       return;
     }
     
-    setIsSubmitting(true);
-    
-    // This would be replaced with your actual API call to save subscribers
-    setTimeout(() => {
+    // Check if email already exists
+    if (subscribers.includes(email)) {
       toast({
-        title: "Subscription Successful!",
-        description: "Thank you for subscribing to Dumbledore's Army Magazine.",
+        title: "Already Subscribed",
+        description: "This email is already subscribed to our magazine.",
       });
       setEmail("");
-      setIsSubmitting(false);
-    }, 1000);
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    // Add the new subscriber
+    const updatedSubscribers = [...subscribers, email];
+    
+    // Save to localStorage
+    localStorage.setItem('magazine-subscribers', JSON.stringify(updatedSubscribers));
+    setSubscribers(updatedSubscribers);
+    
+    toast({
+      title: "Subscription Successful!",
+      description: "Thank you for subscribing to Dumbledore's Army Magazine.",
+    });
+    
+    setEmail("");
+    setIsSubmitting(false);
+  };
+
+  const handleCopyEmails = () => {
+    const emailsText = subscribers.join(', ');
+    navigator.clipboard.writeText(emailsText);
+    setCopied(true);
+    
+    toast({
+      title: "Copied to Clipboard",
+      description: `${subscribers.length} email addresses have been copied.`,
+    });
+    
+    // Reset the copied state after 2 seconds
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleRemoveSubscriber = (emailToRemove: string) => {
+    const updatedSubscribers = subscribers.filter(email => email !== emailToRemove);
+    localStorage.setItem('magazine-subscribers', JSON.stringify(updatedSubscribers));
+    setSubscribers(updatedSubscribers);
+    
+    toast({
+      title: "Subscriber Removed",
+      description: `${emailToRemove} has been removed from the subscriber list.`,
+    });
+  };
+
+  const toggleSubscribersList = () => {
+    setShowSubscribers(!showSubscribers);
   };
 
   return (
@@ -152,6 +205,54 @@ const Issues = () => {
             We'll never share your email with anyone else. You can unsubscribe at any time.
           </p>
         </form>
+        
+        <div className="mt-8 text-left">
+          <CustomButton
+            variant="outline"
+            className="text-white border-white/30 hover:bg-white/10"
+            onClick={toggleSubscribersList}
+          >
+            {showSubscribers ? "Hide Subscriber List" : "Show Subscriber List"}
+          </CustomButton>
+          
+          {showSubscribers && (
+            <div className="mt-4 p-4 bg-black/30 rounded-lg border border-white/10">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-lg font-semibold text-white">Subscribers ({subscribers.length})</h3>
+                {subscribers.length > 0 && (
+                  <CustomButton
+                    variant="outline"
+                    size="sm"
+                    className="text-white border-white/30 hover:bg-white/10"
+                    onClick={handleCopyEmails}
+                  >
+                    {copied ? <CheckCheck className="h-4 w-4 mr-1" /> : <Copy className="h-4 w-4 mr-1" />}
+                    {copied ? "Copied!" : "Copy All Emails"}
+                  </CustomButton>
+                )}
+              </div>
+              
+              {subscribers.length === 0 ? (
+                <p className="text-white/70 text-center py-4">No subscribers yet</p>
+              ) : (
+                <div className="max-h-60 overflow-y-auto">
+                  {subscribers.map((subscriberEmail, index) => (
+                    <div key={index} className="flex items-center justify-between py-2 border-b border-white/10 last:border-0">
+                      <span className="text-white">{subscriberEmail}</span>
+                      <button
+                        onClick={() => handleRemoveSubscriber(subscriberEmail)}
+                        className="text-white/50 hover:text-white p-1 rounded-full hover:bg-white/10"
+                        aria-label="Remove subscriber"
+                      >
+                        <X className="h-4 w-4" />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
