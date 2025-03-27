@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { Download } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 // Sample issues data - in a real implementation, this would come from a CMS or database
 const sampleIssues = [
@@ -49,10 +50,39 @@ const sampleIssues = [
 
 const Issues = () => {
   const [loaded, setLoaded] = useState(false);
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
   
   useEffect(() => {
     setLoaded(true);
   }, []);
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Basic email validation
+    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    // This would be replaced with your actual API call to save subscribers
+    setTimeout(() => {
+      toast({
+        title: "Subscription Successful!",
+        description: "Thank you for subscribing to Dumbledore's Army Magazine.",
+      });
+      setEmail("");
+      setIsSubmitting(false);
+    }, 1000);
+  };
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-6xl">
@@ -94,14 +124,34 @@ const Issues = () => {
         ))}
       </div>
       
-      <div className={`mt-16 bg-primary/10 border border-primary/20 rounded-lg p-6 text-center transition-all duration-700 delay-450 transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+      <div className={`mt-16 bg-primary/10 border border-primary/20 rounded-lg p-8 text-center transition-all duration-700 delay-450 transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
         <h2 className="text-2xl font-bold mb-3 text-white">Subscribe to Dumbledore's Army Magazine</h2>
-        <p className="text-white mb-4">
+        <p className="text-white mb-6">
           Get early access to new issues and exclusive content delivered straight to your inbox.
         </p>
-        <CustomButton variant="default">
-          Subscribe Now
-        </CustomButton>
+        
+        <form onSubmit={handleSubscribe} className="max-w-md mx-auto">
+          <div className="flex flex-col sm:flex-row gap-3">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email address"
+              className="flex-1 h-10 px-4 py-2 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-primary/50"
+              disabled={isSubmitting}
+            />
+            <CustomButton 
+              type="submit" 
+              disabled={isSubmitting}
+              className="sm:w-auto"
+            >
+              {isSubmitting ? "Subscribing..." : "Subscribe Now"}
+            </CustomButton>
+          </div>
+          <p className="text-xs text-white/60 mt-3">
+            We'll never share your email with anyone else. You can unsubscribe at any time.
+          </p>
+        </form>
       </div>
     </div>
   );
