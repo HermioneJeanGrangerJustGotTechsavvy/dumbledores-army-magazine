@@ -4,37 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { toast } from "sonner";
 import { CustomButton } from "@/components/ui/custom-button";
-
-// Import the Class type from Classes.tsx
-// We'll use this same type definition
-type Class = {
-  id: string;
-  title: string;
-  description: string;
-  professor: string;
-  level: "Beginner" | "Intermediate" | "Advanced";
-  topics: string[];
-  house?: "gryffindor" | "slytherin" | "ravenclaw" | "hufflepuff";
-  content: {
-    introduction: string;
-    lessons: {
-      title: string;
-      content: string;
-      exercise?: string;
-    }[];
-    conclusion: string;
-  };
-};
-
-// This function fetches a single class from the Classes.tsx file
-// In a real application, this would be an API call
-const fetchClass = async (id: string): Promise<Class | undefined> => {
-  // In a real app, this would be an API call
-  // For now, we'll import the data from the Classes.tsx file
-  const { default: classesModule } = await import("./Classes");
-  const classes: Class[] = classesModule.classes;
-  return classes.find((c) => c.id === id);
-};
+import { Class, classes } from "./Classes"; // Import the Class type and classes array
 
 const ClassDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -43,30 +13,26 @@ const ClassDetail = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loadClass = async () => {
-      if (!id) {
-        toast.error("No class ID provided");
+    if (!id) {
+      toast.error("No class ID provided");
+      navigate("/classes");
+      return;
+    }
+
+    try {
+      const data = classes.find((c) => c.id === id);
+      if (data) {
+        setClassData(data);
+      } else {
+        toast.error("Class not found");
         navigate("/classes");
-        return;
       }
-
-      try {
-        const data = await fetchClass(id);
-        if (data) {
-          setClassData(data);
-        } else {
-          toast.error("Class not found");
-          navigate("/classes");
-        }
-      } catch (error) {
-        console.error("Error loading class:", error);
-        toast.error("Failed to load class");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadClass();
+    } catch (error) {
+      console.error("Error loading class:", error);
+      toast.error("Failed to load class");
+    } finally {
+      setLoading(false);
+    }
   }, [id, navigate]);
 
   // Get house colors for styling based on class house

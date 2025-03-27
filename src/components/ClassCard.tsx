@@ -4,25 +4,20 @@ import { ArrowRight } from "lucide-react";
 import { CustomButton } from "@/components/ui/custom-button";
 
 type ClassCardProps = {
-  title: string;
-  description: string;
-  professor: string;
-  level: "Beginner" | "Intermediate" | "Advanced";
-  topics: string[];
-  house?: "gryffindor" | "slytherin" | "ravenclaw" | "hufflepuff";
+  classData: {
+    title: string;
+    description: string;
+    professor: string;
+    level: "Beginner" | "Intermediate" | "Advanced";
+    topics: string[];
+    house?: "gryffindor" | "slytherin" | "ravenclaw" | "hufflepuff";
+  };
   onClick: () => void;
 };
 
-const ClassCard = ({ 
-  title, 
-  description, 
-  professor, 
-  level, 
-  topics, 
-  house,
-  onClick 
-}: ClassCardProps) => {
+const ClassCard = ({ classData, onClick }: ClassCardProps) => {
   const [hovered, setHovered] = useState(false);
+  const { title, description, professor, level, topics, house } = classData;
   
   const getLevelColor = () => {
     switch (level) {
