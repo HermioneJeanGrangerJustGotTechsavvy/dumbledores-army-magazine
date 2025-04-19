@@ -1,4 +1,3 @@
-
 import { createClient } from 'contentful';
 import { BlogPost } from '@/pages/Writing';
 
@@ -45,24 +44,6 @@ And maybe eyes are windows to the soul, but you made a brief eye contact feel li
 And now every time I wear masks, heading out for the masquerade ball they call life,
 I have a place to be me, a place to return to,
 A place where the seas finally meet the skies, the place they call 'infinity'.`
-  },
-  {
-    id: 2,
-    title: "Character Development in Wizarding Fiction",
-    excerpt: "Learn how to create memorable magical characters that leap off the page and into readers' hearts.",
-    author: "Filius Flitwick",
-    date: "June 20, 2023",
-    image: "https://images.unsplash.com/photo-1474932430478-367dbb6832c1",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-  },
-  {
-    id: 3,
-    title: "World-Building Beyond Hogwarts",
-    excerpt: "Expand your magical universes with these creative world-building techniques for aspiring writers.",
-    author: "Pomona Sprout",
-    date: "July 10, 2023",
-    image: "https://images.unsplash.com/photo-1546484396-fb3fc6f95f98",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   }
 ];
 
