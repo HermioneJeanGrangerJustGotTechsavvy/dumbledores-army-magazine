@@ -1,8 +1,10 @@
+
 import { useState, useEffect } from "react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { getBlogPosts } from "@/services/contentful";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 // This type definition will be useful when integrating with a CMS
 export interface BlogPost {
@@ -15,88 +17,12 @@ export interface BlogPost {
   content: string;
 }
 
-// Sample blog posts data - this will be replaced with data from the CMS
-const samplePosts: BlogPost[] = [
-  {
-    id: 1,
-    title: "Eye Contact",
-    excerpt: "A poetic exploration of vulnerability, connection, and the power of understanding through eye contact.",
-    author: "Jiya Doshi",
-    date: "April 19, 2025",
-    image: "/lovable-uploads/b2b6834c-0a1c-423a-b168-d07ad12f22af.png",
-    content: `You watched my expressions smoothen out like a starched shirt,
-Except my eyes were pictures of Dorian Gray in their sockets,
-Like they were a roll of credits to all the people who had me hurt,
-And all those who took out their handkerchiefs just to smugly return it in their pockets.
-
-You watched the kaleidoscope in them shift every single day,
-Like restless bokeh flares in a peripheral vision,
-A vortex in the Bermuda triangle, sinking in meant drifting away,
-Like a radio, the songs taking you on horseback, a déjà vu of emotions.
-
-A see-through glass wall is still a wall,
-You press your fingertips against it, see everything across,
-You watch me in free fall like a rag doll,
-Try to save me, but you crash, we both bear our own albatross.
-
-Your fallen wings, my paper cranes, all sink into the thinning air of Plath's bell jar,
-I count them silently, my eyes lowered till you raise them to yours,
-You place your hands over the glass,
-I place mine right across: you and I are the same after all.
-
-"I've got Madame Bovary's incapability to distinguish between real and ideal,"
-I say from across the wall in incoherent whispers, but you knew,
-My house is made of Gilman's yellow wallpaper, ghosts from my past, my fate put to seal,
-You say, "Let me help you."
-
-You light up the corridors with dozens of lightbulbs, like you're some invisible man,
-They splinter fragmented light into my world of darkness, a shooting star, lighting up my eyes,
-Our secret garden, the place where my emotions ran,
-The glass wall shatters as you and I become unseen, unjudged and unbound by time.
-
-And maybe eyes are windows to the soul, but you made a brief eye contact feel like home,
-And now every time I wear masks, heading out for the masquerade ball they call life,
-I have a place to be me, a place to return to,
-A place where the seas finally meet the skies, the place they call 'infinity'.`
-  },
-  {
-    id: 2,
-    title: "Character Development in Wizarding Fiction",
-    excerpt: "Learn how to create memorable magical characters that leap off the page and into readers' hearts.",
-    author: "Filius Flitwick",
-    date: "June 20, 2023",
-    image: "https://images.unsplash.com/photo-1474932430478-367dbb6832c1",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-  },
-  {
-    id: 3,
-    title: "World-Building Beyond Hogwarts",
-    excerpt: "Expand your magical universes with these creative world-building techniques for aspiring writers.",
-    author: "Pomona Sprout",
-    date: "July 10, 2023",
-    image: "https://images.unsplash.com/photo-1546484396-fb3fc6f95f98",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-  }
-];
-
-// This is where we would fetch content from a CMS
-// In a real implementation, this function would connect to your CMS API
-const fetchPostsFromCMS = async (): Promise<BlogPost[]> => {
-  // In a real implementation, we would fetch from a CMS API here
-  // For example:
-  // const response = await fetch('https://your-cms-api.com/posts');
-  // return await response.json();
-  
-  // For now, just return sample data with a delay to simulate a network request
-  return new Promise((resolve) => {
-    setTimeout(() => resolve(samplePosts), 1000);
-  });
-};
-
 const Writing = () => {
   const [loaded, setLoaded] = useState(false);
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const { toast } = useToast();
   
   useEffect(() => {
@@ -121,16 +47,13 @@ const Writing = () => {
     loadPosts();
   }, [toast]);
 
-  // This function would be called when clicking on a post to view the full content
+  // This function will be called when clicking on a post to view the full content
   const handleReadMore = (postId: number) => {
-    // In a real implementation, this would navigate to a full post page
-    // or open a modal with the full content
     const post = posts.find(p => p.id === postId);
-    
-    toast({
-      title: post?.title || "Blog Post",
-      description: "In a real implementation, this would open the full post from your CMS.",
-    });
+    if (post) {
+      setSelectedPost(post);
+      setDialogOpen(true);
+    }
   };
 
   return (
@@ -202,6 +125,32 @@ const Writing = () => {
           Contact Us
         </CustomButton>
       </div>
+
+      {/* Dialog to display full post content */}
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto bg-midnight-dark/95 border border-white/10 text-white">
+          {selectedPost && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-bold">{selectedPost.title}</DialogTitle>
+                <DialogDescription className="text-primary">
+                  {selectedPost.date} • by {selectedPost.author}
+                </DialogDescription>
+              </DialogHeader>
+              <div className="my-4">
+                <img 
+                  src={selectedPost.image} 
+                  alt={selectedPost.title} 
+                  className="w-full h-64 object-cover rounded-md mb-6"
+                />
+                <div className="whitespace-pre-line leading-relaxed">
+                  {selectedPost.content}
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
