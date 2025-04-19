@@ -1,3 +1,4 @@
+
 import { createClient } from 'contentful';
 import { BlogPost } from '@/pages/Writing';
 
@@ -43,7 +44,9 @@ The glass wall shatters as you and I become unseen, unjudged and unbound by time
 And maybe eyes are windows to the soul, but you made a brief eye contact feel like home,
 And now every time I wear masks, heading out for the masquerade ball they call life,
 I have a place to be me, a place to return to,
-A place where the seas finally meet the skies, the place they call 'infinity'.`
+A place where the seas finally meet the skies, the place they call 'infinity'.
+
+By Jiya Doshi`
   }
 ];
 
