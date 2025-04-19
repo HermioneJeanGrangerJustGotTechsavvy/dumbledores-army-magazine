@@ -1,10 +1,11 @@
-
 import { useState, useEffect } from "react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { getBlogPosts } from "@/services/contentful";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
 
 // This type definition will be useful when integrating with a CMS
 export interface BlogPost {
@@ -24,6 +25,9 @@ const Writing = () => {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const { toast } = useToast();
+  const [subscribeEmail, setSubscribeEmail] = useState("");
+  const [showSubscribeDialog, setShowSubscribeDialog] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   useEffect(() => {
     const loadPosts = async () => {
@@ -45,6 +49,15 @@ const Writing = () => {
     };
     
     loadPosts();
+
+    const handleOpenSubscribeDialog = () => {
+      setShowSubscribeDialog(true);
+    };
+
+    window.addEventListener('openSubscribeDialog', handleOpenSubscribeDialog);
+    return () => {
+      window.removeEventListener('openSubscribeDialog', handleOpenSubscribeDialog);
+    };
   }, [toast]);
 
   // This function will be called when clicking on a post to view the full content
@@ -54,6 +67,52 @@ const Writing = () => {
       setSelectedPost(post);
       setDialogOpen(true);
     }
+  };
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Basic email validation
+    if (!subscribeEmail || !/^\S+@\S+\.\S+$/.test(subscribeEmail)) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    // Get existing subscribers from localStorage
+    const savedSubscribers = localStorage.getItem('magazine-subscribers');
+    const currentSubscribers = savedSubscribers ? JSON.parse(savedSubscribers) : [];
+    
+    // Check if email already exists
+    if (currentSubscribers.includes(subscribeEmail)) {
+      toast({
+        title: "Already Subscribed",
+        description: "This email is already subscribed to our magazine.",
+      });
+      setSubscribeEmail("");
+      setShowSubscribeDialog(false);
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    // Add the new subscriber
+    const updatedSubscribers = [...currentSubscribers, subscribeEmail];
+    
+    // Save to localStorage
+    localStorage.setItem('magazine-subscribers', JSON.stringify(updatedSubscribers));
+    
+    toast({
+      title: "Subscription Successful!",
+      description: "Thank you for subscribing to Dumbledore's Army Magazine.",
+    });
+    
+    setSubscribeEmail("");
+    setIsSubmitting(false);
+    setShowSubscribeDialog(false);
   };
 
   return (
@@ -121,8 +180,10 @@ const Writing = () => {
         <p className="text-white mb-4">
           Are you a passionate writer with stories from the wizarding world to share? We'd love to feature your work!
         </p>
-        <CustomButton variant="default">
-          Contact Us
+        <CustomButton variant="default" asChild>
+          <Link to="/about">
+            Contact Us
+          </Link>
         </CustomButton>
       </div>
 
@@ -149,6 +210,36 @@ const Writing = () => {
               </div>
             </>
           )}
+        </DialogContent>
+      </Dialog>
+
+      {/* Subscribe Dialog */}
+      <Dialog open={showSubscribeDialog} onOpenChange={setShowSubscribeDialog}>
+        <DialogTrigger>
+          {/* Trigger button remains hidden as we control dialog open state programmatically */}
+        </DialogTrigger>
+        <DialogContent className="bg-midnight-dark/95 border border-white/10 text-white">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold">Subscribe to Our Magazine</DialogTitle>
+            <DialogDescription className="text-primary">
+              Join our magical community and stay updated with the latest stories.
+            </DialogDescription>
+          </DialogHeader>
+          <form onSubmit={handleSubscribe} className="space-y-4 mt-4">
+            <Input
+              type="email"
+              value={subscribeEmail}
+              onChange={(e) => setSubscribeEmail(e.target.value)}
+              placeholder="Enter your email address"
+              className="bg-white/10 border border-white/20"
+              disabled={isSubmitting}
+            />
+            <div className="flex justify-end">
+              <CustomButton type="submit" disabled={isSubmitting}>
+                {isSubmitting ? "Subscribing..." : "Subscribe Now"}
+              </CustomButton>
+            </div>
+          </form>
         </DialogContent>
       </Dialog>
     </div>

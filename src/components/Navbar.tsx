@@ -12,6 +12,12 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleSubscribeClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const event = new CustomEvent('openSubscribeDialog');
+    window.dispatchEvent(event);
+  };
+
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location]);
@@ -76,7 +82,7 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <CustomButton variant="default" size="sm" className="ml-2">
+            <CustomButton variant="default" size="sm" className="ml-2" onClick={handleSubscribeClick}>
               Subscribe
             </CustomButton>
           </nav>
@@ -115,7 +121,7 @@ const Navbar = () => {
             </Link>
           ))}
           <div className="py-4">
-            <CustomButton variant="default" className="w-full">
+            <CustomButton variant="default" className="w-full" onClick={handleSubscribeClick}>
               Subscribe
             </CustomButton>
           </div>
