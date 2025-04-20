@@ -82,7 +82,7 @@ const Navbar = () => {
             ))}
             <CustomButton 
               onClick={handleSubscribeClick} 
-              variant="default" 
+              variant="destructive" 
               size="sm" 
               className="ml-2"
               type="button"
