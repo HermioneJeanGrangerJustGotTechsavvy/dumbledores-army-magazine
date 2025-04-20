@@ -80,15 +80,6 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <CustomButton 
-              onClick={handleSubscribeClick} 
-              variant="default" 
-              size="sm" 
-              className="ml-2"
-              type="button"
-            >
-              Subscribe
-            </CustomButton>
           </nav>
           
           <button
@@ -122,16 +113,6 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <div className="py-4">
-            <CustomButton 
-              onClick={handleSubscribeClick} 
-              variant="default" 
-              className="w-full"
-              type="button"
-            >
-              Subscribe
-            </CustomButton>
-          </div>
         </nav>
       </div>
     </header>
