@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -12,8 +13,8 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleSubscribeClick = (e: React.MouseEvent) => {
-    e.preventDefault();
+  const handleSubscribeClick = () => {
+    // Direct event dispatch without preventDefault
     const event = new CustomEvent('openSubscribeDialog');
     window.dispatchEvent(event);
   };
@@ -82,7 +83,7 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <CustomButton variant="default" size="sm" className="ml-2" onClick={handleSubscribeClick}>
+            <CustomButton onClick={handleSubscribeClick} variant="default" size="sm" className="ml-2">
               Subscribe
             </CustomButton>
           </nav>
@@ -121,7 +122,7 @@ const Navbar = () => {
             </Link>
           ))}
           <div className="py-4">
-            <CustomButton variant="default" className="w-full" onClick={handleSubscribeClick}>
+            <CustomButton onClick={handleSubscribeClick} variant="default" className="w-full">
               Subscribe
             </CustomButton>
           </div>

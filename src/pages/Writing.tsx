@@ -7,7 +7,6 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 
-// This type definition will be useful when integrating with a CMS
 export interface BlogPost {
   id: number;
   title: string;
@@ -54,13 +53,13 @@ const Writing = () => {
       setShowSubscribeDialog(true);
     };
 
+    window.removeEventListener('openSubscribeDialog', handleOpenSubscribeDialog);
     window.addEventListener('openSubscribeDialog', handleOpenSubscribeDialog);
     return () => {
       window.removeEventListener('openSubscribeDialog', handleOpenSubscribeDialog);
     };
   }, [toast]);
 
-  // This function will be called when clicking on a post to view the full content
   const handleReadMore = (postId: number) => {
     const post = posts.find(p => p.id === postId);
     if (post) {
@@ -72,7 +71,6 @@ const Writing = () => {
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Basic email validation
     if (!subscribeEmail || !/^\S+@\S+\.\S+$/.test(subscribeEmail)) {
       toast({
         title: "Invalid Email",
@@ -82,11 +80,9 @@ const Writing = () => {
       return;
     }
     
-    // Get existing subscribers from localStorage
     const savedSubscribers = localStorage.getItem('magazine-subscribers');
     const currentSubscribers = savedSubscribers ? JSON.parse(savedSubscribers) : [];
     
-    // Check if email already exists
     if (currentSubscribers.includes(subscribeEmail)) {
       toast({
         title: "Already Subscribed",
@@ -99,10 +95,8 @@ const Writing = () => {
     
     setIsSubmitting(true);
     
-    // Add the new subscriber
     const updatedSubscribers = [...currentSubscribers, subscribeEmail];
     
-    // Save to localStorage
     localStorage.setItem('magazine-subscribers', JSON.stringify(updatedSubscribers));
     
     toast({
@@ -187,7 +181,6 @@ const Writing = () => {
         </CustomButton>
       </div>
 
-      {/* Dialog to display full post content */}
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto bg-midnight-dark/95 border border-white/10 text-white">
           {selectedPost && (
@@ -213,11 +206,7 @@ const Writing = () => {
         </DialogContent>
       </Dialog>
 
-      {/* Subscribe Dialog */}
       <Dialog open={showSubscribeDialog} onOpenChange={setShowSubscribeDialog}>
-        <DialogTrigger>
-          {/* Trigger button remains hidden as we control dialog open state programmatically */}
-        </DialogTrigger>
         <DialogContent className="bg-midnight-dark/95 border border-white/10 text-white">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold">Subscribe to Our Magazine</DialogTitle>
