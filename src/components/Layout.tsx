@@ -1,7 +1,7 @@
-
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
+import { SubscribeDialog } from "./SubscribeDialog";
 
 type LayoutProps = {
   children: ReactNode;
@@ -9,6 +9,7 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
+  const [showSubscribeDialog, setShowSubscribeDialog] = useState(false);
   
   useEffect(() => {
     // Scroll to top on page change
@@ -23,6 +24,15 @@ const Layout = ({ children }: LayoutProps) => {
       }, 400);
       return () => clearTimeout(timer);
     }
+
+    const handleOpenSubscribeDialog = () => {
+      setShowSubscribeDialog(true);
+    };
+
+    window.addEventListener('openSubscribeDialog', handleOpenSubscribeDialog);
+    return () => {
+      window.removeEventListener('openSubscribeDialog', handleOpenSubscribeDialog);
+    };
   }, [location]);
 
   return (
@@ -39,13 +49,23 @@ const Layout = ({ children }: LayoutProps) => {
               <p className="text-sm opacity-80">© {new Date().getFullYear()} Wizarding World Publications</p>
             </div>
             <div className="flex gap-6">
-              <a href="#" className="text-white hover:text-stars transition-colors duration-200">About</a>
-              <a href="#" className="text-white hover:text-stars transition-colors duration-200">Contact</a>
-              <a href="#" className="text-white hover:text-stars transition-colors duration-200">Subscribe</a>
+              <a href="/about" className="text-white hover:text-stars transition-colors duration-200">About</a>
+              <a href="/about" className="text-white hover:text-stars transition-colors duration-200">Contact</a>
+              <button 
+                onClick={() => setShowSubscribeDialog(true)}
+                className="text-white hover:text-stars transition-colors duration-200"
+              >
+                Subscribe
+              </button>
             </div>
           </div>
         </div>
       </footer>
+
+      <SubscribeDialog 
+        open={showSubscribeDialog} 
+        onOpenChange={setShowSubscribeDialog} 
+      />
       
       {/* Randomly positioned stars for night sky effect */}
       {Array.from({ length: 80 }).map((_, i) => (

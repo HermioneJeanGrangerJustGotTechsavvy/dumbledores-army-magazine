@@ -13,7 +13,6 @@ const Navbar = () => {
   };
 
   const handleSubscribeClick = () => {
-    console.log("Subscribe button clicked, dispatching event");
     const event = new CustomEvent('openSubscribeDialog');
     window.dispatchEvent(event);
   };
