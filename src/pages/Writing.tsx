@@ -3,7 +3,7 @@ import { CustomButton } from "@/components/ui/custom-button";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { getBlogPosts } from "@/services/contentful";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 
@@ -17,6 +17,11 @@ export interface BlogPost {
   content: string;
 }
 
+interface Subscriber {
+  name: string;
+  email: string;
+}
+
 const Writing = () => {
   const [loaded, setLoaded] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -24,6 +29,7 @@ const Writing = () => {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const { toast } = useToast();
+  const [subscriberName, setSubscriberName] = useState("");
   const [subscribeEmail, setSubscribeEmail] = useState("");
   const [showSubscribeDialog, setShowSubscribeDialog] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -50,11 +56,13 @@ const Writing = () => {
     loadPosts();
 
     const handleOpenSubscribeDialog = () => {
+      console.log("Event received, opening subscribe dialog");
       setShowSubscribeDialog(true);
     };
 
     window.removeEventListener('openSubscribeDialog', handleOpenSubscribeDialog);
     window.addEventListener('openSubscribeDialog', handleOpenSubscribeDialog);
+    
     return () => {
       window.removeEventListener('openSubscribeDialog', handleOpenSubscribeDialog);
     };
@@ -71,6 +79,15 @@ const Writing = () => {
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     
+    if (!subscriberName.trim()) {
+      toast({
+        title: "Name Required",
+        description: "Please enter your name.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
     if (!subscribeEmail || !/^\S+@\S+\.\S+$/.test(subscribeEmail)) {
       toast({
         title: "Invalid Email",
@@ -81,13 +98,14 @@ const Writing = () => {
     }
     
     const savedSubscribers = localStorage.getItem('magazine-subscribers');
-    const currentSubscribers = savedSubscribers ? JSON.parse(savedSubscribers) : [];
+    let currentSubscribers: Subscriber[] = savedSubscribers ? JSON.parse(savedSubscribers) : [];
     
-    if (currentSubscribers.includes(subscribeEmail)) {
+    if (currentSubscribers.some(sub => sub.email === subscribeEmail)) {
       toast({
         title: "Already Subscribed",
         description: "This email is already subscribed to our magazine.",
       });
+      setSubscriberName("");
       setSubscribeEmail("");
       setShowSubscribeDialog(false);
       return;
@@ -95,15 +113,21 @@ const Writing = () => {
     
     setIsSubmitting(true);
     
-    const updatedSubscribers = [...currentSubscribers, subscribeEmail];
+    const newSubscriber: Subscriber = {
+      name: subscriberName,
+      email: subscribeEmail
+    };
+    
+    const updatedSubscribers = [...currentSubscribers, newSubscriber];
     
     localStorage.setItem('magazine-subscribers', JSON.stringify(updatedSubscribers));
     
     toast({
       title: "Subscription Successful!",
-      description: "Thank you for subscribing to Dumbledore's Army Magazine.",
+      description: `Thank you ${subscriberName} for subscribing to Dumbledore's Army Magazine.`,
     });
     
+    setSubscriberName("");
     setSubscribeEmail("");
     setIsSubmitting(false);
     setShowSubscribeDialog(false);
@@ -215,14 +239,30 @@ const Writing = () => {
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleSubscribe} className="space-y-4 mt-4">
-            <Input
-              type="email"
-              value={subscribeEmail}
-              onChange={(e) => setSubscribeEmail(e.target.value)}
-              placeholder="Enter your email address"
-              className="bg-white/10 border border-white/20"
-              disabled={isSubmitting}
-            />
+            <div className="space-y-2">
+              <label htmlFor="name" className="text-sm font-medium text-white">Name</label>
+              <Input
+                id="name"
+                type="text"
+                value={subscriberName}
+                onChange={(e) => setSubscriberName(e.target.value)}
+                placeholder="Enter your name"
+                className="bg-white/10 border border-white/20"
+                disabled={isSubmitting}
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="email" className="text-sm font-medium text-white">Email</label>
+              <Input
+                id="email"
+                type="email"
+                value={subscribeEmail}
+                onChange={(e) => setSubscribeEmail(e.target.value)}
+                placeholder="Enter your email address"
+                className="bg-white/10 border border-white/20"
+                disabled={isSubmitting}
+              />
+            </div>
             <div className="flex justify-end">
               <CustomButton type="submit" disabled={isSubmitting}>
                 {isSubmitting ? "Subscribing..." : "Subscribe Now"}

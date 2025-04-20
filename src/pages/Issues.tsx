@@ -51,11 +51,18 @@ const sampleIssues = [
 // Admin password for accessing subscriber list - in a real app, this would be secured properly
 const ADMIN_PASSWORD = "alohomora.unlock";
 
+// Interface for subscriber information
+interface Subscriber {
+  name: string;
+  email: string;
+}
+
 const Issues = () => {
   const [loaded, setLoaded] = useState(false);
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [subscribers, setSubscribers] = useState<string[]>([]);
+  const [subscribers, setSubscribers] = useState<Subscriber[]>([]);
   const [showSubscribers, setShowSubscribers] = useState(false);
   const [copied, setCopied] = useState(false);
   const [adminPassword, setAdminPassword] = useState("");
@@ -68,12 +75,37 @@ const Issues = () => {
     // Load subscribers from localStorage on component mount
     const savedSubscribers = localStorage.getItem('magazine-subscribers');
     if (savedSubscribers) {
-      setSubscribers(JSON.parse(savedSubscribers));
+      const parsedData = JSON.parse(savedSubscribers);
+      
+      // Check if we need to convert old format to new format
+      if (parsedData.length > 0 && typeof parsedData[0] === 'string') {
+        // Convert old format (string[]) to new format (Subscriber[])
+        const convertedData: Subscriber[] = parsedData.map((email: string) => ({
+          name: 'Subscriber',  // Default name for old subscribers
+          email
+        }));
+        setSubscribers(convertedData);
+        // Save the converted data back to localStorage
+        localStorage.setItem('magazine-subscribers', JSON.stringify(convertedData));
+      } else {
+        // New format, use as is
+        setSubscribers(parsedData);
+      }
     }
   }, []);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate inputs
+    if (!name.trim()) {
+      toast({
+        title: "Name Required",
+        description: "Please enter your name.",
+        variant: "destructive"
+      });
+      return;
+    }
     
     // Basic email validation
     if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
@@ -86,19 +118,25 @@ const Issues = () => {
     }
     
     // Check if email already exists
-    if (subscribers.includes(email)) {
+    if (subscribers.some(sub => sub.email === email)) {
       toast({
         title: "Already Subscribed",
         description: "This email is already subscribed to our magazine.",
       });
+      setName("");
       setEmail("");
       return;
     }
     
     setIsSubmitting(true);
     
-    // Add the new subscriber
-    const updatedSubscribers = [...subscribers, email];
+    // Add the new subscriber with name and email
+    const newSubscriber: Subscriber = {
+      name: name,
+      email: email
+    };
+    
+    const updatedSubscribers = [...subscribers, newSubscriber];
     
     // Save to localStorage
     localStorage.setItem('magazine-subscribers', JSON.stringify(updatedSubscribers));
@@ -106,21 +144,22 @@ const Issues = () => {
     
     toast({
       title: "Subscription Successful!",
-      description: "Thank you for subscribing to Dumbledore's Army Magazine.",
+      description: `Thank you ${name} for subscribing to Dumbledore's Army Magazine.`,
     });
     
+    setName("");
     setEmail("");
     setIsSubmitting(false);
   };
 
   const handleCopyEmails = () => {
-    const emailsText = subscribers.join(', ');
+    const emailsText = subscribers.map(sub => `${sub.name} <${sub.email}>`).join(', ');
     navigator.clipboard.writeText(emailsText);
     setCopied(true);
     
     toast({
       title: "Copied to Clipboard",
-      description: `${subscribers.length} email addresses have been copied.`,
+      description: `${subscribers.length} subscriber entries have been copied.`,
     });
     
     // Reset the copied state after 2 seconds
@@ -128,13 +167,13 @@ const Issues = () => {
   };
 
   const handleRemoveSubscriber = (emailToRemove: string) => {
-    const updatedSubscribers = subscribers.filter(email => email !== emailToRemove);
+    const updatedSubscribers = subscribers.filter(sub => sub.email !== emailToRemove);
     localStorage.setItem('magazine-subscribers', JSON.stringify(updatedSubscribers));
     setSubscribers(updatedSubscribers);
     
     toast({
       title: "Subscriber Removed",
-      description: `${emailToRemove} has been removed from the subscriber list.`,
+      description: `The subscriber has been removed from the list.`,
     });
   };
 
@@ -215,13 +254,21 @@ const Issues = () => {
         </p>
         
         <form onSubmit={handleSubscribe} className="max-w-md mx-auto">
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col gap-3 mb-3">
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Enter your name"
+              className="h-10 px-4 py-2 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-primary/50"
+              disabled={isSubmitting}
+            />
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email address"
-              className="flex-1 h-10 px-4 py-2 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-primary/50"
+              className="h-10 px-4 py-2 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-primary/50"
               disabled={isSubmitting}
             />
             <CustomButton 
@@ -309,11 +356,14 @@ const Issues = () => {
                   <p className="text-white/70 text-center py-4">No subscribers yet</p>
                 ) : (
                   <div className="max-h-60 overflow-y-auto">
-                    {subscribers.map((subscriberEmail, index) => (
+                    {subscribers.map((subscriber, index) => (
                       <div key={index} className="flex items-center justify-between py-2 border-b border-white/10 last:border-0">
-                        <span className="text-white">{subscriberEmail}</span>
+                        <div>
+                          <span className="text-white font-medium">{subscriber.name}</span>
+                          <span className="text-white/70 ml-2">{subscriber.email}</span>
+                        </div>
                         <button
-                          onClick={() => handleRemoveSubscriber(subscriberEmail)}
+                          onClick={() => handleRemoveSubscriber(subscriber.email)}
                           className="text-white/50 hover:text-white p-1 rounded-full hover:bg-white/10"
                           aria-label="Remove subscriber"
                         >

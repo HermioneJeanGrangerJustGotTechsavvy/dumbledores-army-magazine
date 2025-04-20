@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -14,7 +13,7 @@ const Navbar = () => {
   };
 
   const handleSubscribeClick = () => {
-    // Direct event dispatch without preventDefault
+    console.log("Subscribe button clicked, dispatching event");
     const event = new CustomEvent('openSubscribeDialog');
     window.dispatchEvent(event);
   };
@@ -68,7 +67,6 @@ const Navbar = () => {
             </h1>
           </Link>
           
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-6 items-center">
             {navLinks.map((link) => (
               <Link
@@ -83,12 +81,17 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <CustomButton onClick={handleSubscribeClick} variant="default" size="sm" className="ml-2">
+            <CustomButton 
+              onClick={handleSubscribeClick} 
+              variant="default" 
+              size="sm" 
+              className="ml-2"
+              type="button"
+            >
               Subscribe
             </CustomButton>
           </nav>
           
-          {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
             className="md:hidden text-foreground hover:text-primary transition-colors p-2"
@@ -99,7 +102,6 @@ const Navbar = () => {
         </div>
       </div>
       
-      {/* Mobile Navigation */}
       <div
         className={`md:hidden absolute w-full transition-all duration-300 origin-top ${
           isMenuOpen 
@@ -122,7 +124,12 @@ const Navbar = () => {
             </Link>
           ))}
           <div className="py-4">
-            <CustomButton onClick={handleSubscribeClick} variant="default" className="w-full">
+            <CustomButton 
+              onClick={handleSubscribeClick} 
+              variant="default" 
+              className="w-full"
+              type="button"
+            >
               Subscribe
             </CustomButton>
           </div>
