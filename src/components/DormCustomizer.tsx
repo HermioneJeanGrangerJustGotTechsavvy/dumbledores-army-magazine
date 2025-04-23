@@ -23,65 +23,74 @@ const DormCustomizer = () => {
   const [currentCategory, setCurrentCategory] = useState<"furniture" | "houseItems">("furniture");
   const roomRef = useRef<HTMLDivElement>(null);
 
-  // Base furniture items (removed wooden chair)
   const furnitureItems: DormItem[] = [
-    { id: "desk1", name: "Study Desk", type: "furniture", imgSrc: "/furniture/desk.png", width: 80, height: 60, position: { x: 0, y: 0 } },
-    { id: "bookshelf1", name: "Bookshelf", type: "furniture", imgSrc: "/furniture/bookshelf.png", width: 70, height: 120, position: { x: 0, y: 0 } },
-    { id: "trunk1", name: "Magical Trunk", type: "furniture", imgSrc: "/furniture/trunk.png", width: 80, height: 50, position: { x: 0, y: 0 } },
+    { id: "desk1", name: "Study Desk", type: "furniture", imgSrc: "/lovable-uploads/391c66a1-0f59-438c-a90b-87d4d89bcfa6.png", width: 80, height: 60, position: { x: 0, y: 0 } },
+    { id: "bookshelf1", name: "Bookshelf", type: "furniture", imgSrc: "/lovable-uploads/162598a8-5304-48d3-a4a0-5d7fb17a42e9.png", width: 70, height: 120, position: { x: 0, y: 0 } },
+    { id: "trunk1", name: "Magical Trunk", type: "furniture", imgSrc: "/lovable-uploads/bc860774-6701-4042-8c9f-b4d6b607d286.png", width: 80, height: 50, position: { x: 0, y: 0 } },
   ];
 
-  // House specific items (removed scarf and robe)
   const getHouseItems = (house: House): DormItem[] => {
+    const getBedImage = (house: House) => {
+      switch (house) {
+        case "gryffindor":
+          return "/lovable-uploads/e398318c-5ce7-46f1-afcc-c6481afce3c4.png";
+        case "slytherin":
+          return "/lovable-uploads/71d01db8-c62b-4b84-b8fa-0bba507a38b0.png";
+        case "ravenclaw":
+          return "/lovable-uploads/3a45086e-7622-4bfe-b28a-61b74a3eb28c.png";
+        case "hufflepuff":
+          return "/lovable-uploads/b7d4ffdb-4818-4fc2-94f7-33d7b4281941.png";
+        default:
+          return "/lovable-uploads/e398318c-5ce7-46f1-afcc-c6481afce3c4.png";
+      }
+    };
+
     const baseItems = [
-      { id: `bed-${house}`, name: `${house.charAt(0).toUpperCase() + house.slice(1)} Four-Poster Bed`, type: "houseItem" as const, house: house, imgSrc: "/furniture/four-poster-bed.png", width: 120, height: 80, position: { x: 0, y: 0 } },
+      { id: `bed-${house}`, name: `${house.charAt(0).toUpperCase() + house.slice(1)} Four-Poster Bed`, type: "houseItem" as const, house: house, imgSrc: getBedImage(house), width: 120, height: 80, position: { x: 0, y: 0 } },
     ];
 
     switch (house) {
       case "gryffindor":
         return [...baseItems,
-          { id: "banner-g", name: "Gryffindor Banner", type: "houseItem", house: "gryffindor", imgSrc: "/house-items/gryffindor-banner.png", width: 90, height: 120, position: { x: 0, y: 0 } },
-          { id: "plush-g", name: "Lion Plush", type: "houseItem", house: "gryffindor", imgSrc: "/house-items/lion-plush.png", width: 50, height: 60, position: { x: 0, y: 0 } },
+          { id: "banner-g", name: "Gryffindor Banner", type: "houseItem", house: "gryffindor", imgSrc: "/lovable-uploads/a26c5f3d-35d8-4fff-94ca-ba64798b7c01.png", width: 90, height: 120, position: { x: 0, y: 0 } },
+          { id: "plush-g", name: "Lion Plush", type: "houseItem", house: "gryffindor", imgSrc: "/lovable-uploads/a52090a6-1201-4e72-871e-cf97bc4a07b8.png", width: 50, height: 60, position: { x: 0, y: 0 } },
         ];
       case "slytherin":
         return [...baseItems,
-          { id: "banner-s", name: "Slytherin Banner", type: "houseItem", house: "slytherin", imgSrc: "/house-items/slytherin-banner.png", width: 90, height: 120, position: { x: 0, y: 0 } },
-          { id: "plush-s", name: "Snake Plush", type: "houseItem", house: "slytherin", imgSrc: "/house-items/snake-plush.png", width: 50, height: 60, position: { x: 0, y: 0 } },
+          { id: "banner-s", name: "Slytherin Banner", type: "houseItem", house: "slytherin", imgSrc: "/lovable-uploads/483b33f8-bc2c-4ff3-a578-260e7b8108ee.png", width: 90, height: 120, position: { x: 0, y: 0 } },
+          { id: "plush-s", name: "Snake Plush", type: "houseItem", house: "slytherin", imgSrc: "/lovable-uploads/70e0311b-ae11-4625-a1bb-e15ecd4bf38e.png", width: 50, height: 60, position: { x: 0, y: 0 } },
         ];
       case "ravenclaw":
         return [...baseItems,
-          { id: "banner-r", name: "Ravenclaw Banner", type: "houseItem", house: "ravenclaw", imgSrc: "/house-items/ravenclaw-banner.png", width: 90, height: 120, position: { x: 0, y: 0 } },
-          { id: "plush-r", name: "Eagle Plush", type: "houseItem", house: "ravenclaw", imgSrc: "/house-items/eagle-plush.png", width: 50, height: 60, position: { x: 0, y: 0 } },
+          { id: "banner-r", name: "Ravenclaw Banner", type: "houseItem", house: "ravenclaw", imgSrc: "/lovable-uploads/f1a74d71-5b13-476f-8426-54d7ed56a948.png", width: 90, height: 120, position: { x: 0, y: 0 } },
+          { id: "plush-r", name: "Eagle Plush", type: "houseItem", house: "ravenclaw", imgSrc: "/lovable-uploads/c28f05ce-cf6d-4762-baf5-26d6504ff8fc.png", width: 50, height: 60, position: { x: 0, y: 0 } },
         ];
       case "hufflepuff":
         return [...baseItems,
-          { id: "banner-h", name: "Hufflepuff Banner", type: "houseItem", house: "hufflepuff", imgSrc: "/house-items/hufflepuff-banner.png", width: 90, height: 120, position: { x: 0, y: 0 } },
-          { id: "plush-h", name: "Badger Plush", type: "houseItem", house: "hufflepuff", imgSrc: "/house-items/badger-plush.png", width: 50, height: 60, position: { x: 0, y: 0 } },
+          { id: "banner-h", name: "Hufflepuff Banner", type: "houseItem", house: "hufflepuff", imgSrc: "/lovable-uploads/8a3f8074-a59f-4407-a2df-f4c8dcd91cc5.png", width: 90, height: 120, position: { x: 0, y: 0 } },
+          { id: "plush-h", name: "Badger Plush", type: "houseItem", house: "hufflepuff", imgSrc: "/lovable-uploads/c28f05ce-cf6d-4762-baf5-26d6504ff8fc.png", width: 50, height: 60, position: { x: 0, y: 0 } },
         ];
       default:
         return baseItems;
     }
   };
 
-  // Get current items based on category
   const getCurrentItems = () => {
     if (currentCategory === "furniture") return furnitureItems;
     if (currentCategory === "houseItems" && selectedHouse) return getHouseItems(selectedHouse);
     return [];
   };
 
-  // Setup placeholder images for items until real images are loaded
   const handleItemImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.target as HTMLImageElement;
     target.src = "/placeholder.svg";
   };
 
-  // Handle item drag start
   const handleDragStart = (item: DormItem) => {
     setDraggedItem({ ...item, id: `${item.id}-${Date.now()}` });
     setIsDragging(true);
   };
 
-  // Handle room click for item placement
   const handleRoomClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isDragging || !draggedItem || !roomRef.current) return;
 
@@ -89,7 +98,6 @@ const DormCustomizer = () => {
     const x = e.clientX - roomRect.left - (draggedItem.width / 2);
     const y = e.clientY - roomRect.top - (draggedItem.height / 2);
 
-    // Boundary checking to keep items within the room
     const boundedX = Math.max(0, Math.min(x, roomRect.width - draggedItem.width));
     const boundedY = Math.max(0, Math.min(y, roomRect.height - draggedItem.height));
 
@@ -105,13 +113,11 @@ const DormCustomizer = () => {
     toast.success(`Added ${newItem.name} to your dormitory!`);
   };
 
-  // Handle removing an item
   const handleRemoveItem = (itemId: string) => {
     setPlacedItems(placedItems.filter(item => item.id !== itemId));
     toast.info("Item removed");
   };
 
-  // Navigate categories
   const nextCategory = () => {
     if (currentCategory === "furniture") setCurrentCategory("houseItems");
     else setCurrentCategory("furniture");
@@ -122,7 +128,6 @@ const DormCustomizer = () => {
     else setCurrentCategory("furniture");
   };
 
-  // Background style based on selected house
   const getRoomStyle = () => {
     if (!selectedHouse) return "bg-hogwarts-stone-bg";
 
@@ -140,7 +145,6 @@ const DormCustomizer = () => {
     }
   };
 
-  // Effect to prevent category being houseItems when no house is selected
   useEffect(() => {
     if (currentCategory === "houseItems" && !selectedHouse) {
       setCurrentCategory("furniture");
@@ -149,7 +153,6 @@ const DormCustomizer = () => {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-      {/* House Selection */}
       <div className="glass-card p-6 col-span-3 lg:col-span-1">
         <h2 className="text-2xl font-bold mb-4 text-white">Choose Your House</h2>
         <div className="grid grid-cols-2 gap-4">
@@ -207,7 +210,6 @@ const DormCustomizer = () => {
         </div>
       </div>
       
-      {/* Room View */}
       <div className="glass-card p-6 col-span-3 lg:col-span-2 h-[500px] overflow-hidden">
         <h2 className="text-2xl font-bold mb-4 text-white">Your Dormitory</h2>
         <div 
@@ -240,7 +242,6 @@ const DormCustomizer = () => {
             </div>
           ))}
           
-          {/* Room design tips based on house */}
           {placedItems.length === 0 && (
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="bg-black/50 p-4 rounded-lg backdrop-blur text-white text-center max-w-xs">
@@ -255,7 +256,6 @@ const DormCustomizer = () => {
         </div>
       </div>
       
-      {/* Item Selection */}
       <div className="glass-card p-6 col-span-3">
         <div className="flex items-center justify-between mb-4">
           <button 
