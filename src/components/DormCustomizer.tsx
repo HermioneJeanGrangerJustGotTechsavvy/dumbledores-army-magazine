@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from "react";
 import { Table, Bed, BookOpen, House, ChevronLeft, ChevronRight, GraduationCap } from "lucide-react";
 import { toast } from "sonner";
@@ -33,13 +34,13 @@ const DormCustomizer = () => {
     const getBedImage = (house: House) => {
       switch (house) {
         case "gryffindor":
-          return "/lovable-uploads/e398318c-5ce7-46f1-afcc-c6481afce3c4.png";
+          return "/lovable-uploads/e398318c-5ce7-46f1-afcc-c6481afce3c4.png"; // Gryffindor four-poster bed
         case "slytherin":
-          return "/lovable-uploads/71d01db8-c62b-4b84-b8fa-0bba507a38b0.png";
+          return "/lovable-uploads/71d01db8-c62b-4b84-b8fa-0bba507a38b0.png"; // Slytherin four-poster bed
         case "ravenclaw":
-          return "/lovable-uploads/3a45086e-7622-4bfe-b28a-61b74a3eb28c.png";
+          return "/lovable-uploads/3a45086e-7622-4bfe-b28a-61b74a3eb28c.png"; // Ravenclaw four-poster bed
         case "hufflepuff":
-          return "/lovable-uploads/b7d4ffdb-4818-4fc2-94f7-33d7b4281941.png";
+          return "/lovable-uploads/b7d4ffdb-4818-4fc2-94f7-33d7b4281941.png"; // Hufflepuff four-poster bed
         default:
           return "/lovable-uploads/e398318c-5ce7-46f1-afcc-c6481afce3c4.png";
       }
