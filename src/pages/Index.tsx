@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen, Wand2, Bookmark, ScrollText } from "lucide-react";
@@ -78,13 +77,13 @@ const Index = () => {
             </p>
             
             <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-700 delay-450 transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <CustomButton variant="default" size="lg" asChild>
+              <CustomButton variant="default" size="lg" asChild className="text-black">
                 <Link to="/house-sorting">
                   Get Sorted <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </CustomButton>
               
-              <CustomButton variant="outline" size="lg" asChild>
+              <CustomButton variant="outline" size="lg" asChild className="text-black">
                 <Link to="/classes">
                   Explore Classes
                 </Link>
@@ -175,7 +174,7 @@ const Index = () => {
                 </div>
                 
                 <CustomButton variant="default" asChild>
-                  <Link to="/classes">
+                  <Link to="/">
                     Begin Your Journey <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </CustomButton>
