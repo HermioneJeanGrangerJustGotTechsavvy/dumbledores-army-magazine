@@ -23,15 +23,14 @@ const DormCustomizer = () => {
   const [currentCategory, setCurrentCategory] = useState<"furniture" | "houseItems">("furniture");
   const roomRef = useRef<HTMLDivElement>(null);
 
-  // Base furniture items (without four-poster bed)
+  // Base furniture items (removed wooden chair)
   const furnitureItems: DormItem[] = [
     { id: "desk1", name: "Study Desk", type: "furniture", imgSrc: "/furniture/desk.png", width: 80, height: 60, position: { x: 0, y: 0 } },
     { id: "bookshelf1", name: "Bookshelf", type: "furniture", imgSrc: "/furniture/bookshelf.png", width: 70, height: 120, position: { x: 0, y: 0 } },
     { id: "trunk1", name: "Magical Trunk", type: "furniture", imgSrc: "/furniture/trunk.png", width: 80, height: 50, position: { x: 0, y: 0 } },
-    { id: "chair1", name: "Wooden Chair", type: "furniture", imgSrc: "/furniture/chair.png", width: 50, height: 50, position: { x: 0, y: 0 } },
   ];
 
-  // House specific items with four-poster bed added for each house
+  // House specific items (removed scarf and robe)
   const getHouseItems = (house: House): DormItem[] => {
     const baseItems = [
       { id: `bed-${house}`, name: `${house.charAt(0).toUpperCase() + house.slice(1)} Four-Poster Bed`, type: "houseItem" as const, house: house, imgSrc: "/furniture/four-poster-bed.png", width: 120, height: 80, position: { x: 0, y: 0 } },
@@ -40,29 +39,21 @@ const DormCustomizer = () => {
     switch (house) {
       case "gryffindor":
         return [...baseItems,
-          { id: "scarf-g", name: "Gryffindor Scarf", type: "houseItem", house: "gryffindor", imgSrc: "/house-items/gryffindor-scarf.png", width: 80, height: 30, position: { x: 0, y: 0 } },
-          { id: "robe-g", name: "Gryffindor Robe", type: "houseItem", house: "gryffindor", imgSrc: "/house-items/gryffindor-robe.png", width: 70, height: 100, position: { x: 0, y: 0 } },
           { id: "banner-g", name: "Gryffindor Banner", type: "houseItem", house: "gryffindor", imgSrc: "/house-items/gryffindor-banner.png", width: 90, height: 120, position: { x: 0, y: 0 } },
           { id: "plush-g", name: "Lion Plush", type: "houseItem", house: "gryffindor", imgSrc: "/house-items/lion-plush.png", width: 50, height: 60, position: { x: 0, y: 0 } },
         ];
       case "slytherin":
         return [...baseItems,
-          { id: "scarf-s", name: "Slytherin Scarf", type: "houseItem", house: "slytherin", imgSrc: "/house-items/slytherin-scarf.png", width: 80, height: 30, position: { x: 0, y: 0 } },
-          { id: "robe-s", name: "Slytherin Robe", type: "houseItem", house: "slytherin", imgSrc: "/house-items/slytherin-robe.png", width: 70, height: 100, position: { x: 0, y: 0 } },
           { id: "banner-s", name: "Slytherin Banner", type: "houseItem", house: "slytherin", imgSrc: "/house-items/slytherin-banner.png", width: 90, height: 120, position: { x: 0, y: 0 } },
           { id: "plush-s", name: "Snake Plush", type: "houseItem", house: "slytherin", imgSrc: "/house-items/snake-plush.png", width: 50, height: 60, position: { x: 0, y: 0 } },
         ];
       case "ravenclaw":
         return [...baseItems,
-          { id: "scarf-r", name: "Ravenclaw Scarf", type: "houseItem", house: "ravenclaw", imgSrc: "/house-items/ravenclaw-scarf.png", width: 80, height: 30, position: { x: 0, y: 0 } },
-          { id: "robe-r", name: "Ravenclaw Robe", type: "houseItem", house: "ravenclaw", imgSrc: "/house-items/ravenclaw-robe.png", width: 70, height: 100, position: { x: 0, y: 0 } },
           { id: "banner-r", name: "Ravenclaw Banner", type: "houseItem", house: "ravenclaw", imgSrc: "/house-items/ravenclaw-banner.png", width: 90, height: 120, position: { x: 0, y: 0 } },
           { id: "plush-r", name: "Eagle Plush", type: "houseItem", house: "ravenclaw", imgSrc: "/house-items/eagle-plush.png", width: 50, height: 60, position: { x: 0, y: 0 } },
         ];
       case "hufflepuff":
         return [...baseItems,
-          { id: "scarf-h", name: "Hufflepuff Scarf", type: "houseItem", house: "hufflepuff", imgSrc: "/house-items/hufflepuff-scarf.png", width: 80, height: 30, position: { x: 0, y: 0 } },
-          { id: "robe-h", name: "Hufflepuff Robe", type: "houseItem", house: "hufflepuff", imgSrc: "/house-items/hufflepuff-robe.png", width: 70, height: 100, position: { x: 0, y: 0 } },
           { id: "banner-h", name: "Hufflepuff Banner", type: "houseItem", house: "hufflepuff", imgSrc: "/house-items/hufflepuff-banner.png", width: 90, height: 120, position: { x: 0, y: 0 } },
           { id: "plush-h", name: "Badger Plush", type: "houseItem", house: "hufflepuff", imgSrc: "/house-items/badger-plush.png", width: 50, height: 60, position: { x: 0, y: 0 } },
         ];
