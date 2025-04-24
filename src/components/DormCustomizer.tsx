@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from "react";
 import { Table, Bed, BookOpen, House, ChevronLeft, ChevronRight, GraduationCap } from "lucide-react";
 import { toast } from "sonner";
@@ -34,7 +33,7 @@ const DormCustomizer = () => {
     const getBedImage = (house: House) => {
       switch (house) {
         case "gryffindor":
-          return "/lovable-uploads/e398318c-5ce7-46f1-afcc-c6481afce3c4.png"; // Gryffindor four-poster bed
+          return "/lovable-uploads/2fff22dd-941e-427f-9963-7bb5ab63b912.png"; // Updated Gryffindor four-poster bed
         case "slytherin":
           return "/lovable-uploads/71d01db8-c62b-4b84-b8fa-0bba507a38b0.png"; // Slytherin four-poster bed
         case "ravenclaw":
@@ -53,8 +52,8 @@ const DormCustomizer = () => {
     switch (house) {
       case "gryffindor":
         return [...baseItems,
-          { id: "banner-g", name: "Gryffindor Banner", type: "houseItem", house: "gryffindor", imgSrc: "/lovable-uploads/a26c5f3d-35d8-4fff-94ca-ba64798b7c01.png", width: 90, height: 120, position: { x: 0, y: 0 } },
-          { id: "plush-g", name: "Lion Plush", type: "houseItem", house: "gryffindor", imgSrc: "/lovable-uploads/a52090a6-1201-4e72-871e-cf97bc4a07b8.png", width: 50, height: 60, position: { x: 0, y: 0 } },
+          { id: "banner-g", name: "Gryffindor Banner", type: "houseItem", house: "gryffindor", imgSrc: "/lovable-uploads/e482be19-3189-4de0-857a-d3458c30aa6f.png", width: 90, height: 120, position: { x: 0, y: 0 } },
+          { id: "plush-g", name: "Lion Plush", type: "houseItem", house: "gryffindor", imgSrc: "/lovable-uploads/f59b5804-c407-4afc-acf0-0887e6f59b13.png", width: 50, height: 60, position: { x: 0, y: 0 } },
         ];
       case "slytherin":
         return [...baseItems,
