@@ -25,9 +25,9 @@ const DormCustomizer = () => {
   const roomRef = useRef<HTMLDivElement>(null);
 
   const furnitureItems: DormItem[] = [
-    { id: "desk1", name: "Study Desk", type: "furniture", imgSrc: "/lovable-uploads/391c66a1-0f59-438c-a90b-87d4d89bcfa6.png", width: 80, height: 60, position: { x: 0, y: 0 } },
-    { id: "bookshelf1", name: "Bookshelf", type: "furniture", imgSrc: "/lovable-uploads/162598a8-5304-48d3-a4a0-5d7fb17a42e9.png", width: 70, height: 120, position: { x: 0, y: 0 } },
-    { id: "trunk1", name: "Magical Trunk", type: "furniture", imgSrc: "/lovable-uploads/bc860774-6701-4042-8c9f-b4d6b607d286.png", width: 80, height: 50, position: { x: 0, y: 0 } },
+    { id: "desk1", name: "Study Desk", type: "furniture", imgSrc: "/lovable-uploads/0542b05a-2497-418f-ab87-a651349da71f.png", width: 80, height: 60, position: { x: 0, y: 0 } },
+    { id: "bookshelf1", name: "Bookshelf", type: "furniture", imgSrc: "/lovable-uploads/38ad771d-bf9c-4a41-95e6-894e6b30ce22.png", width: 70, height: 120, position: { x: 0, y: 0 } },
+    { id: "trunk1", name: "Magical Trunk", type: "furniture", imgSrc: "/lovable-uploads/805c7767-ed2e-48bb-83aa-326c1c7582e9.png", width: 80, height: 50, position: { x: 0, y: 0 } },
   ];
 
   const getHouseItems = (house: House): DormItem[] => {
