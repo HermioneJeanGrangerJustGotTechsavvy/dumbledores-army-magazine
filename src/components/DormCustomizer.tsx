@@ -37,7 +37,7 @@ const DormCustomizer = () => {
         case "slytherin":
           return "/lovable-uploads/90317002-e297-49dc-bd6f-12277c3d651a.png";
         case "ravenclaw":
-          return "/lovable-uploads/3a45086e-7622-4bfe-b28a-61b74a3eb28c.png";
+          return "/lovable-uploads/4eab8ae9-8f63-4b24-9b03-3fc3c21c0e72.png";
         case "hufflepuff":
           return "/lovable-uploads/b7d4ffdb-4818-4fc2-94f7-33d7b4281941.png";
         default:
@@ -62,8 +62,8 @@ const DormCustomizer = () => {
         ];
       case "ravenclaw":
         return [...baseItems,
-          { id: "banner-r", name: "Ravenclaw Banner", type: "houseItem", house: "ravenclaw", imgSrc: "/lovable-uploads/f1a74d71-5b13-476f-8426-54d7ed56a948.png", width: 90, height: 120, position: { x: 0, y: 0 } },
-          { id: "plush-r", name: "Eagle Plush", type: "houseItem", house: "ravenclaw", imgSrc: "/lovable-uploads/c28f05ce-cf6d-4762-baf5-26d6504ff8fc.png", width: 50, height: 60, position: { x: 0, y: 0 } },
+          { id: "banner-r", name: "Ravenclaw Banner", type: "houseItem", house: "ravenclaw", imgSrc: "/lovable-uploads/5abfd917-3406-41a3-a95a-84920405e339.png", width: 90, height: 120, position: { x: 0, y: 0 } },
+          { id: "plush-r", name: "Eagle Plush", type: "houseItem", house: "ravenclaw", imgSrc: "/lovable-uploads/ea29193f-7f7c-4233-8a7c-f9d3a20e2583.png", width: 50, height: 60, position: { x: 0, y: 0 } },
         ];
       case "hufflepuff":
         return [...baseItems,
