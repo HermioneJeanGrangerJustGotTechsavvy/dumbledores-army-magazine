@@ -24,9 +24,9 @@ const DormCustomizer = () => {
   const roomRef = useRef<HTMLDivElement>(null);
 
   const furnitureItems: DormItem[] = [
-    { id: "desk1", name: "Study Desk", type: "furniture", imgSrc: "/lovable-uploads/0542b05a-2497-418f-ab87-a651349da71f.png", width: 80, height: 60, position: { x: 0, y: 0 } },
-    { id: "bookshelf1", name: "Bookshelf", type: "furniture", imgSrc: "/lovable-uploads/38ad771d-bf9c-4a41-95e6-894e6b30ce22.png", width: 70, height: 120, position: { x: 0, y: 0 } },
-    { id: "trunk1", name: "Magical Trunk", type: "furniture", imgSrc: "/lovable-uploads/805c7767-ed2e-48bb-83aa-326c1c7582e9.png", width: 80, height: 50, position: { x: 0, y: 0 } },
+    { id: "desk1", name: "Study Desk", type: "furniture", imgSrc: "/lovable-uploads/0542b05a-2497-418f-ab87-a651349da71f.png", width: 120, height: 80, position: { x: 0, y: 0 } },
+    { id: "bookshelf1", name: "Bookshelf", type: "furniture", imgSrc: "/lovable-uploads/38ad771d-bf9c-4a41-95e6-894e6b30ce22.png", width: 100, height: 180, position: { x: 0, y: 0 } },
+    { id: "trunk1", name: "Magical Trunk", type: "furniture", imgSrc: "/lovable-uploads/805c7767-ed2e-48bb-83aa-326c1c7582e9.png", width: 90, height: 60, position: { x: 0, y: 0 } },
   ];
 
   const getHouseItems = (house: House): DormItem[] => {
@@ -39,36 +39,36 @@ const DormCustomizer = () => {
         case "ravenclaw":
           return "/lovable-uploads/4eab8ae9-8f63-4b24-9b03-3fc3c21c0e72.png";
         case "hufflepuff":
-          return "/lovable-uploads/b7d4ffdb-4818-4fc2-94f7-33d7b4281941.png";
+          return "/lovable-uploads/fb226dd6-1c2a-4b45-a9ac-482b180b2332.png";
         default:
           return "/lovable-uploads/e398318c-5ce7-46f1-afcc-c6481afce3c4.png";
       }
     };
 
     const baseItems = [
-      { id: `bed-${house}`, name: `${house.charAt(0).toUpperCase() + house.slice(1)} Four-Poster Bed`, type: "houseItem" as const, house: house, imgSrc: getBedImage(house), width: 120, height: 80, position: { x: 0, y: 0 } },
+      { id: `bed-${house}`, name: `${house.charAt(0).toUpperCase() + house.slice(1)} Four-Poster Bed`, type: "houseItem" as const, house: house, imgSrc: getBedImage(house), width: 160, height: 140, position: { x: 0, y: 0 } },
     ];
 
     switch (house) {
       case "gryffindor":
         return [...baseItems,
-          { id: "banner-g", name: "Gryffindor Banner", type: "houseItem", house: "gryffindor", imgSrc: "/lovable-uploads/e482be19-3189-4de0-857a-d3458c30aa6f.png", width: 90, height: 120, position: { x: 0, y: 0 } },
-          { id: "plush-g", name: "Lion Plush", type: "houseItem", house: "gryffindor", imgSrc: "/lovable-uploads/f59b5804-c407-4afc-acf0-0887e6f59b13.png", width: 50, height: 60, position: { x: 0, y: 0 } },
+          { id: "banner-g", name: "Gryffindor Banner", type: "houseItem", house: "gryffindor", imgSrc: "/lovable-uploads/e482be19-3189-4de0-857a-d3458c30aa6f.png", width: 80, height: 120, position: { x: 0, y: 0 } },
+          { id: "plush-g", name: "Lion Plush", type: "houseItem", house: "gryffindor", imgSrc: "/lovable-uploads/f59b5804-c407-4afc-acf0-0887e6f59b13.png", width: 40, height: 45, position: { x: 0, y: 0 } },
         ];
       case "slytherin":
         return [...baseItems,
-          { id: "banner-s", name: "Slytherin Banner", type: "houseItem", house: "slytherin", imgSrc: "/lovable-uploads/fd169dba-1710-47e9-9f6f-50ca8b1d6c23.png", width: 90, height: 120, position: { x: 0, y: 0 } },
-          { id: "plush-s", name: "Snake Plush", type: "houseItem", house: "slytherin", imgSrc: "/lovable-uploads/ba85638e-dc44-4d4f-81a4-a08b406fd768.png", width: 50, height: 60, position: { x: 0, y: 0 } },
+          { id: "banner-s", name: "Slytherin Banner", type: "houseItem", house: "slytherin", imgSrc: "/lovable-uploads/fd169dba-1710-47e9-9f6f-50ca8b1d6c23.png", width: 80, height: 120, position: { x: 0, y: 0 } },
+          { id: "plush-s", name: "Snake Plush", type: "houseItem", house: "slytherin", imgSrc: "/lovable-uploads/ba85638e-dc44-4d4f-81a4-a08b406fd768.png", width: 40, height: 45, position: { x: 0, y: 0 } },
         ];
       case "ravenclaw":
         return [...baseItems,
-          { id: "banner-r", name: "Ravenclaw Banner", type: "houseItem", house: "ravenclaw", imgSrc: "/lovable-uploads/5abfd917-3406-41a3-a95a-84920405e339.png", width: 90, height: 120, position: { x: 0, y: 0 } },
-          { id: "plush-r", name: "Eagle Plush", type: "houseItem", house: "ravenclaw", imgSrc: "/lovable-uploads/ea29193f-7f7c-4233-8a7c-f9d3a20e2583.png", width: 50, height: 60, position: { x: 0, y: 0 } },
+          { id: "banner-r", name: "Ravenclaw Banner", type: "houseItem", house: "ravenclaw", imgSrc: "/lovable-uploads/5abfd917-3406-41a3-a95a-84920405e339.png", width: 80, height: 120, position: { x: 0, y: 0 } },
+          { id: "plush-r", name: "Eagle Plush", type: "houseItem", house: "ravenclaw", imgSrc: "/lovable-uploads/ea29193f-7f7c-4233-8a7c-f9d3a20e2583.png", width: 40, height: 45, position: { x: 0, y: 0 } },
         ];
       case "hufflepuff":
         return [...baseItems,
-          { id: "banner-h", name: "Hufflepuff Banner", type: "houseItem", house: "hufflepuff", imgSrc: "/lovable-uploads/8a3f8074-a59f-4407-a2df-f4c8dcd91cc5.png", width: 90, height: 120, position: { x: 0, y: 0 } },
-          { id: "plush-h", name: "Badger Plush", type: "houseItem", house: "hufflepuff", imgSrc: "/lovable-uploads/c28f05ce-cf6d-4762-baf5-26d6504ff8fc.png", width: 50, height: 60, position: { x: 0, y: 0 } },
+          { id: "banner-h", name: "Hufflepuff Banner", type: "houseItem", house: "hufflepuff", imgSrc: "/lovable-uploads/65e32555-3e16-4455-b798-abd1581de64a.png", width: 80, height: 120, position: { x: 0, y: 0 } },
+          { id: "plush-h", name: "Badger Plush", type: "houseItem", house: "hufflepuff", imgSrc: "/lovable-uploads/51448e59-c4df-4de9-a961-5318b72da490.png", width: 40, height: 45, position: { x: 0, y: 0 } },
         ];
       default:
         return baseItems;
