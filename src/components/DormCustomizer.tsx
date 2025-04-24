@@ -33,13 +33,13 @@ const DormCustomizer = () => {
     const getBedImage = (house: House) => {
       switch (house) {
         case "gryffindor":
-          return "/lovable-uploads/2fff22dd-941e-427f-9963-7bb5ab63b912.png"; // Updated Gryffindor four-poster bed
+          return "/lovable-uploads/2fff22dd-941e-427f-9963-7bb5ab63b912.png";
         case "slytherin":
-          return "/lovable-uploads/71d01db8-c62b-4b84-b8fa-0bba507a38b0.png"; // Slytherin four-poster bed
+          return "/lovable-uploads/90317002-e297-49dc-bd6f-12277c3d651a.png";
         case "ravenclaw":
-          return "/lovable-uploads/3a45086e-7622-4bfe-b28a-61b74a3eb28c.png"; // Ravenclaw four-poster bed
+          return "/lovable-uploads/3a45086e-7622-4bfe-b28a-61b74a3eb28c.png";
         case "hufflepuff":
-          return "/lovable-uploads/b7d4ffdb-4818-4fc2-94f7-33d7b4281941.png"; // Hufflepuff four-poster bed
+          return "/lovable-uploads/b7d4ffdb-4818-4fc2-94f7-33d7b4281941.png";
         default:
           return "/lovable-uploads/e398318c-5ce7-46f1-afcc-c6481afce3c4.png";
       }
@@ -57,8 +57,8 @@ const DormCustomizer = () => {
         ];
       case "slytherin":
         return [...baseItems,
-          { id: "banner-s", name: "Slytherin Banner", type: "houseItem", house: "slytherin", imgSrc: "/lovable-uploads/483b33f8-bc2c-4ff3-a578-260e7b8108ee.png", width: 90, height: 120, position: { x: 0, y: 0 } },
-          { id: "plush-s", name: "Snake Plush", type: "houseItem", house: "slytherin", imgSrc: "/lovable-uploads/70e0311b-ae11-4625-a1bb-e15ecd4bf38e.png", width: 50, height: 60, position: { x: 0, y: 0 } },
+          { id: "banner-s", name: "Slytherin Banner", type: "houseItem", house: "slytherin", imgSrc: "/lovable-uploads/fd169dba-1710-47e9-9f6f-50ca8b1d6c23.png", width: 90, height: 120, position: { x: 0, y: 0 } },
+          { id: "plush-s", name: "Snake Plush", type: "houseItem", house: "slytherin", imgSrc: "/lovable-uploads/ba85638e-dc44-4d4f-81a4-a08b406fd768.png", width: 50, height: 60, position: { x: 0, y: 0 } },
         ];
       case "ravenclaw":
         return [...baseItems,
