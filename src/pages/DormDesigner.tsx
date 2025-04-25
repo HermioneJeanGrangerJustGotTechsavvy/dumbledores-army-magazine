@@ -16,7 +16,10 @@ const DormDesigner = () => {
         <p className="text-white/80 max-w-3xl mx-auto">
           Customize your magical living space with enchanted furniture and decorations. 
           Create the perfect dormitory that reflects your house pride and personal style.
-          Place, drag, and arrange items to create your ideal space!
+          Place, drag, and arrange items to create your ideal space! 
+          <span className="block text-sm mt-2 text-white/60">
+            Pro tip: Click on an item, then click in the dormitory to add it. You can drag and rearrange objects to design your perfect magical room!
+          </span>
         </p>
       </div>
       
