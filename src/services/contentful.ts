@@ -47,7 +47,85 @@ I have a place to be me, a place to return to,
 A place where the seas finally meet the skies, the place they call 'infinity'.
 
 By Jiya Doshi`
-  }
+  },
+  {
+    id: 2,
+    title: "Wounds",
+    excerpt: "A poetic exploration of vulnerability, insecurity, and emotions that linger even when words don't.",
+    author: "Durva Shah",
+    date: "April 25, 2025",
+    image: "/lovable-uploads/b2b6834c-0a1c-423a-b168-d07ad12f22af.png",
+    content: `I decide to forget everything and forgive you,
+  Yet you don't miss an opportunity for showing your colours true.
+  
+  I decide to put everything back and start anew,
+  Yet you stab my back like the first few.
+  
+  I decide to move on and smile,
+  Yet you never leave a chance to say words that stick for a while.
+  
+  I decide to accept and love,
+  Yet your sentences hurt like knives killing my pearl dove.
+  
+  You always got something to say in the end,
+  You leave scars that can never mend.
+  
+  You can never see me happy and content,
+  You’ve always got to do things that leave a dent.
+  
+  Whatever you say, whatever you do, hurt and strike the heart,
+  Leaving it in a million pieces apart.
+  
+  You say it was mindless talking and blame the drink,
+  It was your actions that made me rethink.
+  
+  I wish I was dead,
+  So you would be lying peacefully on your bed.
+  
+  I wish I didn't exist,
+  My importance in your life is just a myth.
+  
+  Yet I can't hate nor dislike,
+  It's the thrill of how you will behave that leaves me with spike.
+  
+  Wound, wounds, and wounds that will never heal,
+  Whether I whimper or squeal.
+  
+  You tell me to forget the past, to forget your mistakes and live in the moment,
+  But deep down all my sorrow is just pent.	
+  
+  You find all faults in me,
+  For you there is nothing good in me to see.
+  
+  You tell me it's normal and everybody goes through it,
+  But I bet nobody would sit through this shit.
+  
+  You tell it's somebody who's got to say,
+  It's your harsh words that let me in the dark world stray.
+  
+  And if I tell you it hurts,
+  You will just stop talking or another harsh word blurt.
+  
+  You tell me to keep it superficial,
+  And I really wish it was possible.
+  
+  A world where everything would be mythical,
+  And loving you would be whimsical.
+  
+  You never see my efforts or tries,
+  You ignore the sound of cries.
+  
+  You say I am the one who needs help,
+  But the finger is pointing at you… yelp!
+  
+  You are not a homemaker,
+  But a destroyer.
+  
+  You drain all my confidence,
+  Just to strengthen your defense.
+  
+  By Durva Shah`
+}
 ];
 
 const client = createClient({
