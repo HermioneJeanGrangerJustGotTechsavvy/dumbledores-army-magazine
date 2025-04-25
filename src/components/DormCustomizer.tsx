@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from "react";
 import { Table, Bed, BookOpen, House, ChevronLeft, ChevronRight, GraduationCap } from "lucide-react";
 import { toast } from "sonner";
@@ -21,7 +22,9 @@ const DormCustomizer = () => {
   const [draggedItem, setDraggedItem] = useState<DormItem | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [currentCategory, setCurrentCategory] = useState<"furniture" | "houseItems">("furniture");
+  const [activeMovingItem, setActiveMovingItem] = useState<string | null>(null);
   const roomRef = useRef<HTMLDivElement>(null);
+  const activeItemRef = useRef<{ id: string; offsetX: number; offsetY: number } | null>(null);
 
   const furnitureItems: DormItem[] = [
     { id: "desk1", name: "Study Desk", type: "furniture", imgSrc: "/lovable-uploads/0542b05a-2497-418f-ab87-a651349da71f.png", width: 180, height: 280, position: { x: 0, y: 0 } },
@@ -145,6 +148,76 @@ const DormCustomizer = () => {
     }
   };
 
+  // Handle mouse down on placed item for dragging
+  const handleMouseDown = (e: React.MouseEvent, itemId: string) => {
+    if (!roomRef.current) return;
+    e.stopPropagation();
+    
+    const itemElement = e.currentTarget;
+    const rect = itemElement.getBoundingClientRect();
+    const roomRect = roomRef.current.getBoundingClientRect();
+    
+    // Calculate the offset of the mouse pointer from the top-left corner of the item
+    const offsetX = e.clientX - rect.left;
+    const offsetY = e.clientY - rect.top;
+    
+    setActiveMovingItem(itemId);
+    activeItemRef.current = { id: itemId, offsetX, offsetY };
+  };
+
+  // Handle mouse move for dragging placed items
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!activeMovingItem || !activeItemRef.current || !roomRef.current) return;
+    
+    const roomRect = roomRef.current.getBoundingClientRect();
+    
+    // Find the item we're moving
+    const itemIndex = placedItems.findIndex(item => item.id === activeMovingItem);
+    if (itemIndex === -1) return;
+    
+    const movingItem = placedItems[itemIndex];
+    
+    // Calculate new position considering the initial offset
+    const newX = e.clientX - roomRect.left - activeItemRef.current.offsetX;
+    const newY = e.clientY - roomRect.top - activeItemRef.current.offsetY;
+    
+    // Bound the position to stay within the room
+    const boundedX = Math.max(0, Math.min(newX, roomRect.width - movingItem.width));
+    const boundedY = Math.max(0, Math.min(newY, roomRect.height - movingItem.height));
+    
+    // Update the item's position
+    const updatedItems = [...placedItems];
+    updatedItems[itemIndex] = {
+      ...movingItem,
+      position: { x: boundedX, y: boundedY }
+    };
+    
+    setPlacedItems(updatedItems);
+  };
+
+  // Handle mouse up to stop dragging
+  const handleMouseUp = () => {
+    if (activeMovingItem) {
+      setActiveMovingItem(null);
+      activeItemRef.current = null;
+    }
+  };
+
+  // Add event listeners for mouse up outside the component
+  useEffect(() => {
+    const handleGlobalMouseUp = () => {
+      handleMouseUp();
+    };
+    
+    if (activeMovingItem) {
+      document.addEventListener('mouseup', handleGlobalMouseUp);
+    }
+    
+    return () => {
+      document.removeEventListener('mouseup', handleGlobalMouseUp);
+    };
+  }, [activeMovingItem]);
+
   useEffect(() => {
     if (currentCategory === "houseItems" && !selectedHouse) {
       setCurrentCategory("furniture");
@@ -216,11 +289,14 @@ const DormCustomizer = () => {
           ref={roomRef}
           className={`w-full h-[400px] relative ${getRoomStyle()} rounded-lg`}
           onClick={handleRoomClick}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseUp}
         >
           {placedItems.map((item) => (
             <div
               key={item.id}
-              className="absolute cursor-move transition-transform hover:scale-105"
+              className={`absolute ${activeMovingItem === item.id ? 'cursor-grabbing z-10 shadow-xl' : 'cursor-grab hover:z-10'} 
+                transition-shadow hover:shadow-lg`}
               style={{
                 left: `${item.position.x}px`,
                 top: `${item.position.y}px`,
@@ -228,13 +304,15 @@ const DormCustomizer = () => {
                 height: `${item.height}px`
               }}
               onClick={(e) => e.stopPropagation()}
+              onMouseDown={(e) => handleMouseDown(e, item.id)}
               onDoubleClick={() => handleRemoveItem(item.id)}
             >
               <img 
                 src={item.imgSrc} 
                 alt={item.name}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain mix-blend-multiply"
                 onError={handleItemImageError}
+                draggable="false"
               />
               <div className="text-white text-xs mt-1 bg-black/40 px-2 py-0.5 rounded-md backdrop-blur-sm text-center">
                 {item.name}
@@ -293,8 +371,9 @@ const DormCustomizer = () => {
                 <img 
                   src={item.imgSrc}
                   alt={item.name}
-                  className="max-h-full max-w-full object-contain"
+                  className="max-h-full max-w-full object-contain mix-blend-multiply"
                   onError={handleItemImageError}
+                  draggable="false"
                 />
               </div>
               <p className="text-sm font-medium text-white">{item.name}</p>
@@ -315,6 +394,7 @@ const DormCustomizer = () => {
             <li>Choose your Hogwarts house above</li>
             <li>Click on any item to select it</li>
             <li>Click in the room to place the selected item</li>
+            <li>Drag placed items to rearrange them</li>
             <li>Double-click any placed item to remove it</li>
           </ol>
         </div>

@@ -16,6 +16,7 @@ const DormDesigner = () => {
         <p className="text-white/80 max-w-3xl mx-auto">
           Customize your magical living space with enchanted furniture and decorations. 
           Create the perfect dormitory that reflects your house pride and personal style.
+          Place, drag, and arrange items to create your ideal space!
         </p>
       </div>
       
