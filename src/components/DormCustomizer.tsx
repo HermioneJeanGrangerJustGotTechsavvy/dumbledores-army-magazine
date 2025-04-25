@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from "react";
 import { Table, Bed, BookOpen, House, ChevronLeft, ChevronRight, GraduationCap } from "lucide-react";
 import { toast } from "sonner";
@@ -28,7 +27,7 @@ const DormCustomizer = () => {
 
   const furnitureItems: DormItem[] = [
     { id: "desk1", name: "Study Desk", type: "furniture", imgSrc: "/lovable-uploads/0542b05a-2497-418f-ab87-a651349da71f.png", width: 180, height: 280, position: { x: 0, y: 0 } },
-    { id: "bookshelf1", name: "Bookshelf", type: "furniture", imgSrc: "/lovable-uploads/38ad771d-bf9c-4a41-95e6-894e6b30ce22.png", width: 160, height: 350, position: { x: 0, y: 0 } },
+    { id: "bookshelf1", name: "Bookshelf", type: "furniture", imgSrc: "/lovable-uploads/38ad771d-bf9c-4a41-95e6-894e6b30ce22.png", width: 240, height: 400, position: { x: 0, y: 0 } },
     { id: "trunk1", name: "Magical Trunk", type: "furniture", imgSrc: "/lovable-uploads/805c7767-ed2e-48bb-83aa-326c1c7582e9.png", width: 120, height: 100, position: { x: 0, y: 0 } },
   ];
 
@@ -132,23 +131,22 @@ const DormCustomizer = () => {
   };
 
   const getRoomStyle = () => {
-    if (!selectedHouse) return "bg-hogwarts-stone-bg";
+    if (!selectedHouse) return "bg-white";
 
     switch (selectedHouse) {
       case "gryffindor":
-        return "bg-hogwarts-stone-bg border-gryffindor-primary border-4";
+        return "bg-white border-gryffindor-primary border-4";
       case "slytherin":
-        return "bg-hogwarts-stone-bg border-slytherin-primary border-4";
+        return "bg-white border-slytherin-primary border-4";
       case "ravenclaw":
-        return "bg-hogwarts-stone-bg border-ravenclaw-primary border-4";
+        return "bg-white border-ravenclaw-primary border-4";
       case "hufflepuff":
-        return "bg-hogwarts-stone-bg border-hufflepuff-primary border-4";
+        return "bg-white border-hufflepuff-primary border-4";
       default:
-        return "bg-hogwarts-stone-bg";
+        return "bg-white";
     }
   };
 
-  // Handle mouse down on placed item for dragging
   const handleMouseDown = (e: React.MouseEvent, itemId: string) => {
     if (!roomRef.current) return;
     e.stopPropagation();
@@ -157,7 +155,6 @@ const DormCustomizer = () => {
     const rect = itemElement.getBoundingClientRect();
     const roomRect = roomRef.current.getBoundingClientRect();
     
-    // Calculate the offset of the mouse pointer from the top-left corner of the item
     const offsetX = e.clientX - rect.left;
     const offsetY = e.clientY - rect.top;
     
@@ -165,27 +162,22 @@ const DormCustomizer = () => {
     activeItemRef.current = { id: itemId, offsetX, offsetY };
   };
 
-  // Handle mouse move for dragging placed items
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!activeMovingItem || !activeItemRef.current || !roomRef.current) return;
     
     const roomRect = roomRef.current.getBoundingClientRect();
     
-    // Find the item we're moving
     const itemIndex = placedItems.findIndex(item => item.id === activeMovingItem);
     if (itemIndex === -1) return;
     
     const movingItem = placedItems[itemIndex];
     
-    // Calculate new position considering the initial offset
     const newX = e.clientX - roomRect.left - activeItemRef.current.offsetX;
     const newY = e.clientY - roomRect.top - activeItemRef.current.offsetY;
     
-    // Bound the position to stay within the room
     const boundedX = Math.max(0, Math.min(newX, roomRect.width - movingItem.width));
     const boundedY = Math.max(0, Math.min(newY, roomRect.height - movingItem.height));
     
-    // Update the item's position
     const updatedItems = [...placedItems];
     updatedItems[itemIndex] = {
       ...movingItem,
@@ -195,7 +187,6 @@ const DormCustomizer = () => {
     setPlacedItems(updatedItems);
   };
 
-  // Handle mouse up to stop dragging
   const handleMouseUp = () => {
     if (activeMovingItem) {
       setActiveMovingItem(null);
@@ -203,7 +194,6 @@ const DormCustomizer = () => {
     }
   };
 
-  // Add event listeners for mouse up outside the component
   useEffect(() => {
     const handleGlobalMouseUp = () => {
       handleMouseUp();
