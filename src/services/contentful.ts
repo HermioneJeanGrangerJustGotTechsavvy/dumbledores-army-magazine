@@ -131,8 +131,8 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
     const response = await client.getEntries({
       content_type: 'blogPost',
     });
-consol.log('Fetched posts:', response.items);
-if (!response.items || response.items.length === 0) {
+console.log('Fetched posts:', response.items);
+    if (!response.items || response.items.length === 0) {
       console.log('No posts found in Contentful, using sample posts');
       return samplePosts;
     }
