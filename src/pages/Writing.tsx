@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { useToast } from "@/hooks/use-toast";
@@ -211,9 +210,9 @@ const Writing = () => {
           {selectedPost && (
             <>
               <DialogHeader>
-                <DialogTitle className="text-2xl font-bold">{selectedPost.title}</DialogTitle>
-                <DialogDescription className="text-primary">
-                  {selectedPost.date} • by {selectedPost.author}
+                <DialogTitle className="text-4xl font-bold text-center mb-2">{selectedPost.title}</DialogTitle>
+                <DialogDescription className="text-xl font-bold text-center text-primary mb-4">
+                  by {selectedPost.author}
                 </DialogDescription>
               </DialogHeader>
               <div className="my-4">
