@@ -210,8 +210,10 @@ const Writing = () => {
           {selectedPost && (
             <>
               <DialogHeader>
-                <DialogTitle className="text-4xl font-bold text-center mb-2">{selectedPost.title}</DialogTitle>
-                <DialogDescription className="text-xl font-bold text-center text-primary mb-4">
+                <DialogTitle className="text-4xl font-bold text-center mb-2 text-white">
+                  {selectedPost.title}
+                </DialogTitle>
+                <DialogDescription className="text-2xl font-bold text-center text-primary mb-4">
                   by {selectedPost.author}
                 </DialogDescription>
               </DialogHeader>
@@ -221,8 +223,16 @@ const Writing = () => {
                   alt={selectedPost.title} 
                   className="w-full h-64 object-cover rounded-md mb-6"
                 />
-                <div className="whitespace-pre-line leading-relaxed">
-                  {selectedPost.content}
+                <div className="whitespace-pre-line leading-relaxed text-center">
+                  {selectedPost.content.split('\n\n').map((paragraph, index) => {
+                    const isTitleLine = /^[A-Z][a-z\s]+$/.test(paragraph.trim().split('\n')[0]);
+                    
+                    return (
+                      <div key={index} className={`mb-6 ${isTitleLine ? 'text-3xl font-bold text-white' : ''}`}>
+                        {paragraph}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </>
