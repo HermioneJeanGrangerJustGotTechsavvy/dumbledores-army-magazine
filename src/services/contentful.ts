@@ -1,8 +1,6 @@
-
 import { createClient } from 'contentful';
 import { BlogPost } from '@/pages/Writing';
 
-// Sample blog posts data that will be used as fallback
 const samplePosts: BlogPost[] = [
   {
     id: 1,
@@ -66,7 +64,7 @@ By Durva Shah
   You leave scars that can never mend.
   
   You can never see me happy and content,
-  You’ve always got to do things that leave a dent.
+  You've always got to do things that leave a dent.
   
   Whatever you say, whatever you do, hurt and strike the heart,
   Leaving it in a million pieces apart.
@@ -118,7 +116,7 @@ By Durva Shah
   
   You drain all my confidence,
   Just to strengthen your defense.`
-}
+  }
 ];
 
 const client = createClient({
