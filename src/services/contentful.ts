@@ -139,7 +139,7 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
       content_type: 'blogPost',
     });
 
-    if (response.items.length === 0) {
+if (!response.items || response.items.length === 0) {
       console.log('No posts found in Contentful, using sample posts');
       return samplePosts;
     }
@@ -151,7 +151,7 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
       author: item.fields.author,
       date: new Date(item.fields.date).toLocaleDateString(),
       image: item.fields.image?.fields?.file?.url || 'https://images.unsplash.com/photo-1456513080867-f24f120351fc',
-      content: item.fields.content,
+      content: item.fields.content || 'Content not available',
     }));
   } catch (error) {
     console.error('Error fetching blog posts:', error);
