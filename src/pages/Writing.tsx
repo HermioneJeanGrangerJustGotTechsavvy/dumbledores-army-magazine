@@ -223,12 +223,19 @@ const Writing = () => {
                   alt={selectedPost.title} 
                   className="w-full h-64 object-cover rounded-md mb-6"
                 />
-                <div className="whitespace-pre-line leading-relaxed text-center">
+                <div className="whitespace-pre-line leading-relaxed">
                   {selectedPost.content.split('\n\n').map((paragraph, index) => {
-                    const isTitleLine = /^[A-Z][a-z\s]+$/.test(paragraph.trim().split('\n')[0]);
+                    const isTitleLine = /^(Eye Contact Poem by Jiya Doshi|Wounds Poem by Durva Shah)$/.test(paragraph.trim());
                     
                     return (
-                      <div key={index} className={`mb-6 ${isTitleLine ? 'text-3xl font-bold text-white' : ''}`}>
+                      <div 
+                        key={index} 
+                        className={`mb-6 ${
+                          isTitleLine 
+                            ? 'text-3xl font-bold text-white text-center' 
+                            : 'text-left'
+                        }`}
+                      >
                         {paragraph}
                       </div>
                     );
