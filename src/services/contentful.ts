@@ -6,12 +6,14 @@ import { BlogPost } from '@/pages/Writing';
 const samplePosts: BlogPost[] = [
   {
     id: 1,
-    title: "Eye Contact",
-    excerpt: "A poetic exploration of vulnerability, connection, and the power of understanding through eye contact.",
-    author: "Jiya Doshi",
-    date: "April 19, 2025",
+    title: "April Poetry",
+    excerpt: "A poetic exploration of vulnerability, connection, and the emotions.",
+    author: "Jiya Doshi, Durva Shah",
+    date: "April 19-30, 2025",
     image: "/lovable-uploads/b2b6834c-0a1c-423a-b168-d07ad12f22af.png",
-    content: `You watched my expressions smoothen out like a starched shirt,
+    content: `Eye Contact
+Poem By Jiya Doshi
+You watched my expressions smoothen out like a starched shirt,
 Except my eyes were pictures of Dorian Gray in their sockets,
 Like they were a roll of credits to all the people who had me hurt,
 And all those who took out their handkerchiefs just to smugly return it in their pockets.
@@ -46,16 +48,9 @@ And now every time I wear masks, heading out for the masquerade ball they call l
 I have a place to be me, a place to return to,
 A place where the seas finally meet the skies, the place they call 'infinity'.
 
-By Jiya Doshi`
-  },
-  {
-    id: 2,
-    title: "Wounds",
-    excerpt: "A poetic exploration of vulnerability, insecurity, and emotions that linger even when words don't.",
-    author: "Durva Shah",
-    date: "April 25, 2025",
-    image: "/lovable-uploads/b2b6834c-0a1c-423a-b168-d07ad12f22af.png",
-    content: `I decide to forget everything and forgive you,
+Wounds 
+By Durva Shah
+  I decide to forget everything and forgive you,
   Yet you don't miss an opportunity for showing your colours true.
   
   I decide to put everything back and start anew,
@@ -122,9 +117,7 @@ By Jiya Doshi`
   But a destroyer.
   
   You drain all my confidence,
-  Just to strengthen your defense.
-  
-  By Durva Shah`
+  Just to strengthen your defense.`
 }
 ];
 
