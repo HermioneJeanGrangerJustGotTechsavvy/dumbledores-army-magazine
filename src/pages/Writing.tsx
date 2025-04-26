@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { useToast } from "@/hooks/use-toast";
@@ -177,12 +178,12 @@ const Writing = () => {
                 />
               </div>
               <div className="p-6">
-                <div className="text-primary text-sm mb-2">{post.date} • by {post.author}</div>
+                <div className="text-white text-sm mb-2">{post.date} • by {post.author}</div>
                 <h3 className="text-xl font-bold mb-2 text-white">{post.title}</h3>
                 <p className="text-white/80 mb-4">{post.excerpt}</p>
                 <CustomButton 
                   variant="link" 
-                  className="text-primary p-0"
+                  className="text-white p-0"
                   onClick={() => handleReadMore(post.id)}
                 >
                   Read More
