@@ -45,7 +45,8 @@ The glass wall shatters as you and I become unseen, unjudged and unbound by time
 And maybe eyes are windows to the soul, but you made a brief eye contact feel like home,
 And now every time I wear masks, heading out for the masquerade ball they call life,
 I have a place to be me, a place to return to,
-A place where the seas finally meet the skies, the place they call 'infinity'.`
+A place where the seas finally meet the skies, the place they call 'infinity'.`,
+    category: "The Tortured Poets Department"
   },
   {
     id: 2,
@@ -123,7 +124,8 @@ A place where the seas finally meet the skies, the place they call 'infinity'.`
   But a destroyer.
   
   You drain all my confidence,
-  Just to strengthen your defense.`
+  Just to strengthen your defense.`,
+    category: "The Tortured Poets Department"
   },
   {
     id: 3,
@@ -153,7 +155,8 @@ That loving piece of you.
 
 I'm addled by my own despondency,
 I cannot see the rainbow you are,
-Through my color blinded, blood red heart.`
+Through my color blinded, blood red heart.`,
+    category: "The Tortured Poets Department"
   },
   {
     id: 4,
@@ -178,7 +181,8 @@ Oh, how I'm so ashamed of how I view myself in my own mind,
 Oh, when I hear my "name" I feel so sick, twisted, and hideous,
 Please may something be to let thyself be for I am so beaten and tortured,
 Please take that awful pain out of my chest and let thyself live a proper life,
-If not, let me die, let me perish, to wherever I may be and let me rest.`
+If not, let me die, let me perish, to wherever I may be and let me rest.`,
+    category: "The Tortured Poets Department"
   },
   {
     id: 5,
@@ -202,7 +206,8 @@ One day, I will have someone love the real me
 Not the facade I throw on for my friends and family
 The real me that I hardly know myself
 
-One day, I will grow wings.`
+One day, I will grow wings.`,
+    category: "The Tortured Poets Department"
   }
 ];
 
@@ -230,6 +235,7 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
       date: new Date(item.fields.date).toLocaleDateString(),
       image: item.fields.image?.fields?.file?.url || 'https://images.unsplash.com/photo-1456513080867-f24f120351fc',
       content: item.fields.content || 'Content not available',
+      category: item.fields.category || '',
     }));
   } catch (error) {
     console.error('Error fetching blog posts:', error);

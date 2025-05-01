@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Filter } from "lucide-react";
+import { Filter, Book } from "lucide-react";
 
 export interface BlogPost {
   id: number;
@@ -19,6 +19,7 @@ export interface BlogPost {
   date: string;
   image: string;
   content: string;
+  category?: string;
 }
 
 interface Subscriber {
@@ -40,8 +41,10 @@ const Writing = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedMonth, setSelectedMonth] = useState<string>("");
   const [selectedAuthor, setSelectedAuthor] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [availableMonths, setAvailableMonths] = useState<string[]>([]);
   const [availableAuthors, setAvailableAuthors] = useState<string[]>([]);
+  const [availableCategories, setAvailableCategories] = useState<string[]>([]);
   
   useEffect(() => {
     const loadPosts = async () => {
@@ -51,16 +54,18 @@ const Writing = () => {
         setPosts(data);
         setFilteredPosts(data);
         
-        // Extract unique months and authors
+        // Extract unique months, authors, and categories
         const months = [...new Set(data.map(post => {
           const dateParts = post.date.split(" ");
           return dateParts[0]; // Get the month part
         }))];
         
         const authors = [...new Set(data.flatMap(post => post.author.split(", ")))];
+        const categories = [...new Set(data.map(post => post.category).filter(Boolean))];
         
         setAvailableMonths(months);
         setAvailableAuthors(authors);
+        setAvailableCategories(categories);
       } catch (error) {
         console.error("Failed to load posts:", error);
         toast({
@@ -103,8 +108,12 @@ const Writing = () => {
       result = result.filter(post => post.author.includes(selectedAuthor));
     }
     
+    if (selectedCategory) {
+      result = result.filter(post => post.category === selectedCategory);
+    }
+    
     setFilteredPosts(result);
-  }, [selectedMonth, selectedAuthor, posts]);
+  }, [selectedMonth, selectedAuthor, selectedCategory, posts]);
 
   const handleReadMore = (postId: number) => {
     const post = posts.find(p => p.id === postId);
@@ -117,6 +126,7 @@ const Writing = () => {
   const handleClearFilters = () => {
     setSelectedMonth("");
     setSelectedAuthor("");
+    setSelectedCategory("");
   };
 
   const handleSubscribe = (e: React.FormEvent) => {
@@ -194,7 +204,7 @@ const Writing = () => {
                 <SelectValue placeholder="Month" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all-months">All Months</SelectItem>
+                <SelectItem value="">All Months</SelectItem>
                 {availableMonths.map((month) => (
                   <SelectItem key={month} value={month}>{month}</SelectItem>
                 ))}
@@ -207,9 +217,25 @@ const Writing = () => {
                 <SelectValue placeholder="Author" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all-authors">All Authors</SelectItem>
+                <SelectItem value="">All Authors</SelectItem>
                 {availableAuthors.map((author) => (
                   <SelectItem key={author} value={author}>{author}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="w-full sm:w-52">
+            <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+              <SelectTrigger className="bg-white/10 border-white/20 text-white">
+                <div className="flex items-center gap-2">
+                  <Book className="h-4 w-4" />
+                  <SelectValue placeholder="Category" />
+                </div>
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="">All Categories</SelectItem>
+                {availableCategories.map((category) => (
+                  <SelectItem key={category} value={category}>{category}</SelectItem>
                 ))}
               </SelectContent>
             </Select>
@@ -268,6 +294,12 @@ const Writing = () => {
                 />
               </div>
               <div className="p-6">
+                {post.category && (
+                  <div className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/20 text-primary mb-2">
+                    <Book className="w-3 h-3 mr-1" />
+                    {post.category}
+                  </div>
+                )}
                 <div className="text-white text-sm mb-2">{post.date} • by {post.author}</div>
                 <h3 className="text-xl font-bold mb-2 text-white">{post.title}</h3>
                 <p className="text-white/80 mb-4">{post.excerpt}</p>
@@ -312,6 +344,14 @@ const Writing = () => {
                 <DialogDescription className="text-2xl font-bold text-center text-primary mb-4">
                   by {selectedPost.author}
                 </DialogDescription>
+                {selectedPost.category && (
+                  <div className="flex justify-center">
+                    <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary/20 text-primary mb-2">
+                      <Book className="w-4 h-4 mr-2" />
+                      {selectedPost.category}
+                    </div>
+                  </div>
+                )}
               </DialogHeader>
               <div className="my-4">
                 <img 
