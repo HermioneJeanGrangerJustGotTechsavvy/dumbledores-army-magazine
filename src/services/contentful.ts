@@ -5,7 +5,7 @@ import { BlogPost } from '@/pages/Writing';
 const samplePosts: BlogPost[] = [
   {
     id: 1,
-    title: "April Poetry",
+    title: "Eye Contact",
     excerpt: "A poetic exploration of vulnerability, connection, and the emotions.",
     author: "Jiya Doshi",
     date: "April 19, 2025",
@@ -49,7 +49,7 @@ A place where the seas finally meet the skies, the place they call 'infinity'.`
   },
   {
     id: 2,
-    title: "April Poetry",
+    title: "Wounds",
     excerpt: "A powerful reflection on emotional pain and difficult relationships.",
     author: "Durva Shah",
     date: "April 25, 2025",
