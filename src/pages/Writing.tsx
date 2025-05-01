@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { useToast } from "@/hooks/use-toast";
@@ -193,7 +194,7 @@ const Writing = () => {
                 <SelectValue placeholder="Month" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Months</SelectItem>
+                <SelectItem value="all-months">All Months</SelectItem>
                 {availableMonths.map((month) => (
                   <SelectItem key={month} value={month}>{month}</SelectItem>
                 ))}
@@ -206,7 +207,7 @@ const Writing = () => {
                 <SelectValue placeholder="Author" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Authors</SelectItem>
+                <SelectItem value="all-authors">All Authors</SelectItem>
                 {availableAuthors.map((author) => (
                   <SelectItem key={author} value={author}>{author}</SelectItem>
                 ))}
