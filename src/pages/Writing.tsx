@@ -6,6 +6,9 @@ import { getBlogPosts } from "@/services/contentful";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Filter } from "lucide-react";
 
 export interface BlogPost {
   id: number;
@@ -26,6 +29,7 @@ const Writing = () => {
   const [loaded, setLoaded] = useState(false);
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>([]);
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const { toast } = useToast();
@@ -33,6 +37,10 @@ const Writing = () => {
   const [subscribeEmail, setSubscribeEmail] = useState("");
   const [showSubscribeDialog, setShowSubscribeDialog] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedMonth, setSelectedMonth] = useState<string>("");
+  const [selectedAuthor, setSelectedAuthor] = useState<string>("");
+  const [availableMonths, setAvailableMonths] = useState<string[]>([]);
+  const [availableAuthors, setAvailableAuthors] = useState<string[]>([]);
   
   useEffect(() => {
     const loadPosts = async () => {
@@ -40,6 +48,18 @@ const Writing = () => {
         setLoading(true);
         const data = await getBlogPosts();
         setPosts(data);
+        setFilteredPosts(data);
+        
+        // Extract unique months and authors
+        const months = [...new Set(data.map(post => {
+          const dateParts = post.date.split(" ");
+          return dateParts[0]; // Get the month part
+        }))];
+        
+        const authors = [...new Set(data.flatMap(post => post.author.split(", ")))];
+        
+        setAvailableMonths(months);
+        setAvailableAuthors(authors);
       } catch (error) {
         console.error("Failed to load posts:", error);
         toast({
@@ -68,12 +88,34 @@ const Writing = () => {
     };
   }, [toast]);
 
+  // Filter posts when filter options change
+  useEffect(() => {
+    if (posts.length === 0) return;
+    
+    let result = [...posts];
+    
+    if (selectedMonth) {
+      result = result.filter(post => post.date.includes(selectedMonth));
+    }
+    
+    if (selectedAuthor) {
+      result = result.filter(post => post.author.includes(selectedAuthor));
+    }
+    
+    setFilteredPosts(result);
+  }, [selectedMonth, selectedAuthor, posts]);
+
   const handleReadMore = (postId: number) => {
     const post = posts.find(p => p.id === postId);
     if (post) {
       setSelectedPost(post);
       setDialogOpen(true);
     }
+  };
+
+  const handleClearFilters = () => {
+    setSelectedMonth("");
+    setSelectedAuthor("");
   };
 
   const handleSubscribe = (e: React.FormEvent) => {
@@ -142,6 +184,54 @@ const Writing = () => {
         </p>
       </div>
       
+      {/* Filter controls */}
+      <div className={`mb-8 flex flex-col md:flex-row gap-4 items-center justify-between transition-all duration-700 delay-100 transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+          <div className="w-full sm:w-40">
+            <Select value={selectedMonth} onValueChange={setSelectedMonth}>
+              <SelectTrigger className="bg-white/10 border-white/20 text-white">
+                <SelectValue placeholder="Month" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="">All Months</SelectItem>
+                {availableMonths.map((month) => (
+                  <SelectItem key={month} value={month}>{month}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="w-full sm:w-40">
+            <Select value={selectedAuthor} onValueChange={setSelectedAuthor}>
+              <SelectTrigger className="bg-white/10 border-white/20 text-white">
+                <SelectValue placeholder="Author" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="">All Authors</SelectItem>
+                {availableAuthors.map((author) => (
+                  <SelectItem key={author} value={author}>{author}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+        
+        <div className="flex justify-end w-full md:w-auto">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <CustomButton variant="outline" className="flex items-center gap-2">
+                <Filter className="h-4 w-4" />
+                Filter Options
+              </CustomButton>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={handleClearFilters}>
+                Clear All Filters
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+      </div>
+      
       {loading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[1, 2, 3].map((i) => (
@@ -162,9 +252,9 @@ const Writing = () => {
             </Card>
           ))}
         </div>
-      ) : (
+      ) : filteredPosts.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post, index) => (
+          {filteredPosts.map((post, index) => (
             <div 
               key={post.id}
               className={`bg-midnight-dark/70 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden shadow-lg transition-all duration-700 delay-${150 + index * 100} transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
@@ -190,6 +280,11 @@ const Writing = () => {
               </div>
             </div>
           ))}
+        </div>
+      ) : (
+        <div className="text-center py-12">
+          <h3 className="text-xl text-white mb-4">No posts matching your filters</h3>
+          <CustomButton onClick={handleClearFilters}>Clear Filters</CustomButton>
         </div>
       )}
       

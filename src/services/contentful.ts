@@ -1,3 +1,4 @@
+
 import { createClient } from 'contentful';
 import { BlogPost } from '@/pages/Writing';
 
@@ -6,11 +7,11 @@ const samplePosts: BlogPost[] = [
     id: 1,
     title: "April Poetry",
     excerpt: "A poetic exploration of vulnerability, connection, and the emotions.",
-    author: "Jiya Doshi, Durva Shah",
-    date: "April 19-30, 2025",
+    author: "Jiya Doshi",
+    date: "April 19, 2025",
     image: "/lovable-uploads/b2b6834c-0a1c-423a-b168-d07ad12f22af.png",
-    content: `Eye Contact
-Poem By Jiya Doshi
+    content: `Eye Contact Poem by Jiya Doshi
+
 You watched my expressions smoothen out like a starched shirt,
 Except my eyes were pictures of Dorian Gray in their sockets,
 Like they were a roll of credits to all the people who had me hurt,
@@ -44,10 +45,17 @@ The glass wall shatters as you and I become unseen, unjudged and unbound by time
 And maybe eyes are windows to the soul, but you made a brief eye contact feel like home,
 And now every time I wear masks, heading out for the masquerade ball they call life,
 I have a place to be me, a place to return to,
-A place where the seas finally meet the skies, the place they call 'infinity'.
-
-Wounds 
-By Durva Shah
+A place where the seas finally meet the skies, the place they call 'infinity'.`
+  },
+  {
+    id: 2,
+    title: "April Poetry",
+    excerpt: "A powerful reflection on emotional pain and difficult relationships.",
+    author: "Durva Shah",
+    date: "April 25, 2025",
+    image: "/lovable-uploads/b2b6834c-0a1c-423a-b168-d07ad12f22af.png",
+    content: `Wounds Poem by Durva Shah
+  
   I decide to forget everything and forgive you,
   Yet you don't miss an opportunity for showing your colours true.
   
@@ -129,7 +137,7 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
     const response = await client.getEntries({
       content_type: 'blogPost',
     });
-console.log('Fetched posts:', response.items);
+    console.log('Fetched posts:', response.items);
     if (!response.items || response.items.length === 0) {
       console.log('No posts found in Contentful, using sample posts');
       return samplePosts;
