@@ -53,7 +53,7 @@ A place where the seas finally meet the skies, the place they call 'infinity'.`
     excerpt: "A powerful reflection on emotional pain and difficult relationships.",
     author: "Durva Shah",
     date: "April 25, 2025",
-    image: "/lovable-uploads/b2b6834c-0a1c-423a-b168-d07ad12f22af.png",
+    image: "/lovable-uploads/25a19832-fcfe-421e-9254-48a6398d5be4.png",
     content: `Wounds Poem by Durva Shah
   
   I decide to forget everything and forgive you,
