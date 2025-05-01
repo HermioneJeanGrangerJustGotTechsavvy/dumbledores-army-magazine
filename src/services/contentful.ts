@@ -124,6 +124,85 @@ A place where the seas finally meet the skies, the place they call 'infinity'.`
   
   You drain all my confidence,
   Just to strengthen your defense.`
+  },
+  {
+    id: 3,
+    title: "Colorblind, Blood Red Heart",
+    excerpt: "A poignant exploration of love, longing and emotional blindness.",
+    author: "Alice Symphony",
+    date: "May 1, 2025",
+    image: "/lovable-uploads/b565d01a-779a-484b-b714-75db3938c2c3.png",
+    content: `Colorblind, Blood Red Heart
+By Alice Symphony
+
+Days away I still feel you,
+Touching me with your words,
+Shaping me with your love.
+
+Even in my own darkest,
+Still room inside my heart,
+That palace full of you.
+
+Your pictures all on the walls,
+All of the things you love,
+Your voice bouncing around.
+
+And the sweet things you've said,
+Your feelings seeming strong,
+That loving piece of you.
+
+I'm addled by my own despondency,
+I cannot see the rainbow you are,
+Through my color blinded, blood red heart.`
+  },
+  {
+    id: 4,
+    title: "Rebirth",
+    excerpt: "A raw journey of self-discovery, transformation and personal rebirth.",
+    author: "Alice Symphony",
+    date: "May 1, 2025",
+    image: "/lovable-uploads/e16050e0-95ed-4f0c-b79b-8bba51356b35.png",
+    content: `"Rebirth"
+By Alice Symphony
+
+I don't want to be like this,
+I can't stand looking at myself,
+I despise hearing that vile, damned name,
+I'm disgusted at my unfitting clothes,
+I want my hair curled and made to be pretty,
+I want a new wardrobe, clothes I actually like,
+I want a set of family that truly loves me,
+I want, no I need to be able to express myself,
+Oh, I loathe this existence, containment and conformation,
+Oh, how I'm so ashamed of how I view myself in my own mind,
+Oh, when I hear my "name" I feel so sick, twisted, and hideous,
+Please may something be to let thyself be for I am so beaten and tortured,
+Please take that awful pain out of my chest and let thyself live a proper life,
+If not, let me die, let me perish, to wherever I may be and let me rest.`
+  },
+  {
+    id: 5,
+    title: "One Day",
+    excerpt: "An aspiring poem about hope, self-acceptance, and the freedom to be oneself.",
+    author: "Alice Symphony",
+    date: "May 1, 2025",
+    image: "/lovable-uploads/df7d9166-4e94-4925-ad65-e6a4e8cf4557.png",
+    content: `"One Day"
+By Alice Symphony
+
+One day, I will look in the mirror and see myself 
+Not the distorted, skewed reflection I'm used to 
+Just me, as I am, as I was
+
+One day, I will say my words I mean
+Not the filtered ones to prevent conflict
+The words that bounce in my head with nowhere to go
+
+One day, I will have someone love the real me 
+Not the facade I throw on for my friends and family
+The real me that I hardly know myself
+
+One day, I will grow wings.`
   }
 ];
 
