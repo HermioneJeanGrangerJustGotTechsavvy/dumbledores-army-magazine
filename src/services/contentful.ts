@@ -215,7 +215,7 @@ One day, I will grow wings.`,
     excerpt: "A bold and unapologetic exploration of self-worth and toxic relationships.",
     author: "Deetyaa Tantia",
     date: "May 4, 2025",
-    image: "/lovable-uploads/65e32555-3e16-4455-b798-abd1581de64a.png",
+    image: "/lovable-uploads/7ce9f164-465e-4934-a7b6-1f6061df7e58.png",
     content: `Narcissism
 By Deetyaa Tantia
 
@@ -245,7 +245,7 @@ It's to remind you, sweetheart, that once something is lost, it can't be found.`
     excerpt: "A short but powerful acknowledgment of love's transformative influence.",
     author: "The Anonymous Girl",
     date: "May 4, 2025",
-    image: "/lovable-uploads/a52090a6-1201-4e72-871e-cf97bc4a07b8.png",
+    image: "/lovable-uploads/2ec52cdf-5c1e-4b0e-be40-bf078478d881.png",
     content: `If Not For You
 By The Anonymous Girl
 
@@ -261,7 +261,7 @@ If not for you.`,
     excerpt: "A heartfelt poem about the gap between what we feel and what we say.",
     author: "The Anonymous Girl",
     date: "May 4, 2025",
-    image: "/lovable-uploads/e398318c-5ce7-46f1-afcc-c6481afce3c4.png",
+    image: "/lovable-uploads/3c636c24-64fd-4a70-bfc0-c4d9aa73db3a.png",
     content: `What I Said
 By The Anonymous Girl
 
@@ -279,7 +279,7 @@ But all that came out was;
     excerpt: "A profound meditation on the nature of joy and its unexpected persistence.",
     author: "Anjani Shastri",
     date: "May 4, 2025",
-    image: "/lovable-uploads/fb226dd6-1c2a-4b45-a9ac-482b180b2332.png",
+    image: "/lovable-uploads/51d1661b-b97a-45eb-bcff-7caa8f477902.png",
     content: `Velcro
 By Anjani Shastri
 
