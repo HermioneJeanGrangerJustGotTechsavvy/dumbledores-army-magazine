@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { useToast } from "@/hooks/use-toast";
@@ -39,9 +38,9 @@ const Writing = () => {
   const [subscribeEmail, setSubscribeEmail] = useState("");
   const [showSubscribeDialog, setShowSubscribeDialog] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [selectedMonth, setSelectedMonth] = useState<string>("");
-  const [selectedAuthor, setSelectedAuthor] = useState<string>("");
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedMonth, setSelectedMonth] = useState<string>("all");
+  const [selectedAuthor, setSelectedAuthor] = useState<string>("all");
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [availableMonths, setAvailableMonths] = useState<string[]>([]);
   const [availableAuthors, setAvailableAuthors] = useState<string[]>([]);
   const [availableCategories, setAvailableCategories] = useState<string[]>([]);
@@ -100,15 +99,15 @@ const Writing = () => {
     
     let result = [...posts];
     
-    if (selectedMonth) {
+    if (selectedMonth && selectedMonth !== "all") {
       result = result.filter(post => post.date.includes(selectedMonth));
     }
     
-    if (selectedAuthor) {
+    if (selectedAuthor && selectedAuthor !== "all") {
       result = result.filter(post => post.author.includes(selectedAuthor));
     }
     
-    if (selectedCategory) {
+    if (selectedCategory && selectedCategory !== "all") {
       result = result.filter(post => post.category === selectedCategory);
     }
     
@@ -124,9 +123,9 @@ const Writing = () => {
   };
 
   const handleClearFilters = () => {
-    setSelectedMonth("");
-    setSelectedAuthor("");
-    setSelectedCategory("");
+    setSelectedMonth("all");
+    setSelectedAuthor("all");
+    setSelectedCategory("all");
   };
 
   const handleSubscribe = (e: React.FormEvent) => {
