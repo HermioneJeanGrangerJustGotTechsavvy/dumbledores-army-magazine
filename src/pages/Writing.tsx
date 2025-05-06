@@ -203,7 +203,7 @@ const Writing = () => {
                 <SelectValue placeholder="Month" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Months</SelectItem>
+                <SelectItem value="all">All Months</SelectItem>
                 {availableMonths.map((month) => (
                   <SelectItem key={month} value={month}>{month}</SelectItem>
                 ))}
@@ -216,7 +216,7 @@ const Writing = () => {
                 <SelectValue placeholder="Author" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Authors</SelectItem>
+                <SelectItem value="all">All Authors</SelectItem>
                 {availableAuthors.map((author) => (
                   <SelectItem key={author} value={author}>{author}</SelectItem>
                 ))}
@@ -232,7 +232,7 @@ const Writing = () => {
                 </div>
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Categories</SelectItem>
+                <SelectItem value="all">All Categories</SelectItem>
                 {availableCategories.map((category) => (
                   <SelectItem key={category} value={category}>{category}</SelectItem>
                 ))}

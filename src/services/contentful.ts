@@ -208,6 +208,114 @@ The real me that I hardly know myself
 
 One day, I will grow wings.`,
     category: "The Tortured Poets Department"
+  },
+  {
+    id: 6,
+    title: "Narcissism",
+    excerpt: "A bold and unapologetic exploration of self-worth and toxic relationships.",
+    author: "Deetyaa Tantia",
+    date: "May 4, 2025",
+    image: "/lovable-uploads/65e32555-3e16-4455-b798-abd1581de64a.png",
+    content: `Narcissism
+By Deetyaa Tantia
+
+I doomscroll through her highlights like she's an expertly made trap.
+I look at her smiling face, wish that those cheekbones would snap.
+She's so pretty, she looks exactly like those girls you pursue.
+The ones you know can't resist you.
+Because you're like a brightly lit cigarette to them, you're heroin they're addicted to,
+You're older than them, you're powerful.
+So they can excuse your ordinary looks and that lopsided smile.
+Because when power knocks at your door, you don't deny.
+But I'm not like them honey, I see more to you than a pretty coat.
+I see your fears, your pretences, you're barely afloat.
+Tell me, does she comfort you after you fail your cricket finals?
+You think you can come back to me, but honey I'm not for trial.
+See, babe, you'll never catch me begging for your love,
+Because you know you're just average, that's why you're going after her.
+She could honestly do better, she looks like a pretty catch.
+I don't chase, love, but I do snatch.
+I guess you'll wonder, if I don't care about you, why go through the effort to write this ballad down?
+It's to remind you, sweetheart, that once something is lost, it can't be found.`,
+    category: "The Tortured Poets Department"
+  },
+  {
+    id: 7,
+    title: "If Not For You",
+    excerpt: "A short but powerful acknowledgment of love's transformative influence.",
+    author: "The Anonymous Girl",
+    date: "May 4, 2025",
+    image: "/lovable-uploads/a52090a6-1201-4e72-871e-cf97bc4a07b8.png",
+    content: `If Not For You
+By The Anonymous Girl
+
+I'm not a writer,
+I'm not a poet,
+I'm nothing,
+If not for you.`,
+    category: "The Tortured Poets Department"
+  },
+  {
+    id: 8,
+    title: "What I Said",
+    excerpt: "A heartfelt poem about the gap between what we feel and what we say.",
+    author: "The Anonymous Girl",
+    date: "May 4, 2025",
+    image: "/lovable-uploads/e398318c-5ce7-46f1-afcc-c6481afce3c4.png",
+    content: `What I Said
+By The Anonymous Girl
+
+There were so many things I wanted to say
+Like: 'I love you'
+'I miss you'
+'Stay'
+But all that came out was;
+'Please don't leave me again.'`,
+    category: "The Tortured Poets Department"
+  },
+  {
+    id: 9,
+    title: "Velcro",
+    excerpt: "A profound meditation on the nature of joy and its unexpected persistence.",
+    author: "Anjani Shastri",
+    date: "May 4, 2025",
+    image: "/lovable-uploads/fb226dd6-1c2a-4b45-a9ac-482b180b2332.png",
+    content: `Velcro
+By Anjani Shastri
+
+Joy is not the polished porcelain thing they promised,
+it is not crystalline, not poised.
+It arrives like Velcro: abrupt, snagging,
+latching onto the loose threads of your day
+with the graceless fidelity of something that refuses to let go.
+
+It finds you in subways and empty stairwells,
+in lamplight on cracked pavement,
+in the silence after an almost-cry.
+You think: this can't be joy, it's too heavy.
+But it stays.
+Pressed into you like a palmprint in wet cement.
+You try to peel it away and it fights,
+because real joy is adhesive,
+not ornamental.
+
+It carries the textures of touch and loss,
+of coffee spilled on old poems,
+of holding hands just once but remembering forever.
+It is the aftermath of wonder,
+the sticky truth that something mattered.
+Velcro doesn't ask to be loved.
+It simply fastens and waits.
+
+You learn to stop pulling.
+You let it hold.
+You let joy be stubborn, clingy, alive.
+You stop searching for silk.
+You reach for the real.
+For Velcro joy,
+unpretty, unwavering,
+and yours.`,
+    category: "The Tortured Poets Department"
   }
 ];
 
