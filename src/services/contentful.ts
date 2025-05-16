@@ -8,7 +8,7 @@ const samplePosts: BlogPost[] = [
     title: "Debriefing",
     excerpt: "A poignant reflection on failure, risks, and seeking validation.",
     author: "Jiya Doshi",
-    date: "May 10, 2025",
+    date: "May 16, 2025",
     image: "/lovable-uploads/2dc32744-82b2-4016-88c4-3b6c07974c2f.png",
     content: `Debriefing
 By Jiya Doshi
