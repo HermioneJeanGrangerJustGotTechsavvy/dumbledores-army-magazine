@@ -4,6 +4,47 @@ import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
   {
+    id: 10,
+    title: "Debriefing",
+    excerpt: "A poignant reflection on failure, risks, and seeking validation.",
+    author: "Jiya Doshi",
+    date: "May 10, 2025",
+    image: "/lovable-uploads/2dc32744-82b2-4016-88c4-3b6c07974c2f.png",
+    content: `Debriefing
+By Jiya Doshi
+
+In this debriefing,
+I dissect the jigsaw pieces,
+I didn't lose, I found another way of failing – 
+And falling, unintended puns and situational irony. 
+
+I won't dive into details,
+The contradictions, the strategizing,
+The wind, the masts, the broken sails,
+Don't judge a girl for trying.
+
+I take the worst risks for the best of people,
+And the best bets for the worst,
+Till I go round and round in a spiral,
+Of what I did first.
+
+I placed my suitcase on the floor and took out all the evidence,
+Memories like heat shocks rippling with electricity,
+You looked at me blank-faced, asking for translation, 
+So, I asked you to watch me –
+
+Watch me fill those dead words with CPR,
+Paint this town red, you knew immediately what I meant,
+I'll make this world the canvas to my art,
+But I just need you to see sense.
+
+Because in this debriefing,
+I need you to tell me,
+That I didn't lose, I found another way of failing – 
+And falling, make me see it, make me believe.`,
+    category: "The Tortured Poets Department"
+  },
+  {
     id: 1,
     title: "Eye Contact",
     excerpt: "A poetic exploration of vulnerability, connection, and the emotions.",
