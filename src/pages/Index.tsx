@@ -41,7 +41,7 @@ const Index = () => {
       description: "Read the latest articles, stories, and news from the wizarding world.",
       icon: <ScrollText className="h-6 w-6 text-slytherin-primary" />,
       delay: 400,
-      link: "/"
+      link: "/writing"
     }
   ];
 
@@ -174,7 +174,7 @@ const Index = () => {
                 </div>
                 
                 <CustomButton variant="default" asChild>
-                  <Link to="/">
+                  <Link to="/writing">
                     Begin Your Journey <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </CustomButton>
