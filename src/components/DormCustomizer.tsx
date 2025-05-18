@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from "react";
 import { Table, Bed, BookOpen, House, ChevronLeft, ChevronRight, GraduationCap } from "lucide-react";
 import { toast } from "sonner";
@@ -215,13 +216,13 @@ const DormCustomizer = () => {
   }, [currentCategory, selectedHouse]);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-      <div className="glass-card p-6 col-span-3 lg:col-span-1">
-        <h2 className="text-2xl font-bold mb-4 text-white">Choose Your House</h2>
-        <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
+      <div className="glass-card p-4 md:p-6 col-span-3 lg:col-span-1">
+        <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-white">Choose Your House</h2>
+        <div className="grid grid-cols-2 gap-3 md:gap-4">
           <button
             onClick={() => setSelectedHouse("gryffindor")}
-            className={`p-4 rounded-lg transition-all ${
+            className={`p-3 md:p-4 rounded-lg transition-all ${
               selectedHouse === "gryffindor" 
                 ? "bg-gryffindor-primary text-white scale-105" 
                 : "bg-white/10 hover:bg-white/20 text-white"
@@ -229,12 +230,12 @@ const DormCustomizer = () => {
           >
             <h3 className="font-bold">Gryffindor</h3>
             <div className="h-1 w-16 mt-1 mb-2 bg-gryffindor-secondary mx-auto rounded-full"></div>
-            <p className="text-sm">Courage & Bravery</p>
+            <p className="text-xs md:text-sm">Courage & Bravery</p>
           </button>
           
           <button
             onClick={() => setSelectedHouse("slytherin")}
-            className={`p-4 rounded-lg transition-all ${
+            className={`p-3 md:p-4 rounded-lg transition-all ${
               selectedHouse === "slytherin" 
                 ? "bg-slytherin-primary text-white scale-105" 
                 : "bg-white/10 hover:bg-white/20 text-white"
@@ -242,12 +243,12 @@ const DormCustomizer = () => {
           >
             <h3 className="font-bold">Slytherin</h3>
             <div className="h-1 w-16 mt-1 mb-2 bg-slytherin-secondary mx-auto rounded-full"></div>
-            <p className="text-sm">Ambition & Cunning</p>
+            <p className="text-xs md:text-sm">Ambition & Cunning</p>
           </button>
           
           <button
             onClick={() => setSelectedHouse("ravenclaw")}
-            className={`p-4 rounded-lg transition-all ${
+            className={`p-3 md:p-4 rounded-lg transition-all ${
               selectedHouse === "ravenclaw" 
                 ? "bg-ravenclaw-primary text-white scale-105" 
                 : "bg-white/10 hover:bg-white/20 text-white"
@@ -255,12 +256,12 @@ const DormCustomizer = () => {
           >
             <h3 className="font-bold">Ravenclaw</h3>
             <div className="h-1 w-16 mt-1 mb-2 bg-ravenclaw-secondary mx-auto rounded-full"></div>
-            <p className="text-sm">Wisdom & Learning</p>
+            <p className="text-xs md:text-sm">Wisdom & Learning</p>
           </button>
           
           <button
             onClick={() => setSelectedHouse("hufflepuff")}
-            className={`p-4 rounded-lg transition-all ${
+            className={`p-3 md:p-4 rounded-lg transition-all ${
               selectedHouse === "hufflepuff" 
                 ? "bg-hufflepuff-primary text-black scale-105" 
                 : "bg-white/10 hover:bg-white/20 text-white"
@@ -268,16 +269,16 @@ const DormCustomizer = () => {
           >
             <h3 className="font-bold">Hufflepuff</h3>
             <div className="h-1 w-16 mt-1 mb-2 bg-hufflepuff-secondary mx-auto rounded-full"></div>
-            <p className="text-sm">Loyalty & Patience</p>
+            <p className="text-xs md:text-sm">Loyalty & Patience</p>
           </button>
         </div>
       </div>
       
-      <div className="glass-card p-6 col-span-3 lg:col-span-2 h-[500px] overflow-hidden">
-        <h2 className="text-2xl font-bold mb-4 text-white">Your Dormitory</h2>
+      <div className="glass-card p-4 md:p-6 col-span-3 lg:col-span-2">
+        <h2 className="text-xl md:text-2xl font-bold mb-3 text-white">Your Dormitory</h2>
         <div 
           ref={roomRef}
-          className={`w-full h-[400px] relative ${getRoomStyle()} rounded-lg`}
+          className={`w-full aspect-[16/9] relative ${getRoomStyle()} rounded-lg`}
           onClick={handleRoomClick}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseUp}
@@ -314,9 +315,9 @@ const DormCustomizer = () => {
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="bg-black/50 p-4 rounded-lg backdrop-blur text-white text-center max-w-xs">
                 {selectedHouse ? (
-                  <p>Click on items from the selector below to place them in your {selectedHouse} dormitory. Double-click to remove items.</p>
+                  <p className="text-sm md:text-base">Click on items from the selector below to place them in your {selectedHouse} dormitory. Double-click to remove items.</p>
                 ) : (
-                  <p>Choose your house first, then select and place furniture and decorations.</p>
+                  <p className="text-sm md:text-base">Choose your house first, then select and place furniture and decorations.</p>
                 )}
               </div>
             </div>
@@ -324,7 +325,7 @@ const DormCustomizer = () => {
         </div>
       </div>
       
-      <div className="glass-card p-6 col-span-3">
+      <div className="glass-card p-4 md:p-6 col-span-3">
         <div className="flex items-center justify-between mb-4">
           <button 
             onClick={prevCategory}
@@ -333,7 +334,7 @@ const DormCustomizer = () => {
             <ChevronLeft size={20} />
           </button>
           
-          <h2 className="text-2xl font-bold text-white">
+          <h2 className="text-xl md:text-2xl font-bold text-white">
             {currentCategory === "furniture" && "Furniture"}
             {currentCategory === "houseItems" && `${selectedHouse?.charAt(0).toUpperCase()}${selectedHouse?.slice(1)} Items`}
           </h2>
@@ -346,18 +347,18 @@ const DormCustomizer = () => {
           </button>
         </div>
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 md:gap-4">
           {getCurrentItems().map((item) => (
             <div
               key={item.id}
-              className={`p-3 rounded-lg transition-all ${
+              className={`p-2 md:p-3 rounded-lg transition-all ${
                 isDragging && draggedItem?.id.startsWith(item.id) 
                   ? "opacity-50" 
                   : "hover:scale-105"
               } cursor-pointer bg-white/10 hover:bg-white/20 text-center`}
               onClick={() => handleDragStart(item)}
             >
-              <div className="h-20 flex items-center justify-center mb-2">
+              <div className="h-16 md:h-20 flex items-center justify-center mb-1 md:mb-2">
                 <img 
                   src={item.imgSrc}
                   alt={item.name}
@@ -366,20 +367,20 @@ const DormCustomizer = () => {
                   draggable="false"
                 />
               </div>
-              <p className="text-sm font-medium text-white">{item.name}</p>
+              <p className="text-xs md:text-sm font-medium text-white truncate">{item.name}</p>
             </div>
           ))}
           
           {currentCategory === "houseItems" && !selectedHouse && (
-            <div className="col-span-full text-center p-6 bg-black/20 rounded-lg">
-              <GraduationCap size={40} className="mx-auto mb-2 text-white/60" />
-              <p className="text-white">Please select a house to see house-specific items</p>
+            <div className="col-span-full text-center p-4 md:p-6 bg-black/20 rounded-lg">
+              <GraduationCap size={32} className="mx-auto mb-2 text-white/60" />
+              <p className="text-white text-sm md:text-base">Please select a house to see house-specific items</p>
             </div>
           )}
         </div>
         
-        <div className="mt-4 p-3 bg-black/30 rounded-lg text-white text-sm">
-          <p className="mb-2 font-bold">How to use:</p>
+        <div className="mt-3 md:mt-4 p-3 bg-black/30 rounded-lg text-white text-xs md:text-sm">
+          <p className="mb-1 font-bold">How to use:</p>
           <ol className="list-decimal list-inside space-y-1">
             <li>Choose your Hogwarts house above</li>
             <li>Click on any item to select it</li>
