@@ -4,6 +4,52 @@ import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
   {
+    id: 11,
+    title: "Behind the severity of Severus Snape",
+    excerpt: "A poetic exploration of the complex emotions behind Snape's bitter exterior.",
+    author: "Aairah Khan",
+    date: "May 18, 2025",
+    image: "/lovable-uploads/341ead79-4163-48c5-802a-e22be0c7114c.png",
+    content: `Behind the severity of Severus Snape
+By Aairah Khan
+
+In Severus Snape, a cauldron brews,
+Where ancient slights and losses fuse.
+Not just a sneer, a cutting tone,
+But bitterness etched deep in bone.
+
+His anger coils, a venomous snake,
+For Lily's love he could not take.
+A constant sting, a festering sore,
+The life and joy he knew before.
+
+Each cruel remark, a poisoned dart,
+A shield he holds against the heart
+That aches with grief, a love denied,
+A festering wound he cannot hide.
+
+It flares in class, a sudden storm,
+Against the careless, safe, and warm.
+A twisted justice he demands,
+With trembling, unforgiving hands.
+
+And in the silence, late at night,
+A hollow echo of lost light.
+The wreckage of a life undone,
+Beneath a cold and lonely sun.
+
+So see in Snape, this shadowed soul,
+Where anger takes its heavy toll.
+A symptom of a love profound,
+By cruelest fate, forever bound
+
+To memories that twist and tear,
+A burden far too hard to bear.
+His fury masks a deeper pain,
+A love he can't reclaim again.`,
+    category: "The Tortured Poets Department"
+  },
+  {
     id: 10,
     title: "Debriefing",
     excerpt: "A poignant reflection on failure, risks, and seeking validation.",
