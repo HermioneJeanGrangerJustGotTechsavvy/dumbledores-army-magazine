@@ -1,8 +1,126 @@
-
 import { createClient } from 'contentful';
 import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
+  {
+    id: 14,
+    title: "Shadows of Doubt",
+    excerpt: "A powerful reflection on misinformation, media bias, and the search for truth in our modern world.",
+    author: "Kavya Mehta",
+    date: "May 18, 2025",
+    image: "/lovable-uploads/d8f1461a-2cd0-41cd-a005-66fe3a07e63e.png",
+    content: `Shadows of Doubt
+By Kavya Mehta
+
+Shadows creep where truth once stood
+A labyrinth of lies where fact is concealed
+My words feel hollow
+The net's just like a cotton-filled pillow
+I just don't know what's right, what's wrong
+Will this trap continue lifelong?
+
+I feel so helpless
+So uninformed or rather I'd say misinformed
+As if I'm being stormed
+Have I been told lies all along?
+
+My worry deepens day by day
+Slowly but surely, they're taking away our say
+For the evil and political intents
+Of the media presidents
+Who unfurl a curtain on the turn of events
+To merely disorient and create dents
+In the society resulting in immense torments
+
+Be it the media traditional or social
+Biases are on the way
+Ranging from political to algorithmic
+In the relentless war of profits rhythmic
+
+If we're misinformed
+How can we understand the world around us?
+This is not fair
+But if we can't change the world
+Let's start the change within
+Let's learn how to prevent these traps
+For instance: prevent clickbaits and verify before we share
+And beware of the red herring malware
+It's time that we now care
+Before the fog spreads its flair
+
+An infinite quest, a shadowed screen
+The search continues, an endless, endless pursuit
+We must clear the shadows of doubt ourselves, the shadows of doubt ourselves !`,
+    category: "The Tortured Poets Department"
+  },
+  {
+    id: 13,
+    title: "Entity",
+    excerpt: "A contemplative poem about life's complexities, personal struggles, and the unique nature of individual experiences.",
+    author: "Kavya Mehta",
+    date: "May 18, 2025",
+    image: "/lovable-uploads/05216fa1-582d-43bd-89d9-c51a93fe9d23.png",
+    content: `Entity
+By Kavya Mehta
+
+I sit near the wide window,
+Staring into the soulless sky,
+Sinking into my thoughts,
+I just ask why, why and why.
+
+Stuck in a dilemma,
+Just one thing comes to my mind,
+Life is a different story for you and me
+Distinct problems for mankind,
+I console myself by remembering this key.
+
+No one knows what goes on in my head,
+No one knows the problems I face,
+But in my heart I know that
+Life is just another game.
+
+It is filled of ups and downs,
+A Ladder to climb and to come down,
+An Infusion of Forlornness and Elation,
+That's all what makes it LIFE – the unique creation.`,
+    category: "The Tortured Poets Department"
+  },
+  {
+    id: 12,
+    title: "Whirlwind of Whispers",
+    excerpt: "An intense exploration of overwhelming emotions and feelings that consume and transform us.",
+    author: "Kavya Mehta",
+    date: "May 18, 2025",
+    image: "/lovable-uploads/0cfbcfe2-5e12-42b4-b6c0-93e1bda82f3b.png",
+    content: `Whirlwind of Whispers
+By Kavya Mehta
+
+Volatile and capricious
+Sometimes extremely vicious
+Words aren't enough to describe them
+Because they are unusual gems
+As silent as whispers
+
+At times, my heart skips a beat every second
+At times, it's unable to reckon
+At times, they cross over the line,
+Overpower me so much
+That I feel I've broken my spine.
+As it does its work as softly as whispers
+
+I feel trapped in a cage
+Confined in a wrapper of rage
+Which steals my ability to gauge
+
+It is immortal
+
+Enlivening and uniting the mortal
+Imagine the one in me squealing
+Yes, the unusual gem is my feeling
+Just like blisters and twisters
+It is truly a whirlwind of whispers`,
+    category: "The Tortured Poets Department"
+  },
   {
     id: 11,
     title: "Behind the severity of Severus Snape",
