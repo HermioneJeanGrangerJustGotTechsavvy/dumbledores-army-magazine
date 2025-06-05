@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { useToast } from "@/hooks/use-toast";
@@ -10,6 +9,7 @@ import { Link } from "react-router-dom";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Filter, Book } from "lucide-react";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 export interface BlogPost {
   id: number;
@@ -286,13 +286,24 @@ const Writing = () => {
               key={post.id}
               className={`bg-midnight-dark/70 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden shadow-lg transition-all duration-700 delay-${150 + index * 100} transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
             >
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src={post.image} 
-                  alt={post.title} 
-                  className="w-full h-full object-contain bg-white transition-transform duration-300 hover:scale-105"
-                />
-              </div>
+              {post.category === "Brushes and Broomsticks" ? (
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={post.image} 
+                    alt={post.title} 
+                    className="w-full h-full object-contain bg-white transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+              ) : (
+                <AspectRatio ratio={16/9} className="bg-white">
+                  <img 
+                    src={post.image} 
+                    alt={post.title} 
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </AspectRatio>
+              )}
+              
               <div className="p-6">
                 {post.category && (
                   <div className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/20 text-primary mb-2">
