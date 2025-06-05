@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { useToast } from "@/hooks/use-toast";
@@ -190,7 +191,7 @@ const Writing = () => {
       <div className={`text-center mb-12 transition-all duration-700 transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Writing</h1>
         <p className="text-white max-w-3xl mx-auto">
-          A collection of articles, tips, and stories about magical writing from the wizarding world.
+          A collection of creativity from around the wizarding world.
         </p>
       </div>
       
