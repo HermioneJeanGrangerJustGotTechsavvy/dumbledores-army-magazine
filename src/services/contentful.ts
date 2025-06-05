@@ -3,6 +3,127 @@ import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
   {
+    id: 17,
+    title: "The Moment We Touched Souls",
+    excerpt: "A tender celebration of the sacred bond between mother and child in those first precious moments.",
+    author: "Sweety Doshi",
+    date: "June 1, 2025",
+    image: "/lovable-uploads/b263283a-36da-4110-b551-fa116d379e8a.png",
+    content: `The Moment We Touched Souls
+By Sweety Doshi
+
+In a moment it's so sweet and pure,
+I held my child in my arms, my heart's allure.
+Her tiny form, a sight so dear,
+In my arms, dispelling every fear.
+
+As she opened her eyes so bright and clear
+Gazing at me with pure delight,
+Her cry ceased with a peaceful hush,
+In that moment, our souls did touch.
+
+A bond forged in love's embrace,
+In that sacred, tender space.
+My happiest moment, forever cherished,
+As her presence in my arms flourished`,
+    category: "The Tortured Poets Department"
+  },
+  {
+    id: 16,
+    title: "Unspoken blades",
+    excerpt: "A profound meditation on the power of words and the weight of unspoken emotions in a writer's heart.",
+    author: "Sweety Doshi",
+    date: "June 1, 2025",
+    image: "/lovable-uploads/43fd4c77-d18b-4d86-9a77-6c45863ea0e1.png",
+    content: `Unspoken blades
+By Sweety Doshi
+
+One cuts the skin, the other cuts the soul.
+But only one can piece things together, or gently pull them apart. 
+Still, I choose it every time.
+
+The writer in me stays awake all night, because that's when my emotions arise,
+In the quietest of waves and the softest of echoes,
+In such a stillness, words can't always hold.
+
+I try to catch them on paper, but they slip through my ink,
+Too heavy to write, too tender to shape:
+Even the gentlest line feels sharp at times.
+
+It's strange how easily I write for the world,
+And yet when I write for what truly matters, it is the silence that grows deeper.
+
+Some letters stay unsent, some verses stay unread.
+Not because they're unfinished, but because they speak too much of what remains unspoken.`,
+    category: "The Tortured Poets Department"
+  },
+  {
+    id: 15,
+    title: "Beyond The Storm",
+    excerpt: "A poignant dialogue between grandmother and granddaughter about courage, hope, and life's journey through adversity.",
+    author: "Aiyana Deshpande",
+    date: "June 3, 2025",
+    image: "/lovable-uploads/c634ae3f-369c-476d-9892-72339963f5b2.png",
+    content: `Beyond The Storm
+By Aiyana Deshpande
+
+"Grandma, was it easy for you? Your journey?"
+"Eventful, jovial, dismal, but far from easy."
+"Your honesty deceits me. For in a few days, I am to
+blossom into a woman."
+"Why do my words betray you so, child?"
+"I gripped tightly onto the notion that once I attained 
+my adolescence, I would be brave, such as a
+lionhearted soldier, ready to lay my life down for my
+country."
+"I believed everything would be easy, grandma. I
+believed once I grew old enough, everything would
+fall into place."
+"That is where you are wrong, child. Age does not
+dictate courage.
+Pray tell me, however, why do you require it?"
+"Because, grandma, my surroundings turn more
+unbridled as the old moon sets and a new sun rises."
+"I am forced to embark upon journeys to which I
+see no end, to pass through tunnels where the light
+of day is far away, too far for my eyes to wonder at
+and hope."
+"I am in dire need of hope, grandma, hope and
+tenacity."
+"Hope is in everyone, child. It is locked in a little
+corner in your heart and is unleashed like a rabid
+dog when the time comes."
+"When is this sacrosanct 'time', grandma?"
+"It is when everything around you is melancholy,
+when all the world is telling you to go one way, to
+feel a certain way and to do certain things, this
+spark of hope will light a fire in your belly and
+make you defy the odds."
+"It will make you turn the other way."
+"The way the aura shines. The way where
+darkness is climaxed, and a new beacon of desire
+is resurrected."
+"That is hope."
+"Do you feel hope, child?"
+"Not now, no."
+"Then take comfort in the simple idea that this is
+not the end. You may feel as if your whole world is
+crashing in on you, but the fact that you do not feel
+an ounce of hope, means that it is not ready to
+come out."
+"Life is merely a game, my dear."
+"A game many compete in, but one that few
+master."
+"A game hardly any play with all the devotion,
+optimism, and sincerity they can muster."
+"But a game that, when played correctly, will make
+you appreciate every living second and unravel a
+part of yourself you never knew existed."
+
+…`,
+    category: "Tales of Beedle the Bard"
+  },
+  {
     id: 14,
     title: "Shadows of Doubt",
     excerpt: "A powerful reflection on misinformation, media bias, and the search for truth in our modern world.",
