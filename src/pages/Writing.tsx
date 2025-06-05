@@ -295,7 +295,7 @@ const Writing = () => {
                   />
                 </div>
               ) : (
-                <AspectRatio ratio={16/9} className="bg-white">
+                <AspectRatio ratio={16/9}>
                   <img 
                     src={post.image} 
                     alt={post.title} 
