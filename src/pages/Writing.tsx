@@ -289,7 +289,7 @@ const Writing = () => {
                 <img 
                   src={post.image} 
                   alt={post.title} 
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  className="w-full h-full object-contain bg-white transition-transform duration-300 hover:scale-105"
                 />
               </div>
               <div className="p-6">
@@ -333,7 +333,7 @@ const Writing = () => {
       </div>
 
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto bg-midnight-dark/95 border border-white/10 text-white">
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-midnight-dark/95 border border-white/10 text-white">
           {selectedPost && (
             <>
               <DialogHeader>
@@ -356,11 +356,11 @@ const Writing = () => {
                 <img 
                   src={selectedPost.image} 
                   alt={selectedPost.title} 
-                  className="w-full h-64 object-cover rounded-md mb-6"
+                  className="w-full max-h-96 object-contain bg-white rounded-md mb-6"
                 />
                 <div className="whitespace-pre-line leading-relaxed">
                   {selectedPost.content.split('\n\n').map((paragraph, index) => {
-                    const isTitleLine = /^(Eye Contact Poem by Jiya Doshi|Wounds Poem by Durva Shah)$/.test(paragraph.trim());
+                    const isTitleLine = /^(Eye Contact Poem by Jiya Doshi|Wounds Poem by Durva Shah|Look of Love|The Moment We Touched Souls|Unspoken blades|Beyond The Storm)$/.test(paragraph.trim());
                     
                     return (
                       <div 

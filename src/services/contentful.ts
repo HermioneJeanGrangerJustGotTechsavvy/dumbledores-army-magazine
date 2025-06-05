@@ -3,6 +3,19 @@ import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
   {
+    id: 18,
+    title: "Look of Love",
+    excerpt: "A visual artwork exploring the profound emotions and connections found in the look of love.",
+    author: "Anjani Shastri",
+    date: "June 3, 2025",
+    image: "/lovable-uploads/c414d34e-ac42-4c94-81ac-f4f7bfab4932.png",
+    content: `Look of Love
+By Anjani Shastri
+
+[This is a visual artwork piece - please view the full image to experience the complete artistic expression]`,
+    category: "Brushes and Broomsticks"
+  },
+  {
     id: 17,
     title: "The Moment We Touched Souls",
     excerpt: "A tender celebration of the sacred bond between mother and child in those first precious moments.",
