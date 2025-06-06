@@ -3,6 +3,72 @@ import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
   {
+    id: 20,
+    title: "Coffee",
+    excerpt: "A powerful metaphor comparing coffee's bitter taste to life's challenging bridges we must cross.",
+    author: "Jiya Doshi",
+    date: "June 5, 2025",
+    image: "/lovable-uploads/88e6790d-953b-472c-bbb1-589f89a23344.png",
+    content: `Coffee
+By Jiya Doshi
+
+I still remember the first time I'd tasted coffee. I was probably twelve. I took one sip and swore never to have it again. 14 years old and cappuccino changed my life. My perspective shifted. What feels bitter isn't really bitter until you've known true bitterness. I went from the girl who ran away from coffee to the girl waiting for it every single day.
+
+And that's the case with this calamitous bridge spanning across us – it's got holes and cracks and stepping on it would mean direct death and yet I try to do so. I fall down into the river, get swept in the currents, climb the mountain, reach the bridge and do it all over again. It's not because I'm addicted. I'm not Prometheus. I don't heal in a day. Scars on me last forever.
+
+And maybe that bridge is a scar, because every time I lift my head to cross it, every time I watch you on the opposite side, every time I step, I hope I don't fall. I hope I don't fall even as my foot goes crashing through the wood. I hope I don't fall even when I'm inches from the surface of the water. I hope I don't fall even when I'm drowning and clinging to the rocks for dear life.
+
+Because every time I look across, I don't see the crumbling bridge, I see you. I see the risks I don't want you to take. I see the smile fading. I see the eyes on the bridge. I see you take a little step closer to the bridge. I see you.
+
+I see the first time I'd almost reached you, the time our fingers brushed, the time I was nearly on the other side and yet I fell. The bridge had gotten worse over the years. The scars worsened. The risk intensified.
+
+Because every time I fall, I'm twelve and I refuse to go through it all again. But I still do.
+
+Every time I look across, I'm fourteen, hoping to finally cross the bridge, hoping to finally reach you.
+
+And I know someday I'll do it. Even if the bridge collapses. Even if the water swallows me. Even if I'm bruised.
+
+Someday, I'll be more mature, more determined, more fearless. Someday I'll cross over, even if I need to grow wings on the way down. I'll learn to do it every day. I'll teach myself.
+
+I promise.
+
+Someday, the distant girl whose voice can barely reach you, whose eyes are too far-off to read, but whose heart synchronizes with yours will find you and never lose you again.
+
+Because what feels bitter isn't really bitter until you've known true bitterness
+
+The wounds aren't bitter. My inability to get over them is.
+
+The fall isn't bitter. My inability to overcome it is.
+
+The pain isn't bitter. My inability to heal is.
+
+The bridge isn't bitter. My inability to cross it is.
+
+The risk isn't bitter. My inability to reach you is.`,
+    category: "Amortentia"
+  },
+  {
+    id: 19,
+    title: "Elegy of the Shoreline",
+    excerpt: "A poetic meditation on grief as a current that strikes unexpectedly, both destructive and beautiful.",
+    author: "Jiya Parkash",
+    date: "June 3, 2025",
+    image: "/lovable-uploads/108c257a-32a8-48d6-bc89-fa3ea57606dd.png",
+    content: `Elegy of the Shoreline
+By Jiya Parkash
+
+The grief that is embedded into my veins floods in and fills the vessel with despair and pain, and yet I choose to hold this same agitating pain very dear to me as it's all that is left of yours.
+
+A current is very identical to grief. No one knows when it might strike.
+
+It may hit the shore on a sunny day or an awful day.
+
+It may be destructive. It may be beautiful.
+
+Who knew that the same water that is vital to human life can destroy the fragility of a human being?`,
+    category: "Amortentia"
+  },
+  {
     id: 18,
     title: "Look of Love",
     excerpt: "A visual artwork exploring the profound emotions and connections found in the look of love.",
