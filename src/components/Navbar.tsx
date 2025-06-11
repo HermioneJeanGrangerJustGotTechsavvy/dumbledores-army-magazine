@@ -39,6 +39,7 @@ const Navbar = () => {
     { name: "Dorm Designer", path: "/dorm-designer" },
     { name: "Classes", path: "/classes" },
     { name: "Writing", path: "/writing" },
+    { name: "Art", path: "/art" },
     { name: "Issues", path: "/issues" },
     { name: "About", path: "/about" },
   ];
@@ -120,3 +121,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+</initial_code>

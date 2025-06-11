@@ -10,6 +10,7 @@ import DormDesigner from "./pages/DormDesigner";
 import Classes from "./pages/Classes";
 import ClassDetail from "./pages/ClassDetail";
 import Writing from "./pages/Writing";
+import Art from "./pages/Art";
 import Issues from "./pages/Issues";
 import About from "./pages/About";
 import Layout from "./components/Layout";
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/classes" element={<Classes />} />
           <Route path="/classes/:id" element={<ClassDetail />} />
           <Route path="/writing" element={<Writing />} />
+          <Route path="/art" element={<Art />} />
           <Route path="/issues" element={<Issues />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
