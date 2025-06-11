@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { useToast } from "@/hooks/use-toast";
@@ -51,17 +52,19 @@ const Writing = () => {
       try {
         setLoading(true);
         const data = await getBlogPosts();
-        setPosts(data);
-        setFilteredPosts(data);
+        // Filter out "Brushes and Broomsticks" category posts
+        const writingPosts = data.filter(post => post.category !== "Brushes and Broomsticks");
+        setPosts(writingPosts);
+        setFilteredPosts(writingPosts);
         
-        // Extract unique months, authors, and categories
-        const months = [...new Set(data.map(post => {
+        // Extract unique months, authors, and categories (excluding art)
+        const months = [...new Set(writingPosts.map(post => {
           const dateParts = post.date.split(" ");
           return dateParts[0]; // Get the month part
         }))];
         
-        const authors = [...new Set(data.flatMap(post => post.author.split(", ")))];
-        const categories = [...new Set(data.map(post => post.category).filter(Boolean))];
+        const authors = [...new Set(writingPosts.flatMap(post => post.author.split(", ")))];
+        const categories = [...new Set(writingPosts.map(post => post.category).filter(Boolean))];
         
         setAvailableMonths(months);
         setAvailableAuthors(authors);
@@ -191,7 +194,7 @@ const Writing = () => {
       <div className={`text-center mb-12 transition-all duration-700 transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Writing</h1>
         <p className="text-white max-w-3xl mx-auto">
-          A collection of creativity from around the wizarding world.
+          Discover powerful stories, poetry, and literary works from talented writers in our magical community.
         </p>
       </div>
       
