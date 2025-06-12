@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { useToast } from "@/hooks/use-toast";
@@ -368,11 +367,6 @@ const Writing = () => {
                 )}
               </DialogHeader>
               <div className="my-4">
-                <img 
-                  src={selectedPost.image} 
-                  alt={selectedPost.title} 
-                  className="w-full max-h-96 object-contain bg-white rounded-md mb-6"
-                />
                 <div className="whitespace-pre-line leading-relaxed">
                   {selectedPost.content.split('\n\n').map((paragraph, index) => {
                     const isTitleLine = /^(Eye Contact Poem by Jiya Doshi|Wounds Poem by Durva Shah|Look of Love|The Moment We Touched Souls|Unspoken blades|Beyond The Storm)$/.test(paragraph.trim());
