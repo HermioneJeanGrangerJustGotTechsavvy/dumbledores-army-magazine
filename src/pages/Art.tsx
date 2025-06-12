@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { getBlogPosts } from "@/services/contentful";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -28,9 +27,10 @@ const Art = () => {
         const data = await getBlogPosts();
         // Filter only "Brushes and Broomsticks" category posts
         const artOnly = data.filter(post => post.category === "Brushes and Broomsticks");
-        // Add month extraction from date
+        // Add month extraction from date and ensure id is string
         const artWithMonths = artOnly.map(post => ({
           ...post,
+          id: String(post.id),
           month: new Date(post.date).toLocaleString('default', { month: 'long' })
         }));
         setArtPosts(artWithMonths);

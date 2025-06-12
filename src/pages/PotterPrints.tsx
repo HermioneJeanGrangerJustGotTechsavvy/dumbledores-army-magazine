@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
@@ -93,6 +92,78 @@ const PotterPrints = () => {
     {
       id: "10",
       src: "/lovable-uploads/9f12ba0c-cbdb-416f-9d89-0000b6961243.png",
+      category: "Photography",
+      photographer: "Jiya Doshi",
+      date: "June 11, 2025",
+      month: "June"
+    },
+    {
+      id: "11",
+      src: "/lovable-uploads/ad025dee-30e0-4392-aee2-02a0b38496ac.png",
+      category: "Photography",
+      photographer: "Jiya Doshi",
+      date: "June 11, 2025",
+      month: "June"
+    },
+    {
+      id: "12",
+      src: "/lovable-uploads/7d98b408-c48b-4d55-8ae1-427c99c2e0f9.png",
+      category: "Photography",
+      photographer: "Jiya Doshi",
+      date: "June 11, 2025",
+      month: "June"
+    },
+    {
+      id: "13",
+      src: "/lovable-uploads/5361879a-90f3-4a44-a983-5d11a964ed23.png",
+      category: "Photography",
+      photographer: "Jiya Doshi",
+      date: "June 11, 2025",
+      month: "June"
+    },
+    {
+      id: "14",
+      src: "/lovable-uploads/f6acf651-4ebf-4d53-91ca-93b62b7f8782.png",
+      category: "Photography",
+      photographer: "Jiya Doshi",
+      date: "June 11, 2025",
+      month: "June"
+    },
+    {
+      id: "15",
+      src: "/lovable-uploads/fa576d96-ca5c-40d1-9607-fb77433ae966.png",
+      category: "Photography",
+      photographer: "Jiya Doshi",
+      date: "June 11, 2025",
+      month: "June"
+    },
+    {
+      id: "16",
+      src: "/lovable-uploads/b8595508-2146-4dcf-a659-9008e5dddd9e.png",
+      category: "Photography",
+      photographer: "Jiya Doshi",
+      date: "June 11, 2025",
+      month: "June"
+    },
+    {
+      id: "17",
+      src: "/lovable-uploads/1ed40207-5553-4c44-8e24-144f72e3ef62.png",
+      category: "Photography",
+      photographer: "Jiya Doshi",
+      date: "June 11, 2025",
+      month: "June"
+    },
+    {
+      id: "18",
+      src: "/lovable-uploads/59714ead-4917-4ab2-9cea-b371d6175b96.png",
+      category: "Photography",
+      photographer: "Jiya Doshi",
+      date: "June 11, 2025",
+      month: "June"
+    },
+    {
+      id: "19",
+      src: "/lovable-uploads/e9fc8da4-4655-4fff-a0ff-2e41f6f9c9f7.png",
       category: "Photography",
       photographer: "Jiya Doshi",
       date: "June 11, 2025",
