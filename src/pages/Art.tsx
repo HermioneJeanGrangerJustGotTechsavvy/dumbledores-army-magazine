@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { getBlogPosts } from "@/services/contentful";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -31,6 +32,7 @@ const Art = () => {
         const artWithMonths = artOnly.map(post => ({
           ...post,
           id: String(post.id),
+          category: post.category || "Brushes and Broomsticks",
           month: new Date(post.date).toLocaleString('default', { month: 'long' })
         }));
         setArtPosts(artWithMonths);

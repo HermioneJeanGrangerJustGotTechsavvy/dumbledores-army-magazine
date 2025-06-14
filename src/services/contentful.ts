@@ -3,6 +3,19 @@ import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
   {
+    id: 21,
+    title: "Echoes of Stillness",
+    excerpt: "A beautiful portrait artwork capturing the essence of quiet contemplation and inner peace.",
+    author: "Pahal Shah",
+    date: "June 1, 2025",
+    image: "/lovable-uploads/ed1dfc0e-df3c-44ca-ad72-716cc891e7f6.png",
+    content: `Echoes of Stillness
+By Pahal Shah
+
+[This is a visual artwork piece - please view the full image to experience the complete artistic expression]`,
+    category: "Brushes and Broomsticks"
+  },
+  {
     id: 20,
     title: "Coffee",
     excerpt: "A powerful metaphor comparing coffee's bitter taste to the struggle to cross a broken bridge to reach a loved one.",
