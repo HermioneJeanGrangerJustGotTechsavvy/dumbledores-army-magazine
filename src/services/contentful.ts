@@ -3,6 +3,19 @@ import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
   {
+    id: 26,
+    title: "Florals & Frames",
+    excerpt: "A beautiful pencil sketch featuring tropical leaves, hibiscus flowers, and decorative containers in a still life composition.",
+    author: "Pahal Shah",
+    date: "June 1, 2025", 
+    image: "/lovable-uploads/7b4ee294-fd25-4ef9-b806-40f46735b1a5.png",
+    content: `Florals & Frames
+By Pahal Shah
+
+[This is a visual artwork piece - please view the full image to experience the complete artistic expression]`,
+    category: "Brushes and Broomsticks"
+  },
+  {
     id: 25,
     title: "Pastel Scream",
     excerpt: "A unique interpretation of 'The Scream' featuring an anime-style character on a bridge with dramatic orange skies and flowing water below.",
