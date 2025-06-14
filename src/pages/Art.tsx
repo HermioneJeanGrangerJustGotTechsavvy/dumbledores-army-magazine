@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { getBlogPosts } from "@/services/contentful";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -52,6 +51,13 @@ const Art = () => {
     if (selectedArtist !== "all" && post.author !== selectedArtist) return false;
     return true;
   });
+
+  // Added console log for debugging
+  useEffect(() => {
+    if (loaded) { // Log only after initial loading attempt
+      console.log("Filtered Art Posts for display:", filteredPosts);
+    }
+  }, [filteredPosts, loaded]);
 
   const months = Array.from(new Set(artPosts.map(post => post.month).filter(Boolean)));
   const artists = Array.from(new Set(artPosts.map(post => post.author)));
