@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Filter, Book } from "lucide-react";
+import { Filter, Book, CalendarDays } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 export interface BlogPost {
@@ -16,10 +16,11 @@ export interface BlogPost {
   title: string;
   excerpt: string;
   author: string;
-  date: string;
+  date: string; // Expected format: "Month Day, Year" e.g., "June 1, 2025"
   image: string;
   content: string;
   category?: string;
+  year?: string; // Add year property
 }
 
 interface Subscriber {
@@ -42,32 +43,44 @@ const Writing = () => {
   const [selectedMonth, setSelectedMonth] = useState<string>("all");
   const [selectedAuthor, setSelectedAuthor] = useState<string>("all");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [selectedYear, setSelectedYear] = useState<string>("all"); // New state for selected year
   const [availableMonths, setAvailableMonths] = useState<string[]>([]);
   const [availableAuthors, setAvailableAuthors] = useState<string[]>([]);
   const [availableCategories, setAvailableCategories] = useState<string[]>([]);
+  const [availableYears, setAvailableYears] = useState<string[]>([]); // New state for available years
   
   useEffect(() => {
     const loadPosts = async () => {
       try {
         setLoading(true);
         const data = await getBlogPosts();
-        // Filter out "Brushes and Broomsticks" category posts
-        const writingPosts = data.filter(post => post.category !== "Brushes and Broomsticks");
-        setPosts(writingPosts);
-        setFilteredPosts(writingPosts);
+        const writingPostsWithDetails = data
+          .filter(post => post.category !== "Brushes and Broomsticks")
+          .map(post => {
+            const dateParts = post.date.split(" "); // "Month Day, Year"
+            const year = dateParts.length > 2 ? dateParts[2].replace(',', '') : new Date(post.date).getFullYear().toString();
+            return {
+              ...post,
+              year: year
+            };
+          });
+
+        setPosts(writingPostsWithDetails);
+        setFilteredPosts(writingPostsWithDetails);
         
-        // Extract unique months, authors, and categories (excluding art)
-        const months = [...new Set(writingPosts.map(post => {
+        const months = [...new Set(writingPostsWithDetails.map(post => {
           const dateParts = post.date.split(" ");
-          return dateParts[0]; // Get the month part
+          return dateParts[0];
         }))];
         
-        const authors = [...new Set(writingPosts.flatMap(post => post.author.split(", ")))];
-        const categories = [...new Set(writingPosts.map(post => post.category).filter(Boolean))];
+        const authors = [...new Set(writingPostsWithDetails.flatMap(post => post.author.split(", ")))];
+        const categories = [...new Set(writingPostsWithDetails.map(post => post.category).filter(Boolean)) as string[]];
+        const years = [...new Set(writingPostsWithDetails.map(post => post.year).filter(Boolean)) as string[]].sort((a, b) => parseInt(b) - parseInt(a));
         
         setAvailableMonths(months);
         setAvailableAuthors(authors);
         setAvailableCategories(categories);
+        setAvailableYears(years); // Set available years
       } catch (error) {
         console.error("Failed to load posts:", error);
         toast({
@@ -96,7 +109,6 @@ const Writing = () => {
     };
   }, [toast]);
 
-  // Filter posts when filter options change
   useEffect(() => {
     if (posts.length === 0) return;
     
@@ -113,9 +125,13 @@ const Writing = () => {
     if (selectedCategory && selectedCategory !== "all") {
       result = result.filter(post => post.category === selectedCategory);
     }
+
+    if (selectedYear && selectedYear !== "all") { // Filter by year
+      result = result.filter(post => post.year === selectedYear);
+    }
     
     setFilteredPosts(result);
-  }, [selectedMonth, selectedAuthor, selectedCategory, posts]);
+  }, [selectedMonth, selectedAuthor, selectedCategory, selectedYear, posts]);
 
   const handleReadMore = (postId: number) => {
     const post = posts.find(p => p.id === postId);
@@ -129,6 +145,7 @@ const Writing = () => {
     setSelectedMonth("all");
     setSelectedAuthor("all");
     setSelectedCategory("all");
+    setSelectedYear("all"); // Reset year filter
   };
 
   const handleSubscribe = (e: React.FormEvent) => {
@@ -197,7 +214,6 @@ const Writing = () => {
         </p>
       </div>
       
-      {/* Filter controls */}
       <div className={`mb-8 flex flex-col md:flex-row gap-4 items-center justify-between transition-all duration-700 delay-100 transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
         <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
           <div className="w-full sm:w-40">
@@ -238,6 +254,22 @@ const Writing = () => {
                 <SelectItem value="all">All Categories</SelectItem>
                 {availableCategories.map((category) => (
                   <SelectItem key={category} value={category}>{category}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="w-full sm:w-40">
+            <Select value={selectedYear} onValueChange={setSelectedYear}>
+              <SelectTrigger className="bg-white/10 border-white/20 text-white">
+                <div className="flex items-center gap-2">
+                  <CalendarDays className="h-4 w-4" />
+                  <SelectValue placeholder="Year" />
+                </div>
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Years</SelectItem>
+                {availableYears.map((year) => (
+                  <SelectItem key={year} value={year}>{year}</SelectItem>
                 ))}
               </SelectContent>
             </Select>

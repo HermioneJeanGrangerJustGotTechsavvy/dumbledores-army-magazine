@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getBlogPosts } from "@/services/contentful";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { CalendarDays } from "lucide-react";
 
 export interface BlogPost {
   id: string;
@@ -11,6 +12,7 @@ export interface BlogPost {
   image: string;
   category: string;
   month?: string;
+  year?: string;
 }
 
 const Art = () => {
@@ -19,22 +21,25 @@ const Art = () => {
   const [artPosts, setArtPosts] = useState<BlogPost[]>([]);
   const [selectedMonth, setSelectedMonth] = useState<string>("all");
   const [selectedArtist, setSelectedArtist] = useState<string>("all");
+  const [selectedYear, setSelectedYear] = useState<string>("all");
   
   useEffect(() => {
     const loadArtPosts = async () => {
       try {
         setLoading(true);
         const data = await getBlogPosts();
-        // Filter only "Brushes and Broomsticks" category posts
         const artOnly = data.filter(post => post.category === "Brushes and Broomsticks");
-        // Add month extraction from date and ensure id is string
-        const artWithMonths = artOnly.map(post => ({
-          ...post,
-          id: String(post.id),
-          category: post.category || "Brushes and Broomsticks",
-          month: new Date(post.date).toLocaleString('default', { month: 'long' })
-        }));
-        setArtPosts(artWithMonths);
+        const artWithDetails = artOnly.map(post => {
+          const postDate = new Date(post.date);
+          return {
+            ...post,
+            id: String(post.id),
+            category: post.category || "Brushes and Broomsticks",
+            month: postDate.toLocaleString('default', { month: 'long' }),
+            year: postDate.getFullYear().toString()
+          };
+        });
+        setArtPosts(artWithDetails);
       } catch (error) {
         console.error("Failed to load art posts:", error);
       } finally {
@@ -49,18 +54,19 @@ const Art = () => {
   const filteredPosts = artPosts.filter(post => {
     if (selectedMonth !== "all" && post.month !== selectedMonth) return false;
     if (selectedArtist !== "all" && post.author !== selectedArtist) return false;
+    if (selectedYear !== "all" && post.year !== selectedYear) return false;
     return true;
   });
 
-  // Added console log for debugging
   useEffect(() => {
-    if (loaded) { // Log only after initial loading attempt
+    if (loaded) {
       console.log("Filtered Art Posts for display:", filteredPosts);
     }
   }, [filteredPosts, loaded]);
 
   const months = Array.from(new Set(artPosts.map(post => post.month).filter(Boolean)));
   const artists = Array.from(new Set(artPosts.map(post => post.author)));
+  const years = Array.from(new Set(artPosts.map(post => post.year).filter(Boolean))).sort((a, b) => parseInt(b!) - parseInt(a!));
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-6xl">
@@ -79,7 +85,7 @@ const Art = () => {
           <SelectContent>
             <SelectItem value="all">All Months</SelectItem>
             {months.map(month => (
-              <SelectItem key={month} value={month}>{month}</SelectItem>
+              <SelectItem key={month} value={month!}>{month}</SelectItem>
             ))}
           </SelectContent>
         </Select>
@@ -92,6 +98,21 @@ const Art = () => {
             <SelectItem value="all">All Artists</SelectItem>
             {artists.map(artist => (
               <SelectItem key={artist} value={artist}>{artist}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+
+        <Select value={selectedYear} onValueChange={setSelectedYear}>
+          <SelectTrigger className="w-[200px] bg-midnight-dark/70 border-white/20 text-white">
+            <div className="flex items-center gap-2">
+              <CalendarDays className="h-4 w-4" />
+              <SelectValue placeholder="All Years" />
+            </div>
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All Years</SelectItem>
+            {years.map(year => (
+              <SelectItem key={year} value={year!}>{year}</SelectItem>
             ))}
           </SelectContent>
         </Select>

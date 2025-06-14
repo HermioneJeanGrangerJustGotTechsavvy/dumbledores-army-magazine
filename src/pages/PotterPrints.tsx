@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { CalendarDays } from "lucide-react";
 
 interface Photo {
   id: string;
@@ -8,15 +9,32 @@ interface Photo {
   photographer?: string;
   date: string;
   month: string;
+  year: string;
 }
+
+// Helper function to parse year from date string "Month Day, Year"
+const getYearFromDateString = (dateString: string): string => {
+  const parts = dateString.split(" ");
+  if (parts.length > 2) {
+    const yearPart = parts[parts.length - 1];
+    if (!isNaN(parseInt(yearPart))) {
+      return yearPart;
+    }
+  }
+  // Fallback if parsing fails (e.g. if date is just year)
+  if (!isNaN(parseInt(dateString))) return dateString;
+  // Fallback for unexpected formats, ideally should be handled by data source
+  return new Date().getFullYear().toString(); 
+};
 
 const PotterPrints = () => {
   const [loaded, setLoaded] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [selectedMonth, setSelectedMonth] = useState<string>("all");
   const [selectedPhotographer, setSelectedPhotographer] = useState<string>("all");
+  const [selectedYear, setSelectedYear] = useState<string>("all");
 
-  const photos: Photo[] = [
+  const photosData: Omit<Photo, 'year'>[] = [
     {
       id: "1",
       src: "/lovable-uploads/383a118f-7791-4ae5-b17c-9cae90ed5e8e.png",
@@ -171,6 +189,12 @@ const PotterPrints = () => {
     }
   ];
 
+  // Process photos to add year
+  const photos: Photo[] = photosData.map(photo => ({
+    ...photo,
+    year: getYearFromDateString(photo.date)
+  }));
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoaded(true);
@@ -182,11 +206,13 @@ const PotterPrints = () => {
     if (selectedCategory !== "all" && photo.category !== selectedCategory) return false;
     if (selectedMonth !== "all" && photo.month !== selectedMonth) return false;
     if (selectedPhotographer !== "all" && photo.photographer !== selectedPhotographer) return false;
+    if (selectedYear !== "all" && photo.year !== selectedYear) return false;
     return true;
   });
 
   const months = Array.from(new Set(photos.map(photo => photo.month)));
   const photographers = Array.from(new Set(photos.map(photo => photo.photographer).filter(Boolean)));
+  const years = Array.from(new Set(photos.map(photo => photo.year))).sort((a, b) => parseInt(b) - parseInt(a));
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-6xl">
@@ -229,6 +255,21 @@ const PotterPrints = () => {
             <SelectItem value="all">All Photographers</SelectItem>
             {photographers.map(photographer => (
               <SelectItem key={photographer} value={photographer!}>{photographer}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+
+        <Select value={selectedYear} onValueChange={setSelectedYear}>
+          <SelectTrigger className="w-[200px] bg-midnight-dark/70 border-white/20 text-white">
+            <div className="flex items-center gap-2">
+              <CalendarDays className="h-4 w-4" />
+              <SelectValue placeholder="All Years" />
+            </div>
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All Years</SelectItem>
+            {years.map(year => (
+              <SelectItem key={year} value={year}>{year}</SelectItem>
             ))}
           </SelectContent>
         </Select>
