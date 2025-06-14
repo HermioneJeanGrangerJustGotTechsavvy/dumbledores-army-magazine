@@ -3,6 +3,19 @@ import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
   {
+    id: 24,
+    title: "Stargazer's Solitude",
+    excerpt: "A beautiful artwork inspired by Van Gogh's style, depicting a solitary moment under a swirling starry sky with vibrant greens and blues.",
+    author: "Pahal Shah",
+    date: "June 1, 2025",
+    image: "/lovable-uploads/da2b77d6-1d83-4e0f-9f66-9598bc935872.png",
+    content: `Stargazer's Solitude
+By Pahal Shah
+
+[This is a visual artwork piece - please view the full image to experience the complete artistic expression]`,
+    category: "Brushes and Broomsticks"
+  },
+  {
     id: 23,
     title: "Café Daydream",
     excerpt: "A whimsical artwork depicting a dreamy moment with coffee and contemplation, featuring intricate mandala patterns.",
