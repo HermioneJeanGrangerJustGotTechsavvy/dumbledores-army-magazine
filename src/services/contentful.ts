@@ -1,7 +1,21 @@
+
 import { createClient } from 'contentful';
 import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
+  {
+    id: 30,
+    title: "Pulse of Compassion",
+    excerpt: "A sketch representing the dedication of healthcare professionals, featuring a figure in scrubs and the words 'Pain is temporary, a degree is forever'.",
+    author: "Pahal Shah",
+    date: "June 1, 2025", 
+    image: "/lovable-uploads/c982c810-b80e-4a19-963f-3970c46e79c2.png",
+    content: `Pulse of Compassion
+By Pahal Shah
+
+[This is a visual artwork piece - please view the full image to experience the complete artistic expression]`,
+    category: "Brushes and Broomsticks"
+  },
   {
     id: 29,
     title: "Botanical Heartbeat",
