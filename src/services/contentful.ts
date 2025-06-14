@@ -3,6 +3,19 @@ import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
   {
+    id: 22,
+    title: "In Hues of Thought",
+    excerpt: "A vibrant portrait artwork exploring the colorful spectrum of human emotions and contemplation.",
+    author: "Pahal Shah",
+    date: "June 1, 2025",
+    image: "/lovable-uploads/3d7b9e37-d799-45fc-b2e1-69570f77bcc1.png",
+    content: `In Hues of Thought
+By Pahal Shah
+
+[This is a visual artwork piece - please view the full image to experience the complete artistic expression]`,
+    category: "Brushes and Broomsticks"
+  },
+  {
     id: 21,
     title: "Echoes of Stillness",
     excerpt: "A beautiful portrait artwork capturing the essence of quiet contemplation and inner peace.",
