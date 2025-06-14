@@ -3,6 +3,32 @@ import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
   {
+    id: 29,
+    title: "Botanical Heartbeat",
+    excerpt: "A beautiful pencil sketch depicting an anatomical heart adorned with delicate flowers and foliage, symbolizing the connection between life and nature.",
+    author: "Pahal Shah",
+    date: "June 1, 2025", 
+    image: "/lovable-uploads/6fe82fc8-7518-4e4c-8015-ba61c3961c36.png",
+    content: `Botanical Heartbeat
+By Pahal Shah
+
+[This is a visual artwork piece - please view the full image to experience the complete artistic expression]`,
+    category: "Brushes and Broomsticks"
+  },
+  {
+    id: 28,
+    title: "Inner Spell",
+    excerpt: "A whimsical and imaginative sketch featuring magical elements including The Marauder's Map, Platform 9¾, and various mystical symbols in a creative composition.",
+    author: "Pahal Shah",
+    date: "June 1, 2025", 
+    image: "/lovable-uploads/ad3655a4-9ffc-4cd8-afe3-218df565fd95.png",
+    content: `Inner Spell
+By Pahal Shah
+
+[This is a visual artwork piece - please view the full image to experience the complete artistic expression]`,
+    category: "Brushes and Broomsticks"
+  },
+  {
     id: 27,
     title: "Tears Like Pearls",
     excerpt: "A delicate pencil sketch portraying raw emotion through flowing tears, capturing the beauty found in vulnerability and human expression.",
