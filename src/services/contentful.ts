@@ -3,6 +3,19 @@ import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
   {
+    id: 27,
+    title: "Tears Like Pearls",
+    excerpt: "A delicate pencil sketch portraying raw emotion through flowing tears, capturing the beauty found in vulnerability and human expression.",
+    author: "Pahal Shah",
+    date: "June 1, 2025", 
+    image: "/lovable-uploads/a6ca11e8-ba39-47b2-80a5-59b96723d721.png",
+    content: `Tears Like Pearls
+By Pahal Shah
+
+[This is a visual artwork piece - please view the full image to experience the complete artistic expression]`,
+    category: "Brushes and Broomsticks"
+  },
+  {
     id: 26,
     title: "Florals & Frames",
     excerpt: "A beautiful pencil sketch featuring tropical leaves, hibiscus flowers, and decorative containers in a still life composition.",
