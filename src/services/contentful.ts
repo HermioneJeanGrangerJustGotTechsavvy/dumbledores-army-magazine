@@ -3,6 +3,19 @@ import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
   {
+    id: 25,
+    title: "Pastel Scream",
+    excerpt: "A unique interpretation of 'The Scream' featuring an anime-style character on a bridge with dramatic orange skies and flowing water below.",
+    author: "Pahal Shah",
+    date: "June 1, 2025", 
+    image: "/lovable-uploads/22a4a7a5-fed4-4be4-8e56-6222bcfdaf1b.png",
+    content: `Pastel Scream
+By Pahal Shah
+
+[This is a visual artwork piece - please view the full image to experience the complete artistic expression]`,
+    category: "Brushes and Broomsticks"
+  },
+  {
     id: 24,
     title: "Stargazer's Solitude",
     excerpt: "A beautiful artwork inspired by Van Gogh's style, depicting a solitary moment under a swirling starry sky with vibrant greens and blues.",
