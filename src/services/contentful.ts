@@ -3,6 +3,19 @@ import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
   {
+    id: 23,
+    title: "Café Daydream",
+    excerpt: "A whimsical artwork depicting a dreamy moment with coffee and contemplation, featuring intricate mandala patterns.",
+    author: "Pahal Shah",
+    date: "June 1, 2025",
+    image: "/lovable-uploads/4c6901cc-15da-46af-8b5b-48bb5d964465.png",
+    content: `Café Daydream
+By Pahal Shah
+
+[This is a visual artwork piece - please view the full image to experience the complete artistic expression]`,
+    category: "Brushes and Broomsticks"
+  },
+  {
     id: 22,
     title: "In Hues of Thought",
     excerpt: "A vibrant portrait artwork exploring the colorful spectrum of human emotions and contemplation.",
