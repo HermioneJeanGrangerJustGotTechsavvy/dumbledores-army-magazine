@@ -1,7 +1,7 @@
-
 import { useState, useRef, useEffect } from "react";
 import { Table, Bed, BookOpen, House, ChevronLeft, ChevronRight, GraduationCap } from "lucide-react";
 import { toast } from "sonner";
+import BackgroundRemovalProcessor from "./BackgroundRemovalProcessor";
 
 type DormItem = {
   id: string;
@@ -25,6 +25,12 @@ const DormCustomizer = () => {
   const [activeMovingItem, setActiveMovingItem] = useState<string | null>(null);
   const roomRef = useRef<HTMLDivElement>(null);
   const activeItemRef = useRef<{ id: string; offsetX: number; offsetY: number } | null>(null);
+
+  const [processedImages, setProcessedImages] = useState<Array<{
+    id: string;
+    originalSrc: string;
+    processedSrc: string;
+  }>>([]);
 
   const furnitureItems: DormItem[] = [
     { id: "desk1", name: "Study Desk", type: "furniture", imgSrc: "/lovable-uploads/0542b05a-2497-418f-ab87-a651349da71f.png", width: 180, height: 280, position: { x: 0, y: 0 } },
@@ -78,10 +84,22 @@ const DormCustomizer = () => {
     }
   };
 
+  const getItemImageSrc = (item: DormItem) => {
+    if (item.type === "furniture") {
+      const processed = processedImages.find(p => p.id === item.id);
+      return processed ? processed.processedSrc : item.imgSrc;
+    }
+    return item.imgSrc;
+  };
+
   const getCurrentItems = () => {
     if (currentCategory === "furniture") return furnitureItems;
     if (currentCategory === "houseItems" && selectedHouse) return getHouseItems(selectedHouse);
     return [];
+  };
+
+  const handleImagesProcessed = (images: Array<{id: string; originalSrc: string; processedSrc: string}>) => {
+    setProcessedImages(images);
   };
 
   const handleItemImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
@@ -217,6 +235,11 @@ const DormCustomizer = () => {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
+      <BackgroundRemovalProcessor 
+        furnitureItems={furnitureItems}
+        onImagesProcessed={handleImagesProcessed}
+      />
+      
       <div className="glass-card p-4 md:p-6 col-span-3 lg:col-span-1">
         <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-white">Choose Your House</h2>
         <div className="grid grid-cols-2 gap-3 md:gap-4">
@@ -299,9 +322,9 @@ const DormCustomizer = () => {
               onDoubleClick={() => handleRemoveItem(item.id)}
             >
               <img 
-                src={item.imgSrc} 
+                src={getItemImageSrc(item)} 
                 alt={item.name}
-                className="w-full h-full object-contain mix-blend-multiply"
+                className="w-full h-full object-contain"
                 onError={handleItemImageError}
                 draggable="false"
               />
@@ -360,9 +383,9 @@ const DormCustomizer = () => {
             >
               <div className="h-16 md:h-20 flex items-center justify-center mb-1 md:mb-2">
                 <img 
-                  src={item.imgSrc}
+                  src={getItemImageSrc(item)}
                   alt={item.name}
-                  className="max-h-full max-w-full object-contain mix-blend-multiply"
+                  className="max-h-full max-w-full object-contain"
                   onError={handleItemImageError}
                   draggable="false"
                 />
