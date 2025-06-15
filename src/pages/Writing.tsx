@@ -75,7 +75,7 @@ const Writing = () => {
         
         const authors = [...new Set(writingPostsWithDetails.flatMap(post => post.author.split(", ")))];
         const categories = [...new Set(writingPostsWithDetails.map(post => post.category).filter(Boolean)) as string[]];
-        const years = Array.from(new Set(writingPostsWithDetails.map(post => post.year).filter(Boolean)) as Set<string>).sort((a, b) => parseInt(b) - parseInt(a));
+        const years = Array.from(new Set(writingPostsWithDetails.map(post => post.year).filter(Boolean))).sort((a, b) => parseInt(b) - parseInt(a));
         
         setAvailableMonths(months);
         setAvailableAuthors(authors);
