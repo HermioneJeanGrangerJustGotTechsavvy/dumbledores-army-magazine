@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { removeBackground } from "@/utils/backgroundRemoval";
 
@@ -21,8 +22,12 @@ const BackgroundRemovalProcessor = ({ furnitureItems, onImagesProcessed }: Backg
 
   useEffect(() => {
     const processImages = async () => {
+      if (furnitureItems.length === 0) return;
+      
       setProcessing(true);
       const processedImages: ProcessedImage[] = [];
+
+      console.log(`Starting to process ${furnitureItems.length} furniture images`);
 
       for (let i = 0; i < furnitureItems.length; i++) {
         const item = furnitureItems[i];
@@ -39,9 +44,13 @@ const BackgroundRemovalProcessor = ({ furnitureItems, onImagesProcessed }: Backg
             img.src = item.imgSrc;
           });
 
+          console.log(`Image loaded for ${item.id}, starting background removal`);
+
           // Remove background
           const processedBlob = await removeBackground(img);
           const processedUrl = URL.createObjectURL(processedBlob);
+
+          console.log(`Background removed for ${item.id}`);
 
           processedImages.push({
             id: item.id,
@@ -58,16 +67,16 @@ const BackgroundRemovalProcessor = ({ furnitureItems, onImagesProcessed }: Backg
             originalSrc: item.imgSrc,
             processedSrc: item.imgSrc
           });
+          setProcessedCount(i + 1);
         }
       }
 
+      console.log('All images processed, calling onImagesProcessed');
       onImagesProcessed(processedImages);
       setProcessing(false);
     };
 
-    if (furnitureItems.length > 0) {
-      processImages();
-    }
+    processImages();
   }, [furnitureItems, onImagesProcessed]);
 
   if (!processing && processedCount === 0) return null;
@@ -78,8 +87,8 @@ const BackgroundRemovalProcessor = ({ furnitureItems, onImagesProcessed }: Backg
         <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
         <span className="text-sm">
           {processing 
-            ? `Processing furniture images... ${processedCount}/${furnitureItems.length}`
-            : "Images processed!"
+            ? `Removing backgrounds... ${processedCount}/${furnitureItems.length}`
+            : "Background removal complete!"
           }
         </span>
       </div>

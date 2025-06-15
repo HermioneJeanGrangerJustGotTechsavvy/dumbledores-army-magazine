@@ -32,6 +32,9 @@ const DormCustomizer = () => {
     processedSrc: string;
   }>>([]);
 
+  // Add loading state for background processing
+  const [isProcessingImages, setIsProcessingImages] = useState(true);
+
   const furnitureItems: DormItem[] = [
     { id: "desk1", name: "Study Desk", type: "furniture", imgSrc: "/lovable-uploads/0542b05a-2497-418f-ab87-a651349da71f.png", width: 180, height: 280, position: { x: 0, y: 0 } },
     { id: "bookshelf1", name: "Bookshelf", type: "furniture", imgSrc: "/lovable-uploads/38ad771d-bf9c-4a41-95e6-894e6b30ce22.png", width: 240, height: 400, position: { x: 0, y: 0 } },
@@ -87,6 +90,7 @@ const DormCustomizer = () => {
   const getItemImageSrc = (item: DormItem) => {
     if (item.type === "furniture") {
       const processed = processedImages.find(p => p.id === item.id);
+      console.log(`Getting image for ${item.id}:`, processed ? 'Using processed' : 'Using original');
       return processed ? processed.processedSrc : item.imgSrc;
     }
     return item.imgSrc;
@@ -99,7 +103,10 @@ const DormCustomizer = () => {
   };
 
   const handleImagesProcessed = (images: Array<{id: string; originalSrc: string; processedSrc: string}>) => {
+    console.log('Images processed:', images);
     setProcessedImages(images);
+    setIsProcessingImages(false);
+    toast.success(`Background removed from ${images.length} furniture items!`);
   };
 
   const handleItemImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
@@ -299,6 +306,11 @@ const DormCustomizer = () => {
       
       <div className="glass-card p-4 md:p-6 col-span-3 lg:col-span-2">
         <h2 className="text-xl md:text-2xl font-bold mb-3 text-white">Your Dormitory</h2>
+        {isProcessingImages && (
+          <div className="mb-4 p-3 bg-blue-500/20 rounded-lg text-white text-sm">
+            ✨ Preparing furniture with transparent backgrounds...
+          </div>
+        )}
         <div 
           ref={roomRef}
           className={`w-full aspect-[16/9] relative ${getRoomStyle()} rounded-lg`}
@@ -381,7 +393,7 @@ const DormCustomizer = () => {
               } cursor-pointer bg-white/10 hover:bg-white/20 text-center`}
               onClick={() => handleDragStart(item)}
             >
-              <div className="h-16 md:h-20 flex items-center justify-center mb-1 md:mb-2">
+              <div className="h-16 md:h-20 flex items-center justify-center mb-1 md:mb-2 relative">
                 <img 
                   src={getItemImageSrc(item)}
                   alt={item.name}
@@ -389,6 +401,11 @@ const DormCustomizer = () => {
                   onError={handleItemImageError}
                   draggable="false"
                 />
+                {item.type === "furniture" && isProcessingImages && (
+                  <div className="absolute inset-0 bg-black/50 rounded flex items-center justify-center">
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                  </div>
+                )}
               </div>
               <p className="text-xs md:text-sm font-medium text-white truncate">{item.name}</p>
             </div>
