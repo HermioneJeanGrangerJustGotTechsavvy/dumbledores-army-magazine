@@ -87,19 +87,13 @@ const DormCustomizer = () => {
     }
   };
 
-  // Get all items that need background processing
-  const getAllItemsForProcessing = () => {
-    const allItems = [...furnitureItems];
-    if (selectedHouse) {
-      allItems.push(...getHouseItems(selectedHouse));
-    }
-    return allItems;
-  };
-
   const getItemImageSrc = (item: DormItem) => {
-    const processed = processedImages.find(p => p.id === item.id);
-    console.log(`Getting image for ${item.id}:`, processed ? 'Using processed' : 'Using original');
-    return processed ? processed.processedSrc : item.imgSrc;
+    if (item.type === "furniture") {
+      const processed = processedImages.find(p => p.id === item.id);
+      console.log(`Getting image for ${item.id}:`, processed ? 'Using processed' : 'Using original');
+      return processed ? processed.processedSrc : item.imgSrc;
+    }
+    return item.imgSrc;
   };
 
   const getCurrentItems = () => {
@@ -112,7 +106,7 @@ const DormCustomizer = () => {
     console.log('Images processed:', images);
     setProcessedImages(images);
     setIsProcessingImages(false);
-    toast.success(`Background removed from ${images.length} items!`);
+    toast.success(`Background removed from ${images.length} furniture items!`);
   };
 
   const handleItemImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
@@ -246,17 +240,10 @@ const DormCustomizer = () => {
     }
   }, [currentCategory, selectedHouse]);
 
-  // Reset processing when house changes
-  useEffect(() => {
-    if (selectedHouse) {
-      setIsProcessingImages(true);
-    }
-  }, [selectedHouse]);
-
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
       <BackgroundRemovalProcessor 
-        furnitureItems={getAllItemsForProcessing()}
+        furnitureItems={furnitureItems}
         onImagesProcessed={handleImagesProcessed}
       />
       
@@ -321,7 +308,7 @@ const DormCustomizer = () => {
         <h2 className="text-xl md:text-2xl font-bold mb-3 text-white">Your Dormitory</h2>
         {isProcessingImages && (
           <div className="mb-4 p-3 bg-blue-500/20 rounded-lg text-white text-sm">
-            ✨ Preparing items with transparent backgrounds...
+            ✨ Preparing furniture with transparent backgrounds...
           </div>
         )}
         <div 
@@ -414,7 +401,7 @@ const DormCustomizer = () => {
                   onError={handleItemImageError}
                   draggable="false"
                 />
-                {isProcessingImages && (
+                {item.type === "furniture" && isProcessingImages && (
                   <div className="absolute inset-0 bg-black/50 rounded flex items-center justify-center">
                     <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
                   </div>

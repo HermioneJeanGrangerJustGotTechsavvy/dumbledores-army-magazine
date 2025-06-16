@@ -1,7 +1,19 @@
 import { useState, useEffect } from "react";
-import { getBlogPosts, BlogPost } from "@/services/contentful";
+import { getBlogPosts } from "@/services/contentful";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CalendarDays } from "lucide-react";
+
+export interface BlogPost {
+  id: string;
+  title: string;
+  content: string;
+  date: string;
+  author: string;
+  image: string;
+  category: string;
+  month?: string;
+  year?: string;
+}
 
 const Art = () => {
   const [loaded, setLoaded] = useState(false);
@@ -21,6 +33,8 @@ const Art = () => {
           const postDate = new Date(post.date);
           return {
             ...post,
+            id: String(post.id),
+            category: post.category || "Brushes and Broomsticks",
             month: postDate.toLocaleString('default', { month: 'long' }),
             year: postDate.getFullYear().toString()
           };

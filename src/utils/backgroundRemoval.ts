@@ -1,10 +1,11 @@
+
 import { pipeline, env } from '@huggingface/transformers';
 
 // Configure transformers.js to always download models
 env.allowLocalModels = false;
 env.useBrowserCache = false;
 
-const MAX_IMAGE_DIMENSION = 512; // Reduced size to avoid memory issues
+const MAX_IMAGE_DIMENSION = 1024;
 
 function resizeImageIfNeeded(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, image: HTMLImageElement) {
   let width = image.naturalWidth;
@@ -34,20 +35,10 @@ function resizeImageIfNeeded(canvas: HTMLCanvasElement, ctx: CanvasRenderingCont
 export const removeBackground = async (imageElement: HTMLImageElement): Promise<Blob> => {
   try {
     console.log('Starting background removal process...');
-    
-    // Try WebGPU first, then fall back to CPU
-    let segmenter;
-    try {
-      console.log('Attempting WebGPU...');
-      segmenter = await pipeline('image-segmentation', 'Xenova/segformer-b0-finetuned-ade-512-512', {
-        device: 'webgpu',
-      });
-    } catch (webgpuError) {
-      console.log('WebGPU failed, falling back to CPU:', webgpuError);
-      segmenter = await pipeline('image-segmentation', 'Xenova/segformer-b0-finetuned-ade-512-512', {
-        device: 'cpu',
-      });
-    }
+    // Use a model specifically designed for background removal
+    const segmenter = await pipeline('image-segmentation', 'Xenova/modnet', {
+      device: 'webgpu',
+    });
     
     // Convert HTMLImageElement to canvas
     const canvas = document.createElement('canvas');
@@ -64,41 +55,13 @@ export const removeBackground = async (imageElement: HTMLImageElement): Promise<
     console.log('Image converted to base64');
     
     // Process the image with the segmentation model
-    console.log('Processing with segmentation model...');
+    console.log('Processing with background removal model...');
     const result = await segmenter(imageData);
     
-    console.log('Segmentation result:', result);
+    console.log('Background removal result:', result);
     
-    if (!result || !Array.isArray(result) || result.length === 0) {
-      throw new Error('Invalid segmentation result');
-    }
-    
-    // Find the person/object segment (usually the largest non-background segment)
-    let objectMask = null;
-    let maxScore = 0;
-    
-    for (const segment of result) {
-      if (segment.label && !segment.label.toLowerCase().includes('background') && segment.score > maxScore) {
-        maxScore = segment.score;
-        objectMask = segment.mask;
-      }
-    }
-    
-    if (!objectMask) {
-      // If no object found, try to use the first non-background segment
-      for (const segment of result) {
-        if (segment.mask && segment.label && !segment.label.toLowerCase().includes('wall')) {
-          objectMask = segment.mask;
-          break;
-        }
-      }
-    }
-    
-    if (!objectMask) {
-      console.log('No suitable object mask found, returning original image');
-      return new Promise((resolve) => {
-        canvas.toBlob((blob) => resolve(blob!), 'image/png', 1.0);
-      });
+    if (!result || !Array.isArray(result) || result.length === 0 || !result[0].mask) {
+      throw new Error('Invalid background removal result');
     }
     
     // Create a new canvas for the masked image
@@ -120,10 +83,10 @@ export const removeBackground = async (imageElement: HTMLImageElement): Promise<
     );
     const data = outputImageData.data;
     
-    // Apply mask to alpha channel - keep the object, make background transparent
-    for (let i = 0; i < objectMask.data.length; i++) {
-      // Use mask value directly as alpha (object = visible, background = transparent)
-      const alpha = Math.round(objectMask.data[i] * 255);
+    // Apply mask to alpha channel - the mask represents the foreground object
+    for (let i = 0; i < result[0].mask.data.length; i++) {
+      // Use the mask value directly as alpha (foreground = visible, background = transparent)
+      const alpha = Math.round(result[0].mask.data[i] * 255);
       data[i * 4 + 3] = alpha;
     }
     
