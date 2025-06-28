@@ -1,7 +1,8 @@
-import { createClient } from 'contentful';
-import { Post } from '@/utils/posts';
 
-const samplePosts: Post[] = [
+import { createClient } from 'contentful';
+import { BlogPost } from '@/pages/Writing';
+
+const samplePosts: BlogPost[] = [
   {
     id: 30,
     title: "Pulse of Compassion",
@@ -859,7 +860,7 @@ const client = createClient({
   accessToken: 'YOUR_ACCESS_TOKEN',
 });
 
-export const getBlogPosts = async (): Promise<Post[]> => {
+export const getBlogPosts = async (): Promise<BlogPost[]> => {
   try {
     const response = await client.getEntries({
       content_type: 'blogPost',
