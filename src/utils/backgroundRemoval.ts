@@ -1,4 +1,3 @@
-
 import { pipeline, env } from '@huggingface/transformers';
 
 // Configure transformers.js to always download models
@@ -35,8 +34,7 @@ function resizeImageIfNeeded(canvas: HTMLCanvasElement, ctx: CanvasRenderingCont
 export const removeBackground = async (imageElement: HTMLImageElement): Promise<Blob> => {
   try {
     console.log('Starting background removal process...');
-    // Use a model specifically designed for background removal
-    const segmenter = await pipeline('image-segmentation', 'Xenova/modnet', {
+    const segmenter = await pipeline('image-segmentation', 'Xenova/segformer-b0-finetuned-ade-512-512', {
       device: 'webgpu',
     });
     
@@ -55,13 +53,13 @@ export const removeBackground = async (imageElement: HTMLImageElement): Promise<
     console.log('Image converted to base64');
     
     // Process the image with the segmentation model
-    console.log('Processing with background removal model...');
+    console.log('Processing with segmentation model...');
     const result = await segmenter(imageData);
     
-    console.log('Background removal result:', result);
+    console.log('Segmentation result:', result);
     
     if (!result || !Array.isArray(result) || result.length === 0 || !result[0].mask) {
-      throw new Error('Invalid background removal result');
+      throw new Error('Invalid segmentation result');
     }
     
     // Create a new canvas for the masked image
@@ -75,7 +73,7 @@ export const removeBackground = async (imageElement: HTMLImageElement): Promise<
     // Draw original image
     outputCtx.drawImage(canvas, 0, 0);
     
-    // Apply the mask to make background transparent
+    // Apply the mask
     const outputImageData = outputCtx.getImageData(
       0, 0,
       outputCanvas.width,
@@ -83,22 +81,22 @@ export const removeBackground = async (imageElement: HTMLImageElement): Promise<
     );
     const data = outputImageData.data;
     
-    // Apply mask to alpha channel - the mask represents the foreground object
+    // Apply inverted mask to alpha channel
     for (let i = 0; i < result[0].mask.data.length; i++) {
-      // Use the mask value directly as alpha (foreground = visible, background = transparent)
-      const alpha = Math.round(result[0].mask.data[i] * 255);
+      // Invert the mask value (1 - value) to keep the subject instead of the background
+      const alpha = Math.round((1 - result[0].mask.data[i]) * 255);
       data[i * 4 + 3] = alpha;
     }
     
     outputCtx.putImageData(outputImageData, 0, 0);
-    console.log('Background successfully made transparent');
+    console.log('Mask applied successfully');
     
     // Convert canvas to blob
     return new Promise((resolve, reject) => {
       outputCanvas.toBlob(
         (blob) => {
           if (blob) {
-            console.log('Successfully created final blob with transparent background');
+            console.log('Successfully created final blob');
             resolve(blob);
           } else {
             reject(new Error('Failed to create blob'));

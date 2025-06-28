@@ -100,7 +100,7 @@ const Index = () => {
       <section className="w-full py-16 bg-background">
         <div className="container px-4 mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">Magical Experiences</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Magical Experiences</h2>
             <p className="text-foreground/70 max-w-2xl mx-auto">
               Explore interactive features designed to immerse you in the wizarding world while developing your creative talents.
             </p>
@@ -108,20 +108,22 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {magazineFeatures.map((feature, index) => (
-              <Link 
+              <div 
                 key={index}
-                to={feature.link}
-                className={`bg-card border border-border/50 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 transition-all duration-700 delay-${feature.delay} ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} block`}
+                className={`bg-card border border-border/50 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 transition-all duration-700 delay-${feature.delay} ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
               >
                 <div className="rounded-full w-12 h-12 flex items-center justify-center bg-muted mb-4">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                 <p className="text-foreground/70 mb-4">{feature.description}</p>
-                <div className="inline-flex items-center text-primary hover:text-primary/80 transition-colors">
+                <Link 
+                  to={feature.link}
+                  className="inline-flex items-center text-primary hover:text-primary/80 transition-colors"
+                >
                   Explore <ArrowRight className="ml-1 h-4 w-4" />
-                </div>
-              </Link>
+                </Link>
+              </div>
             ))}
           </div>
         </div>
@@ -134,7 +136,7 @@ const Index = () => {
             <div className="flex flex-col lg:flex-row gap-8 items-center">
               <div className="w-full lg:w-1/2">
                 <p className="text-sm font-medium text-secondary mb-2">LATEST ISSUE</p>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">The Art of Magical Writing</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">The Art of Magical Writing</h2>
                 <p className="text-foreground/70 mb-6">
                   In this month's issue, we explore the techniques of crafting compelling magical narratives, with exclusive interviews from renowned wizarding authors and tips from Hogwarts professors.
                 </p>
@@ -145,7 +147,7 @@ const Index = () => {
                       <div className="w-4 h-4 rounded-full bg-gryffindor-primary"></div>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-black">Spellbinding Poetry</h4>
+                      <h4 className="font-semibold">Spellbinding Poetry</h4>
                       <p className="text-sm text-foreground/70">Learn techniques for imbuing your verses with magical imagery.</p>
                     </div>
                   </div>
@@ -155,7 +157,7 @@ const Index = () => {
                       <div className="w-4 h-4 rounded-full bg-ravenclaw-primary"></div>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-black">Character Development</h4>
+                      <h4 className="font-semibold">Character Development</h4>
                       <p className="text-sm text-foreground/70">Craft memorable magical personalities for your stories.</p>
                     </div>
                   </div>
@@ -165,7 +167,7 @@ const Index = () => {
                       <div className="w-4 h-4 rounded-full bg-slytherin-primary"></div>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-black">Worldbuilding Workshop</h4>
+                      <h4 className="font-semibold">Worldbuilding Workshop</h4>
                       <p className="text-sm text-foreground/70">Create rich, immersive magical settings that captivate readers.</p>
                     </div>
                   </div>
