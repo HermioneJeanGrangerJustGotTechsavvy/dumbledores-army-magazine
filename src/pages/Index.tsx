@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen, Wand2, Bookmark, ScrollText } from "lucide-react";
@@ -109,22 +108,20 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {magazineFeatures.map((feature, index) => (
-              <div 
+              <Link 
                 key={index}
-                className={`bg-card border border-border/50 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 transition-all duration-700 delay-${feature.delay} ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                to={feature.link}
+                className={`bg-card border border-border/50 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 transition-all duration-700 delay-${feature.delay} ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} block`}
               >
                 <div className="rounded-full w-12 h-12 flex items-center justify-center bg-muted mb-4">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                 <p className="text-foreground/70 mb-4">{feature.description}</p>
-                <Link 
-                  to={feature.link}
-                  className="inline-flex items-center text-primary hover:text-primary/80 transition-colors"
-                >
+                <div className="inline-flex items-center text-primary hover:text-primary/80 transition-colors">
                   Explore <ArrowRight className="ml-1 h-4 w-4" />
-                </Link>
-              </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
