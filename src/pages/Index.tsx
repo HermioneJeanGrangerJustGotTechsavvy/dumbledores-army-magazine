@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen, Wand2, Bookmark, ScrollText } from "lucide-react";
@@ -100,7 +101,7 @@ const Index = () => {
       <section className="w-full py-16 bg-background">
         <div className="container px-4 mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Magical Experiences</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">Magical Experiences</h2>
             <p className="text-foreground/70 max-w-2xl mx-auto">
               Explore interactive features designed to immerse you in the wizarding world while developing your creative talents.
             </p>
@@ -136,7 +137,7 @@ const Index = () => {
             <div className="flex flex-col lg:flex-row gap-8 items-center">
               <div className="w-full lg:w-1/2">
                 <p className="text-sm font-medium text-secondary mb-2">LATEST ISSUE</p>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">The Art of Magical Writing</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">The Art of Magical Writing</h2>
                 <p className="text-foreground/70 mb-6">
                   In this month's issue, we explore the techniques of crafting compelling magical narratives, with exclusive interviews from renowned wizarding authors and tips from Hogwarts professors.
                 </p>
@@ -147,7 +148,7 @@ const Index = () => {
                       <div className="w-4 h-4 rounded-full bg-gryffindor-primary"></div>
                     </div>
                     <div>
-                      <h4 className="font-semibold">Spellbinding Poetry</h4>
+                      <h4 className="font-semibold text-black">Spellbinding Poetry</h4>
                       <p className="text-sm text-foreground/70">Learn techniques for imbuing your verses with magical imagery.</p>
                     </div>
                   </div>
@@ -157,7 +158,7 @@ const Index = () => {
                       <div className="w-4 h-4 rounded-full bg-ravenclaw-primary"></div>
                     </div>
                     <div>
-                      <h4 className="font-semibold">Character Development</h4>
+                      <h4 className="font-semibold text-black">Character Development</h4>
                       <p className="text-sm text-foreground/70">Craft memorable magical personalities for your stories.</p>
                     </div>
                   </div>
@@ -167,7 +168,7 @@ const Index = () => {
                       <div className="w-4 h-4 rounded-full bg-slytherin-primary"></div>
                     </div>
                     <div>
-                      <h4 className="font-semibold">Worldbuilding Workshop</h4>
+                      <h4 className="font-semibold text-black">Worldbuilding Workshop</h4>
                       <p className="text-sm text-foreground/70">Create rich, immersive magical settings that captivate readers.</p>
                     </div>
                   </div>
