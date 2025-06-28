@@ -5,14 +5,25 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, User, BookOpen, Feather, Sparkles } from "lucide-react";
-import { Post, posts } from "@/utils/posts";
+import { Post } from "@/utils/posts";
+import { getBlogPosts } from "@/services/contentful";
 
 const Writing = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
-  const [filteredPosts, setFilteredPosts] = useState<Post[]>(posts);
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
 
   // Get unique categories
   const categories = ["all", ...Array.from(new Set(posts.map(post => post.category)))];
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const fetchedPosts = await getBlogPosts();
+      setPosts(fetchedPosts);
+      setFilteredPosts(fetchedPosts);
+    };
+    fetchPosts();
+  }, []);
 
   useEffect(() => {
     if (selectedCategory === "all") {
@@ -20,7 +31,7 @@ const Writing = () => {
     } else {
       setFilteredPosts(posts.filter(post => post.category === selectedCategory));
     }
-  }, [selectedCategory]);
+  }, [selectedCategory, posts]);
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("en-US", {
