@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, BookOpen, Wand2, Bookmark, ScrollText } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { toast } from "sonner";
 

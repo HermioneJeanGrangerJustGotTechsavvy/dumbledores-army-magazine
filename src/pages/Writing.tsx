@@ -6,18 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search, Calendar, User, Tag } from "lucide-react";
 import { getPosts } from "@/services/contentful";
-
-interface Post {
-  id: string;
-  title: string;
-  excerpt: string;
-  content: string;
-  author: string;
-  publishedDate: string;
-  category: string;
-  tags: string[];
-  imageUrl?: string;
-}
+import { Post } from "@/types/post";
 
 const Writing = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -88,7 +77,6 @@ const Writing = () => {
   }, [searchTerm, selectedCategory, posts]);
 
   const categories = Array.from(new Set(posts.map(post => post.category)));
-  const allTags = Array.from(new Set(posts.flatMap(post => post.tags)));
 
   if (loading) {
     return (
