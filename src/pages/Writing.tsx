@@ -29,7 +29,7 @@ const Writing = () => {
       try {
         setLoading(true);
         const data = await getBlogPosts();
-        const writingOnly = data.filter(post => post.category === "Typewriter's Creed");
+        const writingOnly = data;
         const writingWithDetails = writingOnly.map(post => {
           const postDate = new Date(post.date);
           return {
