@@ -5,7 +5,6 @@ const samplePosts: BlogPost[] = [
   {
     id: "30",
     title: "Pulse of Compassion",
-    excerpt: "A sketch representing the dedication of healthcare professionals, featuring a figure in scrubs and the words 'Pain is temporary, a degree is forever'.",
     author: "Pahal Shah",
     date: "June 1, 2025", 
     image: "/lovable-uploads/c982c810-b80e-4a19-963f-3970c46e79c2.png",
@@ -18,7 +17,6 @@ By Pahal Shah
   {
     id: "29",
     title: "Botanical Heartbeat",
-    excerpt: "A beautiful pencil sketch depicting an anatomical heart adorned with delicate flowers and foliage, symbolizing the connection between life and nature.",
     author: "Pahal Shah",
     date: "June 1, 2025", 
     image: "/lovable-uploads/6fe82fc8-7518-4e4c-8015-ba61c3961c36.png",
@@ -31,7 +29,6 @@ By Pahal Shah
   {
     id: "28",
     title: "Inner Spell",
-    excerpt: "A whimsical and imaginative sketch featuring magical elements including The Marauder's Map, Platform 9¾, and various mystical symbols in a creative composition.",
     author: "Pahal Shah",
     date: "June 1, 2025", 
     image: "/lovable-uploads/ad3655a4-9ffc-4cd8-afe3-218df565fd95.png",
@@ -44,7 +41,6 @@ By Pahal Shah
   {
     id: "27",
     title: "Tears Like Pearls",
-    excerpt: "A delicate pencil sketch portraying raw emotion through flowing tears, capturing the beauty found in vulnerability and human expression.",
     author: "Pahal Shah",
     date: "June 1, 2025", 
     image: "/lovable-uploads/a6ca11e8-ba39-47b2-80a5-59b96723d721.png",
@@ -57,7 +53,6 @@ By Pahal Shah
   {
     id: "26",
     title: "Florals & Frames",
-    excerpt: "A beautiful pencil sketch featuring tropical leaves, hibiscus flowers, and decorative containers in a still life composition.",
     author: "Pahal Shah",
     date: "June 1, 2025", 
     image: "/lovable-uploads/7b4ee294-fd25-4ef9-b806-40f46735b1a5.png",
@@ -70,7 +65,6 @@ By Pahal Shah
   {
     id: "25",
     title: "Pastel Scream",
-    excerpt: "A unique interpretation of 'The Scream' featuring an anime-style character on a bridge with dramatic orange skies and flowing water below.",
     author: "Pahal Shah",
     date: "June 1, 2025", 
     image: "/lovable-uploads/22a4a7a5-fed4-4be4-8e56-6222bcfdaf1b.png",
@@ -83,7 +77,6 @@ By Pahal Shah
   {
     id: "24",
     title: "Stargazer's Solitude",
-    excerpt: "A beautiful artwork inspired by Van Gogh's style, depicting a solitary moment under a swirling starry sky with vibrant greens and blues.",
     author: "Pahal Shah",
     date: "June 1, 2025",
     image: "/lovable-uploads/da2b77d6-1d83-4e0f-9f66-9598bc935872.png",
@@ -96,7 +89,6 @@ By Pahal Shah
   {
     id: "23",
     title: "Café Daydream",
-    excerpt: "A whimsical artwork depicting a dreamy moment with coffee and contemplation, featuring intricate mandala patterns.",
     author: "Pahal Shah",
     date: "June 1, 2025",
     image: "/lovable-uploads/4c6901cc-15da-46af-8b5b-48bb5d964465.png",
@@ -109,7 +101,6 @@ By Pahal Shah
   {
     id: "22",
     title: "In Hues of Thought",
-    excerpt: "A vibrant portrait artwork exploring the colorful spectrum of human emotions and contemplation.",
     author: "Pahal Shah",
     date: "June 1, 2025",
     image: "/lovable-uploads/3d7b9e37-d799-45fc-b2e1-69570f77bcc1.png",
@@ -122,7 +113,6 @@ By Pahal Shah
   {
     id: "21",
     title: "Echoes of Stillness",
-    excerpt: "A beautiful portrait artwork capturing the essence of quiet contemplation and inner peace.",
     author: "Pahal Shah",
     date: "June 1, 2025",
     image: "/lovable-uploads/ed1dfc0e-df3c-44ca-ad72-716cc891e7f6.png",
@@ -135,7 +125,6 @@ By Pahal Shah
   {
     id: "20",
     title: "Coffee",
-    excerpt: "A powerful metaphor comparing coffee's bitter taste to the struggle to cross a broken bridge to reach a loved one.",
     author: "Jiya Doshi",
     date: "June 5, 2025",
     image: "/lovable-uploads/88e6790d-953b-472c-bbb1-589f89a23344.png",
@@ -180,7 +169,6 @@ The risk isn't bitter. My inability to reach you is.`,
   {
     id: "19",
     title: "Elegy of the Shoreline",
-    excerpt: "A poetic meditation on grief as a current that strikes unexpectedly, both destructive and beautiful.",
     author: "Jiya Parkash",
     date: "June 3, 2025",
     image: "/lovable-uploads/108c257a-32a8-48d6-bc89-fa3ea57606dd.png",
@@ -201,7 +189,6 @@ Who knew that the same water that is vital to human life can destroy the fragili
   {
     id: "18",
     title: "Look of Love",
-    excerpt: "A visual artwork exploring the profound emotions and connections found in the look of love.",
     author: "Anjani Shastri",
     date: "June 3, 2025",
     image: "/lovable-uploads/c414d34e-ac42-4c94-81ac-f4f7bfab4932.png",
@@ -214,7 +201,6 @@ By Anjani Shastri
   {
     id: "17",
     title: "The Moment We Touched Souls",
-    excerpt: "A tender celebration of the sacred bond between mother and child in those first precious moments.",
     author: "Sweety Doshi",
     date: "June 1, 2025",
     image: "/lovable-uploads/b263283a-36da-4110-b551-fa116d379e8a.png",
@@ -240,7 +226,6 @@ As her presence in my arms flourished`,
   {
     id: "16",
     title: "Unspoken blades",
-    excerpt: "A profound meditation on the power of words and the weight of unspoken emotions in a writer's heart.",
     author: "Sweety Doshi",
     date: "June 1, 2025",
     image: "/lovable-uploads/43fd4c77-d18b-4d86-9a77-6c45863ea0e1.png",
@@ -269,7 +254,6 @@ Not because they're unfinished, but because they speak too much of what remains 
   {
     id: "15",
     title: "Beyond The Storm",
-    excerpt: "A poignant dialogue between grandmother and granddaughter about courage, hope, and life's journey through adversity.",
     author: "Aiyana Deshpande",
     date: "June 3, 2025",
     image: "/lovable-uploads/c634ae3f-369c-476d-9892-72339963f5b2.png",
@@ -335,7 +319,6 @@ part of yourself you never knew existed."
   {
     id: "14",
     title: "Shadows of Doubt",
-    excerpt: "A powerful reflection on misinformation, media bias, and the search for truth in our modern world.",
     author: "Kavya Mehta",
     date: "May 18, 2025",
     image: "/lovable-uploads/d8f1461a-2cd0-41cd-a005-66fe3a07e63e.png",
@@ -386,7 +369,6 @@ We must clear the shadows of doubt ourselves, the shadows of doubt ourselves !`,
   {
     id: "13",
     title: "Entity",
-    excerpt: "A contemplative poem about life's complexities, personal struggles, and the unique nature of individual experiences.",
     author: "Kavya Mehta",
     date: "May 18, 2025",
     image: "/lovable-uploads/05216fa1-582d-43bd-89d9-c51a93fe9d23.png",
@@ -418,7 +400,6 @@ That's all what makes it LIFE – the unique creation.`,
   {
     id: "12",
     title: "Whirlwind of Whispers",
-    excerpt: "An intense exploration of overwhelming emotions and feelings that consume and transform us.",
     author: "Kavya Mehta",
     date: "May 18, 2025",
     image: "/lovable-uploads/0cfbcfe2-5e12-42b4-b6c0-93e1bda82f3b.png",
@@ -454,7 +435,6 @@ It is truly a whirlwind of whispers`,
   {
     id: "11",
     title: "Behind the severity of Severus Snape",
-    excerpt: "A poetic exploration of the complex emotions behind Snape's bitter exterior.",
     author: "Aairah Khan",
     date: "May 18, 2025",
     image: "/lovable-uploads/341ead79-4163-48c5-802a-e22be0c7114c.png",
@@ -500,7 +480,6 @@ A love he can't reclaim again.`,
   {
     id: "10",
     title: "Debriefing",
-    excerpt: "A poignant reflection where a girl seeks validation for the delusions that push her to try.",
     author: "Jiya Doshi",
     date: "May 16, 2025",
     image: "/lovable-uploads/2dc32744-82b2-4016-88c4-3b6c07974c2f.png",
@@ -541,7 +520,6 @@ And falling, make me see it, make me believe.`,
   {
     id: "1",
     title: "Eye Contact",
-    excerpt: "A poetic exploration romanticizing eye contact depicting connection, vulnerability and identity.",
     author: "Jiya Doshi",
     date: "April 19, 2025",
     image: "/lovable-uploads/b2b6834c-0a1c-423a-b168-d07ad12f22af.png",
@@ -586,7 +564,6 @@ A place where the seas finally meet the skies, the place they call 'infinity'.`,
   {
     id: "2",
     title: "Wounds",
-    excerpt: "A powerful reflection on emotional pain and difficult relationships.",
     author: "Durva Shah",
     date: "April 25, 2025",
     image: "/lovable-uploads/25a19832-fcfe-421e-9254-48a6398d5be4.png",
@@ -665,7 +642,6 @@ A place where the seas finally meet the skies, the place they call 'infinity'.`,
   {
     id: "3",
     title: "Colorblind, Blood Red Heart",
-    excerpt: "A poignant exploration of love, longing and emotional blindness.",
     author: "Alice Symphony",
     date: "May 1, 2025",
     image: "/lovable-uploads/b565d01a-779a-484b-b714-75db3938c2c3.png",
@@ -696,7 +672,6 @@ Through my color blinded, blood red heart.`,
   {
     id: "4",
     title: "Rebirth",
-    excerpt: "A raw journey of self-discovery, transformation and personal rebirth.",
     author: "Alice Symphony",
     date: "May 1, 2025",
     image: "/lovable-uploads/e16050e0-95ed-4f0c-b79b-8bba51356b35.png",
@@ -722,7 +697,6 @@ If not, let me die, let me perish, to wherever I may be and let me rest.`,
   {
     id: "5",
     title: "One Day",
-    excerpt: "An aspiring poem about hope, self-acceptance, and the freedom to be oneself.",
     author: "Alice Symphony",
     date: "May 1, 2025",
     image: "/lovable-uploads/df7d9166-4e94-4925-ad65-e6a4e8cf4557.png",
@@ -747,7 +721,6 @@ One day, I will grow wings.`,
   {
     id: "6",
     title: "Narcissism",
-    excerpt: "A bold and unapologetic exploration of self-worth and toxic relationships.",
     author: "Deetyaa Tantia",
     date: "May 4, 2025",
     image: "/lovable-uploads/7ce9f164-465e-4934-a7b6-1f6061df7e58.png",
@@ -777,7 +750,6 @@ It's to remind you, sweetheart, that once something is lost, it can't be found.`
   {
     id: "7",
     title: "If Not For You",
-    excerpt: "A short but powerful acknowledgment of love's transformative influence.",
     author: "The Anonymous Girl",
     date: "May 4, 2025",
     image: "/lovable-uploads/2ec52cdf-5c1e-4b0e-be40-bf078478d881.png",
@@ -793,7 +765,6 @@ If not for you.`,
   {
     id: "8",
     title: "What I Said",
-    excerpt: "A heartfelt poem about the gap between what we feel and what we say.",
     author: "The Anonymous Girl",
     date: "May 4, 2025",
     image: "/lovable-uploads/3c636c24-64fd-4a70-bfc0-c4d9aa73db3a.png",
@@ -811,7 +782,6 @@ But all that came out was;
   {
     id: "9",
     title: "Velcro",
-    excerpt: "A profound meditation on the nature of joy and its unexpected persistence.",
     author: "Anjani Shastri",
     date: "May 4, 2025",
     image: "/lovable-uploads/51d1661b-b97a-45eb-bcff-7caa8f477902.png",
@@ -873,7 +843,6 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
     return response.items.map((item: any) => ({
       id: item.sys.id,
       title: item.fields.title,
-      excerpt: item.fields.excerpt,
       author: item.fields.author,
       date: new Date(item.fields.date).toLocaleDateString(),
       image: item.fields.image?.fields?.file?.url || 'https://images.unsplash.com/photo-1456513080867-f24f120351fc',
