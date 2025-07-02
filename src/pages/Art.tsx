@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getPosts } from "@/services/contentful";
+import { getBlogPosts } from "@/services/contentful";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CalendarDays } from "lucide-react";
 
@@ -27,17 +27,13 @@ const Art = () => {
     const loadArtPosts = async () => {
       try {
         setLoading(true);
-        const data = await getPosts();
+        const data = await getBlogPosts();
         const artOnly = data.filter(post => post.category === "Brushes and Broomsticks");
         const artWithDetails = artOnly.map(post => {
-          const postDate = new Date(post.publishedDate);
+          const postDate = new Date(post.date);
           return {
+            ...post,
             id: String(post.id),
-            title: post.title,
-            content: post.content,
-            date: post.publishedDate,
-            author: post.author,
-            image: post.imageUrl || "",
             category: post.category || "Brushes and Broomsticks",
             month: postDate.toLocaleString('default', { month: 'long' }),
             year: postDate.getFullYear().toString()
