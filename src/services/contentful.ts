@@ -3,6 +3,36 @@ import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
   {
+    id: "31",
+    title: "Words Left Unspoken",
+    author: "Maya Patel",
+    date: "June 10, 2025",
+    image: "/lovable-uploads/c982c810-b80e-4a19-963f-3970c46e79c2.png",
+    content: `Words Left Unspoken
+By Maya Patel
+
+There are words I carry in my chest like stones,
+Heavy with the weight of things unsaid.
+They sit there, patient, waiting for their moment—
+But the moment never comes.
+
+How do you tell someone they saved your life
+Without telling them how close you came to ending it?
+How do you explain that their casual kindness
+Was the thread that kept you tethered?
+
+I practice these conversations in my head,
+Polish them until they shine,
+But when I open my mouth,
+Only small talk spills out.
+
+Maybe some words are meant to stay buried,
+Maybe some truths are too heavy for air,
+Maybe the weight in my chest
+Is love with nowhere to go.`,
+    category: "Typewriter's Creed"
+  },
+  {
     id: "30",
     title: "Pulse of Compassion",
     author: "Pahal Shah",
