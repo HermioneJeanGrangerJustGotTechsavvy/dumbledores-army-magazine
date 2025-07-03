@@ -3,6 +3,28 @@ import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
   {
+    id: "32",
+    title: "Celestial grace",
+    author: "Sanika Demicha",
+    date: "June 20, 2025",
+    image: "/lovable-uploads/c982c810-b80e-4a19-963f-3970c46e79c2.png",
+    content: `Celestial grace
+By Sanika Demicha
+
+Your luminance was uncanny at first sight,
+For it had led me to the shadows, where secrets reside,
+My hand in yours as I held death's hand in mine,
+The stars above began to smile watching 2 souls intertwine,
+Your clever wit and ethereal pulchritude were a siren call,
+Entangled in my own words, destined to fall,
+A bitter -sweet symphony that cried out my name,
+Completely oblivious you set my heart aflame,
+My secret desire, a whispered plea,
+That one day you will belong to me.
+-Sanika Demicha`,
+    category: "The Tortured Poets Department"
+  },
+  {
     id: "31",
     title: "Words Left Unspoken",
     author: "Maya Patel",
