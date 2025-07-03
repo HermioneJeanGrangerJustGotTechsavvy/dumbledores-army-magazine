@@ -7,7 +7,7 @@ const samplePosts: BlogPost[] = [
     title: "Celestial grace",
     author: "Sanika Demicha",
     date: "June 20, 2025",
-    image: "/lovable-uploads/c982c810-b80e-4a19-963f-3970c46e79c2.png",
+    image: "/lovable-uploads/06ca70cd-5d9c-4084-b597-57da5997402d.png",
     content: `Celestial grace
 By Sanika Demicha
 

@@ -2,7 +2,9 @@
 import { useState, useEffect } from "react";
 import { getBlogPosts } from "@/services/contentful";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { CalendarDays } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { CalendarDays, BookOpen } from "lucide-react";
+import WritingModal from "@/components/WritingModal";
 
 export interface BlogPost {
   id: string;
@@ -24,6 +26,8 @@ const Writing = () => {
   const [selectedAuthor, setSelectedAuthor] = useState<string>("all");
   const [selectedYear, setSelectedYear] = useState<string>("all");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   useEffect(() => {
     const loadWritingPosts = async () => {
@@ -71,6 +75,11 @@ const Writing = () => {
   const months = Array.from(new Set(writingPosts.map(post => post.month).filter(Boolean)));
   const authors = Array.from(new Set(writingPosts.map(post => post.author)));
   const years = Array.from(new Set(writingPosts.map(post => post.year).filter(Boolean))).sort((a, b) => parseInt(b!) - parseInt(a!));
+
+  const handleReadMore = (post: BlogPost) => {
+    setSelectedPost(post);
+    setIsModalOpen(true);
+  };
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-6xl">
@@ -161,11 +170,20 @@ const Writing = () => {
                 />
               </div>
               
-              <div className="p-4">
-                <h3 className="text-lg font-bold mb-2 text-white">{post.title}</h3>
-                <p className="text-white/70 text-sm mb-2">{post.date} • by {post.author}</p>
-                <p className="text-white/80 text-sm line-clamp-3">{post.content}</p>
-              </div>
+               <div className="p-4">
+                 <h3 className="text-lg font-bold mb-2 text-white">{post.title}</h3>
+                 <p className="text-white/70 text-sm mb-2">{post.date} • by {post.author}</p>
+                 <p className="text-white/80 text-sm line-clamp-3 mb-3">{post.content}</p>
+                 <Button 
+                   onClick={() => handleReadMore(post)}
+                   variant="outline"
+                   size="sm"
+                   className="w-full bg-white/10 border-white/20 text-white hover:bg-white/20"
+                 >
+                   <BookOpen className="h-4 w-4 mr-2" />
+                   Read More
+                 </Button>
+               </div>
             </div>
           ))}
         </div>
@@ -175,6 +193,12 @@ const Writing = () => {
           <p className="text-white/80">Try adjusting your filter selection to see more content!</p>
         </div>
       )}
+      
+      <WritingModal 
+        post={selectedPost}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };
