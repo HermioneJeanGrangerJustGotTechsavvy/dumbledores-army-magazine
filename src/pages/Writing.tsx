@@ -29,13 +29,14 @@ const Writing = () => {
       try {
         setLoading(true);
         const data = await getBlogPosts();
-        const writingOnly = data;
+        const allowedCategories = ["The Tortured Poets Department", "Amortentia", "Tales of Beedle the Bard"];
+        const writingOnly = data.filter(post => allowedCategories.includes(post.category));
         const writingWithDetails = writingOnly.map(post => {
           const postDate = new Date(post.date);
           return {
             ...post,
             id: String(post.id),
-            category: post.category || "Typewriter's Creed",
+            category: post.category,
             month: postDate.toLocaleString('default', { month: 'long' }),
             year: postDate.getFullYear().toString()
           };
