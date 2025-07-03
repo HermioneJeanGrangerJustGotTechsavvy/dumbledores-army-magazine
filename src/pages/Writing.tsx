@@ -23,6 +23,7 @@ const Writing = () => {
   const [selectedMonth, setSelectedMonth] = useState<string>("all");
   const [selectedAuthor, setSelectedAuthor] = useState<string>("all");
   const [selectedYear, setSelectedYear] = useState<string>("all");
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
   
   useEffect(() => {
     const loadWritingPosts = async () => {
@@ -57,6 +58,7 @@ const Writing = () => {
     if (selectedMonth !== "all" && post.month !== selectedMonth) return false;
     if (selectedAuthor !== "all" && post.author !== selectedAuthor) return false;
     if (selectedYear !== "all" && post.year !== selectedYear) return false;
+    if (selectedCategory !== "all" && post.category !== selectedCategory) return false;
     return true;
   });
 
@@ -116,6 +118,18 @@ const Writing = () => {
             {years.map(year => (
               <SelectItem key={year} value={year!}>{year}</SelectItem>
             ))}
+          </SelectContent>
+        </Select>
+
+        <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+          <SelectTrigger className="w-[250px] bg-midnight-dark/70 border-white/20 text-white">
+            <SelectValue placeholder="All Categories" />
+          </SelectTrigger>
+          <SelectContent className="bg-midnight-dark border-white/20">
+            <SelectItem value="all">All Categories</SelectItem>
+            <SelectItem value="The Tortured Poets Department">The Tortured Poets Department</SelectItem>
+            <SelectItem value="Amortentia">Amortentia</SelectItem>
+            <SelectItem value="Tales of Beedle the Bard">Tales of Beedle the Bard</SelectItem>
           </SelectContent>
         </Select>
       </div>
