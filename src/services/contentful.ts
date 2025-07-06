@@ -3,6 +3,42 @@ import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
   {
+    id: "33",
+    title: "Sink the ship",
+    author: "Zaibaa Rawat",
+    date: "July 5, 2025",
+    image: "/lovable-uploads/c982c810-b80e-4a19-963f-3970c46e79c2.png",
+    content: `Sink the ship
+By Zaibaa Rawat
+
+Every time I see you, feelings resurface.
+A flutter in my stomach. A tightening in my chest. Unconscious smiles.
+
+How is it possible?
+I hardly ever see you — but when I do, you bring everything back.
+
+It's like drowning.
+You're the wave, the pull, the anchor, the storm.
+I only think about you lately.
+
+I get jealous at the thought of you with someone else.
+Why is that? That's not like me.
+
+I am quiet and calm, they always say it
+but you make me want to laugh too loud,
+talk for hours,
+listen to every word you say like it might be the last.
+
+What is this feeling?
+How do I make it stop?
+How do I switch it off?
+
+Sink the ship —
+because I hardly believe it would ever sail anyway.
+-Zaibaa Rawat`,
+    category: "The Tortured Poets Department"
+  },
+  {
     id: "32",
     title: "Celestial grace",
     author: "Sanika Demicha",
