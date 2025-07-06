@@ -7,7 +7,7 @@ const samplePosts: BlogPost[] = [
     title: "Sink the ship",
     author: "Zaibaa Rawat",
     date: "July 5, 2025",
-    image: "/lovable-uploads/c982c810-b80e-4a19-963f-3970c46e79c2.png",
+    image: "/lovable-uploads/f4ae3ca2-a8c5-49ca-a474-dac215c244c7.png",
     content: `Sink the ship
 By Zaibaa Rawat
 
