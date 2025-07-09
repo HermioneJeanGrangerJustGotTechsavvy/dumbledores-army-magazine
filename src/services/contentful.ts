@@ -3,6 +3,30 @@ import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
   {
+    id: "37",
+    title: "Blood and Sky",
+    author: "Shreyashi Manna", 
+    date: "July 8, 2025",
+    image: "/lovable-uploads/6b408993-dbb2-4030-93b0-ec87a2e6a8a3.png",
+    content: `Blood and Sky
+By Shreyashi Manna
+
+[This is a visual artwork piece - please view the full image to experience the complete artistic expression]`,
+    category: "Brushes and Broomsticks"
+  },
+  {
+    id: "36",
+    title: "Fearless",
+    author: "Anjani Shastri",
+    date: "July 8, 2025",
+    image: "/lovable-uploads/d40a4ec5-53d4-40ce-b716-cad5cab74d05.png",
+    content: `Fearless
+By Anjani Shastri
+
+[This is a visual artwork piece - please view the full image to experience the complete artistic expression]`,
+    category: "Brushes and Broomsticks"
+  },
+  {
     id: "35",
     title: "The Chemistry of Feeling",
     author: "Thalia Clem",
