@@ -3,6 +3,94 @@ import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
   {
+    id: "35",
+    title: "The Chemistry of Feeling",
+    author: "Thalia Clem",
+    date: "July 8, 2025",
+    image: "/lovable-uploads/f108793b-fd64-460f-bc09-c552bdc37b27.png",
+    content: `The Chemistry of Feeling
+By Thalia Clem
+
+Scientifically speaking,
+emotions are electrochemical signals—
+tiny storms of charge and current
+coursing through the body,
+governing breath, impulse,
+heartbeat, and decision.
+They say we are rational creatures,
+but we are wired with wildfire.
+
+Robert Plutchik charted
+the vast terrain of our inner world:
+34,000 distinct emotions,
+branching from five primal roots—
+Fear.
+Anger.
+Sadness.
+Disgust.
+Joy.
+
+From these,
+love rewires the body, then shorts the system,
+regret loops like static,
+hope flickers like light refracted
+through a prism of pain.
+We are vessels of voltage,
+haunted by memory,
+ignited by touch.
+
+And yet—
+somehow,
+amid the circuits and surges,
+we still call it soul.`,
+    category: "The Tortured Poets Department"
+  },
+  {
+    id: "34",
+    title: "Owe",
+    author: "Durva Shah",
+    date: "July 7, 2025",
+    image: "/lovable-uploads/09164648-d39f-4751-b199-db0e265176ab.png",
+    content: `Owe
+By Durva Shah
+
+Reminisce about you till my last breath,
+Till the storms wage and the rage sets
+
+Your eyes burn with fire,
+But your heart is engraved with the words liar.
+
+Yearn for your glance every single day,
+Hoping you would finally say,
+But all you do is betray,
+Once filled with colours is now grey,
+Wishing you would change but it is all a dismay.
+
+Yet i pray god to see you again,
+Because for me you stand out amongst all men.
+
+Your thoughts drain me out,
+Cover my sunshine with dark clouds.
+
+What-if's flood my brain,
+Make it difficult to remain sane.
+
+Dream about you when every love song plays,
+Anticipating this wouldn't break and you would stay.
+
+Contemplating things would brew,
+Did I tire you?
+
+Something changed or did u give up on me,
+From this infamy I can't be set free.
+
+Or were your intentions never true,
+But I was too blind to see the real you?
+
+-Durva Shah`,
+    category: "The Tortured Poets Department"
+  },
+  {
     id: "33",
     title: "Sink the ship",
     author: "Zaibaa Rawat",
