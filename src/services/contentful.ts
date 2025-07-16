@@ -3,9 +3,73 @@ import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
   {
+    id: "38",
+    title: "half agony, half hope",
+    author: "Alexandra Renggli", 
+    date: "July 16, 2025",
+    image: "/lovable-uploads/992f9f3e-67c3-4efa-8d03-f82ba19cc589.png",
+    content: `half agony, half hope
+By Alexandra Renggli
+
+Full of words—full of phrases from mouths not my own—are what spill forth from the ink of my pen. It sinks into the coarse parchment, somehow describing my own emotions better than I ever could have. My hand pauses at the end of the letter, hovering as I smile to myself. I had come up with my own witty line, and perhaps if I had loved her less, I would be able to write about it more.
+
+I've used all the poetry I've ever learnt on you, I write. Will you wait for me, for the poets to write more?
+
+__
+
+She loved poetry.
+
+I, on the other hand—ironically quoting poetry myself—saw no point in dressing up our grief in metaphors or wrapping our wounds in pretty words. Blood was never ink, and pain was never meant to be beautiful. Maybe the blood doesn't have to be ink, I thought. I thought that quite stupidly, really. But she loved poetry, and I loved her. I loved the way she looked when a character said something particularly romantic, and her cheeks would grow rosy, a sigh escaping her lips. I loved the way she looked when she was in some far-off land, floating on cloud nine as she daydreamed, eyes shining. I loved the way she would love it, for lack of better wording.
+
+I loved her.
+
+I didn't used to believe in love. Then, I met her. Then, the cynic became the converted, and the sceptic, an ardent zealot.
+
+She was reading a Jane Austen book, swooning over the letter in Persuasion. Despite my lack of interest in poetry or anything in that area, it pains me to admit I still have that epistle memorised, word for word: I am half agony, half hope. It also pains me to say that, from that day forward, I buried my nose in Jane Austen novels, all for the starry-eyed girl I would eventually bring myself to write a letter for.
+
+She loved poetry.
+
+So I picked up a pen and wrote her dozens of letters—letters quoting Emily Dickinson, Elizabeth Barrett Browning, Walt Whitman, and whoever else wrote lines that reminded me, simply, of her. I wrote her letters, though I was a man who had never once had an affinity for literature or anything of the sort. I wrote letters pouring out my soul, because I loved her with my soul—in case, when I looked at her, my mind would go blank and my heart would stop.
+
+I stacked the old letters carefully on the desk, tied in twine, the corners of the pages dog-eared from being read and re-read, though never aloud. They smell faintly of the cedar drawer where I hid them. Some of them victims to ink spills, others scribbled over in fits of embarrassment.
+
+I remember the first one. A heartfelt yet vain attempt, to put feelings to words when words never felt sufficient. I'd tried to imitate Keats—"My heart aches, and a drowsy numbness pains"—but my own heart wasn't numb, it was clumsy and stupid and too alive. I crumpled that attempt and started over, settling instead for:
+
+"You make the world unbearable without you in it."
+
+She would have laughed. She would have told me to try harder, to write something real.
+
+I would have given all of them to her. I had given myself, after all. But the day before I was supposed to, she called me. She said what we had was not love. After all those days reading poetry—which then seemed all for naught—I found myself at a loss for words. Quietly, a question slipped from my lips.
+
+"What, then, did we have?"
+
+Static. And then:
+
+"That's impossible to describe."
+
+The call ended.
+
+I disagreed. No, it was not impossible to describe. It was improbable, but not impossible. It was what the poets had spent centuries trying to describe. Love, for me, was not declarations for all the world to hear. Love, for me, was not even getting down on one knee. It was the letters I had written, signed with my name to hers, that she would never receive. 
+
+__
+
+The parchment I was supposed to use to write my last letter to her sits on my desk. But the paper stays blank, and that could not have described it better. Maybe, it's the most honest letter of all.
+
+I gather the letters now, thinking about burning them. Instead, I slide them back into the drawer.
+
+She'll never read them.
+
+But they exist.
+
+And maybe that's enough.
+
+The poets will have to wait for me to write more.`,
+    category: "Tales of Beedle the Bard"
+  },
+  {
     id: "37",
     title: "Blood and Sky",
-    author: "Shreyashi Manna", 
+    author: "Shreyashi Manna",
     date: "July 8, 2025",
     image: "/lovable-uploads/6b408993-dbb2-4030-93b0-ec87a2e6a8a3.png",
     content: `Blood and Sky
