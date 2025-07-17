@@ -167,6 +167,11 @@ const Writing = () => {
                   src={post.image} 
                   alt={post.title} 
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                  onLoad={() => console.log(`Image loaded successfully: ${post.image}`)}
+                  onError={(e) => {
+                    console.error(`Failed to load image: ${post.image}`, e);
+                    console.log('Image element:', e.currentTarget);
+                  }}
                 />
               </div>
               
