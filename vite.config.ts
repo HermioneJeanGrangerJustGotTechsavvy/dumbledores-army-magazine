@@ -10,7 +10,9 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
     watch: {
-      ignored: ['**/public/lovable-uploads/**']
+      ignored: ['**/public/**', '**/node_modules/**'],
+      usePolling: true,
+      interval: 300
     }
   },
   plugins: [
