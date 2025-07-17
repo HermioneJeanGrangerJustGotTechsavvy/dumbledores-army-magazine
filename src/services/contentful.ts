@@ -106,7 +106,7 @@ And here it is: my final goodbye.`,
     title: "Unmasking, Unravelling, Undoing",
     author: "Jiya Doshi",
     date: "July 15, 2025",
-    image: "/lovable-uploads/acb784a8-eef6-473b-ac91-de6ae35dae06.png",
+    image: "/lovable-uploads/163c696b-e293-407a-b824-9d3e195d3ccd.png",
     content: `Unmasking, Unravelling, Undoing
 By Jiya Doshi
 
