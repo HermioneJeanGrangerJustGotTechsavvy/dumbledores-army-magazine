@@ -67,6 +67,159 @@ The poets will have to wait for me to write more.`,
     category: "Tales of Beedle the Bard"
   },
   {
+    id: "43",
+    title: "The Final Goodbye",
+    author: "Deetyaa Tantia",
+    date: "July 15, 2025",
+    image: "/lovable-uploads/ced9d35b-4572-4642-86b8-6f09d5e94a14.png",
+    content: `The Final Goodbye
+By Deetyaa Tantia
+
+In my heart of hearts I knew, we weren't meant to be,
+Somewhere our paths had diverged, between my books and your cricket jersey,
+I thought we had a deeper connection, an emotion only we got,
+That I was someone you could turn to when you were distraught,
+We analysed people together, gave them numbers out of ten,
+You stayed up late for me even though you had a cricket tournament,
+And you were meant to be a way to pass time, a way to get over that guy I never dated,
+But then you made me believe that our connection was fated,
+And my stupid heart tumbled into love,
+It really thought that this time would lift the curse,
+Because we spoke every day, you called me 'ma'am',
+Was it all pretense? A total sham?
+But I have no right to be sad, to even be bewildered at this,
+We didn't even have a relationship,
+Forgive me, love, I'm sorry I can't move on,
+But you were the first ever guy I thought would prove my heart wrong,
+Now my friends are all tired of hearing the same story twice,
+Guess what? It's the same exact thing, but with two different guys. 
+Oh well, atleast I'll write tragic poetry about you, you always were a good muse,
+Your romantic endeavours are now my daily news,
+And right now you're probably messaging some other girl 'I miss you, my dear',
+Which is funny, because those words were my dream to hear. 
+So anyways, thank you for giving me the greatest three months of my life,
+And here it is: my final goodbye.`,
+    category: "The Tortured Poets Department"
+  },
+  {
+    id: "42",
+    title: "Unmasking, Unravelling, Undoing",
+    author: "Jiya Doshi",
+    date: "July 15, 2025",
+    image: "/lovable-uploads/a1f8b47b-7df1-4372-9d22-84ad5a5b7e09.png",
+    content: `Unmasking, Unravelling, Undoing
+By Jiya Doshi
+
+You wrote sorry on the mirror in red lipstick and orange spraypaint,
+I leave myself a voicemail, this is how I once was and will never be again,
+There's a long grocery list of things I've been procrastinating,
+And then somewhere is forgetting you – you, who I was not anticipating.
+ 
+On the concrete road, all dry, the first raindrops, like melted Cheetos only black,
+Like the sleek feathers of a Raven, thanks Poe for romanticising it like that,
+The black mascara and the cat-eye that I drew now washed away,
+A lipstick smear on the mirror, I'm not crying, but I miss dancing in the rain.
+ 
+I sit by the window, tearing pages from my diary with your name,
+Feeding them to the fire, I don't flinch like I did that day,
+I swore to never re-read it but yet I kept coming back to it,
+Its cracked spine like glass shards under my fingertips.
+ 
+It's silent now. The voices in my head that follow me where I go,
+The location of the ridged abrasive scar tissue is now unknown,
+It's healing. The ECG is no longer static, the ache of the memory brought it to life,
+Like initials on a fogged-up mirror, indents of fingers in wet cement, scars from a knife.
+ 
+My heart pulses like a playlist on shuffle,
+Suddenly 'You're Losing Me' turns to 'I Knew You Were Trouble',
+I re-enter the world, not by the first line, but by the first blood,
+I ask the mirror for an answer. None can be heard.
+ 
+The fog clears from its surface as it shows my own reflection like I know a way out,
+Maybe I do, maybe the only thing holding me back was self-doubt,
+And I let this dawn upon me like it's my motto, a new beginning,
+Because in a way it is, it is an unmasking, unravelling, undoing.`,
+    category: "The Tortured Poets Department"
+  },
+  {
+    id: "41",
+    title: "Captured Heart, Seized Goal",
+    author: "Manya Singh",
+    date: "July 15, 2025",
+    image: "/lovable-uploads/53293c89-5e5a-4747-ad57-033b60c3004b.png",
+    content: `Captured Heart, Seized Goal
+By Manya Singh
+
+It was 2a.m. and I struggled to study,
+Whispering his name in my brain felt lovely,
+I rubbed my eyes to keep me steady,
+Blurring his thoughts,
+I wanted to be focused and ready,
+For what lay beyond - dreams were heavy.`,
+    category: "The Tortured Poets Department"
+  },
+  {
+    id: "40",
+    title: "Confundo",
+    author: "Anjani Shastri",
+    date: "July 13, 2025",
+    image: "/lovable-uploads/89a9d111-4a73-4777-85be-23e81048d0e9.png",
+    content: `Confundo
+By Anjani Shastri
+
+The traffic lights blink in practiced rhythm,
+a ballet of precision, below an empty street.
+Order holds, but nothing follows,
+only the illusion of repeat.
+
+The clock declares it's moving forward,
+but the walls disagree.
+We sit still in motion,
+and call it productivity.
+
+The elevator pauses on floors unpressed,
+as if forgetting is by design.
+
+We write poems in Helvetica about longing,
+then proofread the ache out of every line.
+
+We send clouds of hearts but flinch at eye contact.
+Confessions are made to blinking cursors,
+then deleted mid-keystroke.
+
+Confundo.
+Not chaos, but choreography.
+Not lost, just infinitely misaligned.
+
+Everything fits.
+Nothing matches.
+Still, we sync to the sound of the glitch.`,
+    category: "The Tortured Poets Department"
+  },
+  {
+    id: "39",
+    title: "Aphrodite's Phantom",
+    author: "Sanika Demicha",
+    date: "June 10, 2025",
+    image: "/lovable-uploads/c6ebec22-c8a6-416f-840e-fe940ba0c807.png",
+    content: `Aphrodite's Phantom
+By Sanika Demicha
+
+Hesitant to speak or perhaps strangles in her own words,
+Left in awe as the wind roared and skies whirred,
+By Aphrodite's love and command,
+A vision was born, the most bewitching in the land,
+A proposal to dance too irresistible to deny,
+The heavens watched as the stars above began to die,
+The warmth of his soul lit her heart ablaze,
+As she nuzzled in his arms, his loving embrace,
+The night advanced to welcome the dawns golden rays,
+For he had eluded her grasp without a single trace,
+A gift from the gods, a fleeting delight,
+Aphrodite's phantom was now a star in the night.`,
+    category: "The Tortured Poets Department"
+  },
+  {
     id: "37",
     title: "Blood and Sky",
     author: "Shreyashi Manna",
