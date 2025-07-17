@@ -163,7 +163,7 @@ For what lay beyond - dreams were heavy.`,
     title: "Confundo",
     author: "Anjani Shastri",
     date: "July 13, 2025",
-    image: "/lovable-uploads/61e6f88f-d0b3-489e-ba63-d87f53547b04.png",
+    image: "/lovable-uploads/8d87abcf-163a-44f6-af67-484d10c758ef.png",
     content: `Confundo
 By Anjani Shastri
 
