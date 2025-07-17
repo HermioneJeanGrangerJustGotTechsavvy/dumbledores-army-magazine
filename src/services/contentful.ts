@@ -3,6 +3,32 @@ import { BlogPost } from '@/pages/Writing';
 
 const samplePosts: BlogPost[] = [
   {
+    id: "44",
+    title: "The Stages of Grief",
+    author: "Divina Kanchan", 
+    date: "July 15, 2025",
+    image: "/lovable-uploads/5ffb4017-070e-4cb1-9b03-c9d5f7b6f4cd.png",
+    content: `The Stages of Grief
+By Divina Kanchan
+
+It had been a week since tragedy struck her. Her family - murdered - as a method of torture. The killers escaped, but not without inflicting the deepest wound of all on her - grief. According to many, there are five stages of grief.
+
+One. Denial. She couldn't believe her eyes when she saw it, even though it happened right in front of her. Her family, slaughtered. She denied her family's death even after the rescue team found her. During the autopsy report. During the funerals. She denied it completely. He stood by and watched her refuse any help offered.
+
+Two. Anger. Every time anybody brought up the tragedy, she snapped at them, shutting them down in an instant. Her eyes blazed with fury even if someone dared to breathe in the same room as her. He knew it would pass - all the tantrums and the fights - but how long would it take?  
+
+Three. Bargaining. Her therapy sessions were filled with "what if" questions, as she wondered about the different outcomes, other ways in which the event might have played out differently. She would wonder, "why not me as well?" From what he understood, she wished it was her who died.
+
+Four. Depression. It had been two months since the funerals. Her mood was off. She was sad and would mope about the house. She would refuse to go to work. It was like she had detached from the real world, as if it didn't please her anymore. Sometimes, on rainy days, he would find her staring at the droplets on the windows, tears rolling down her cheeks. Her therapy sessions of late involved a lot of tears and tissue boxes. She was finally opening up.
+
+Five. Acceptance. The support she received from her husband, her friends and her therapist helped her come to terms with the tragedy. She still missed them, but she understood that she simply had to accept her fate, and that it was okay. The love surrounding her helped her gain closure. He found that she opened up more towards him and others.
+
+But grief wasn't over yet for her. It would never be over - until she ended them. That night, she snuck out, gun cocked, armed and dangerous. She would hunt them to the end of her days. She was finally on the last stage - the real last stage - revenge.
+
+- Divina Kanchan`,
+    category: "Tales of Beedle the Bard"
+  },
+  {
     id: "38",
     title: "half agony, half hope",
     author: "Alexandra Renggli", 
