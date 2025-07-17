@@ -71,7 +71,7 @@ The poets will have to wait for me to write more.`,
     title: "The Final Goodbye",
     author: "Deetyaa Tantia",
     date: "July 15, 2025",
-    image: "/lovable-uploads/ced9d35b-4572-4642-86b8-6f09d5e94a14.png",
+    image: "/lovable-uploads/99ce3f70-4e97-4b38-b88e-785fa92e64df.png",
     content: `The Final Goodbye
 By Deetyaa Tantia
 
@@ -106,7 +106,7 @@ And here it is: my final goodbye.`,
     title: "Unmasking, Unravelling, Undoing",
     author: "Jiya Doshi",
     date: "July 15, 2025",
-    image: "/lovable-uploads/a1f8b47b-7df1-4372-9d22-84ad5a5b7e09.png",
+    image: "/lovable-uploads/acb784a8-eef6-473b-ac91-de6ae35dae06.png",
     content: `Unmasking, Unravelling, Undoing
 By Jiya Doshi
 
@@ -146,7 +146,7 @@ Because in a way it is, it is an unmasking, unravelling, undoing.`,
     title: "Captured Heart, Seized Goal",
     author: "Manya Singh",
     date: "July 15, 2025",
-    image: "/lovable-uploads/53293c89-5e5a-4747-ad57-033b60c3004b.png",
+    image: "/lovable-uploads/7bd2d9c9-badd-421f-98fd-913fc450d0bc.png",
     content: `Captured Heart, Seized Goal
 By Manya Singh
 
@@ -163,7 +163,7 @@ For what lay beyond - dreams were heavy.`,
     title: "Confundo",
     author: "Anjani Shastri",
     date: "July 13, 2025",
-    image: "/lovable-uploads/89a9d111-4a73-4777-85be-23e81048d0e9.png",
+    image: "/lovable-uploads/61e6f88f-d0b3-489e-ba63-d87f53547b04.png",
     content: `Confundo
 By Anjani Shastri
 
@@ -201,7 +201,7 @@ Still, we sync to the sound of the glitch.`,
     title: "Aphrodite's Phantom",
     author: "Sanika Demicha",
     date: "June 10, 2025",
-    image: "/lovable-uploads/c6ebec22-c8a6-416f-840e-fe940ba0c807.png",
+    image: "/lovable-uploads/99186504-3e8a-4adf-a958-6c831236309f.png",
     content: `Aphrodite's Phantom
 By Sanika Demicha
 
