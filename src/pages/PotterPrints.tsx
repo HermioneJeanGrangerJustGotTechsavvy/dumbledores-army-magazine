@@ -186,6 +186,38 @@ const PotterPrints = () => {
       photographer: "Jiya Doshi",
       date: "June 11, 2025",
       month: "June"
+    },
+    {
+      id: "20",
+      src: "/lovable-uploads/750ad0ac-0a23-4ad7-9c58-5abe98b12036.png",
+      category: "Photography",
+      photographer: "Anjani Shastri",
+      date: "June 11, 2025",
+      month: "June"
+    },
+    {
+      id: "21",
+      src: "/lovable-uploads/802221a6-7af5-4618-952e-45736083579d.png",
+      category: "Photography",
+      photographer: "Anjani Shastri",
+      date: "June 11, 2025",
+      month: "June"
+    },
+    {
+      id: "22",
+      src: "/lovable-uploads/732316c5-dd68-4d0c-bde2-498d1dff47b9.png",
+      category: "Photography",
+      photographer: "Anjani Shastri",
+      date: "June 11, 2025",
+      month: "June"
+    },
+    {
+      id: "23",
+      src: "/lovable-uploads/18660e96-8311-41ea-9e49-537daaa86172.png",
+      category: "Photography",
+      photographer: "Zella",
+      date: "July 15, 2025",
+      month: "July"
     }
   ];
 
