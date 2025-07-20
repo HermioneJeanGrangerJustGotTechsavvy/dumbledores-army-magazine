@@ -52,17 +52,17 @@ const Performances = () => {
 
   const contentTypes = ["Film", "Play", "Performance"];
   const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  const years = ["2023", "2024", "2025"];
+  const years = ["2025", "2026", "2027", "2028"];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent mb-4">
-            PERFORMANCES
+            Yule Ball and Other Antics
           </h1>
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
-            YULE BALL AND OTHER ANTICS: A COLLECTION OF PERFORMANCES, PLAYS AND MORE FROM THE HEART OF THE WIZARDING WORLD
+            A collection of performances, plays and more from the heart of the wizarding world
           </p>
         </div>
 
