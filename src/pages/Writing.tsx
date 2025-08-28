@@ -18,6 +18,78 @@ export interface BlogPost {
   year?: string;
 }
 
+// Local poems for Tortured Poets Department
+const localPoems: BlogPost[] = [
+  {
+    id: "poem-misunderstood",
+    title: "Misunderstood",
+    content: `I'm tired....
+Of being misunderstood 
+Of being taken for granted 
+Of being disrespected by words and actions 
+I'm tired of being tired`,
+    date: "August 11, 2025",
+    author: "Jenny Mylva",
+    image: "/lovable-uploads/4ed3d55d-bd12-4b10-9aa0-ad4b757840aa.png",
+    category: "The Tortured Poets Department",
+    month: "August",
+    year: "2025"
+  },
+  {
+    id: "poem-loving",
+    title: "Loving",
+    content: `what is more harmful 
+than loving too loud 
+is being incapable of loving at all
+being quiet about love 
+will only make your heart bleed`,
+    date: "August 11, 2025",
+    author: "Jenny Mylva", 
+    image: "/lovable-uploads/5f3d568d-3fe4-4aba-a564-9acb47780f88.png",
+    category: "The Tortured Poets Department",
+    month: "August",
+    year: "2025"
+  },
+  {
+    id: "poem-heartache",
+    title: "Heartache",
+    content: `what aches the heart
+grows the heart`,
+    date: "August 11, 2025",
+    author: "Jenny Mylva",
+    image: "/lovable-uploads/8fb71fe9-db45-4b5d-8731-0ea793cd170e.png", 
+    category: "The Tortured Poets Department",
+    month: "August",
+    year: "2025"
+  },
+  {
+    id: "poem-attachment",
+    title: "Attachment", 
+    content: `if it hurts the heart 
+more than it pleasures 
+it is not love,
+it is attachment`,
+    date: "August 11, 2025",
+    author: "Jenny Mylva",
+    image: "/lovable-uploads/752a6302-d78b-4060-853c-315c9fe182d6.png",
+    category: "The Tortured Poets Department",
+    month: "August",
+    year: "2025"
+  },
+  {
+    id: "poem-beating",
+    title: "Beating",
+    content: `Her heart continues to beat
+even after taking a brutal beating`,
+    date: "August 11, 2025", 
+    author: "Jenny Mylva",
+    image: "/lovable-uploads/aa817460-9616-465f-8d81-094597f966ef.png",
+    category: "The Tortured Poets Department",
+    month: "August",
+    year: "2025"
+  }
+];
+
 const Writing = () => {
   const [loaded, setLoaded] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -46,7 +118,9 @@ const Writing = () => {
             year: postDate.getFullYear().toString()
           };
         });
-        setWritingPosts(writingWithDetails);
+        // Combine Contentful posts with local poems
+        const allPosts = [...writingWithDetails, ...localPoems];
+        setWritingPosts(allPosts);
       } catch (error) {
         console.error("Failed to load writing posts:", error);
       } finally {
