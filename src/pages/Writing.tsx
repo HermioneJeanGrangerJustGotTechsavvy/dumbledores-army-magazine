@@ -245,6 +245,8 @@ const Writing = () => {
                   onError={(e) => {
                     console.error(`Failed to load image: ${post.image}`, e);
                     console.log('Image element:', e.currentTarget);
+                    // Try fallback
+                    e.currentTarget.src = 'https://via.placeholder.com/400x300/1f2937/ffffff?text=Image+Not+Found';
                   }}
                 />
               </div>
