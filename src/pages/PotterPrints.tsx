@@ -218,6 +218,14 @@ const PotterPrints = () => {
       photographer: "Zella",
       date: "July 15, 2025",
       month: "July"
+    },
+    {
+      id: "24",
+      src: "/lovable-uploads/486da211-936e-4e35-a9b4-e5ee9dc00061.png",
+      category: "Photography",
+      photographer: "Thalia Clem",
+      date: "August 11, 2025",
+      month: "August"
     }
   ];
 
