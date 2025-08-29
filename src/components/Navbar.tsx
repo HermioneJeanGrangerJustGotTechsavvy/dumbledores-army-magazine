@@ -36,6 +36,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", path: "/" },
+    { name: "SPEW", path: "/spew" },
     { name: "Sorting Hat", path: "/house-sorting" },
     { name: "Dorm Designer", path: "/dorm-designer" },
     { name: "Classes", path: "/classes" },
@@ -45,7 +46,6 @@ const Navbar = () => {
     { name: "Performances", path: "/performances" },
     { name: "Issues", path: "/issues" },
     { name: "About", path: "/about" },
-    { name: "SPEW", path: "/spew" },
   ];
 
   return (
