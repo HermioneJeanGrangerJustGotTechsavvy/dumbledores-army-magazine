@@ -19,7 +19,7 @@ const SPEW = () => {
             </h2>
             <div className="prose prose-lg max-w-none text-foreground">
               <p className="text-lg leading-relaxed">
-                A community for the betterment of you. Founded by <strong>Jiya Doshi</strong>, this is a space that addresses global issues around us, aiming to increase awareness, educate, campaign and improve the current conditions.
+                A community for the betterment of you and the world around you. Founded by <strong>Jiya Doshi</strong>, this is a space that addresses global issues around us, aiming to increase awareness, educate, campaign and improve the current global conditions.
               </p>
             </div>
           </div>
