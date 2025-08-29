@@ -14,10 +14,10 @@ const SPEW = () => {
             <h1 className="text-4xl md:text-6xl font-magical bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-6">
               SPEW
             </h1>
-            <h2 className="text-xl md:text-2xl text-muted-foreground mb-8 font-medium">
+            <h2 className="text-xl md:text-2xl text-white mb-8 font-medium">
               Society for the Promotion of Everyone's Welfare
             </h2>
-            <div className="prose prose-lg max-w-none text-foreground">
+            <div className="prose prose-lg max-w-none text-white">
               <p className="text-lg leading-relaxed">
                 A community for the betterment of you and the world around you. Founded by <strong>Jiya Doshi</strong>, this is a space that addresses global issues around us, aiming to increase awareness, educate, campaign and improve the current global conditions.
               </p>
