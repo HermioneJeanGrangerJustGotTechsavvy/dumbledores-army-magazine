@@ -70,9 +70,34 @@ const SPEW = () => {
               )}
               
               {selectedTopic === "mental-health" && (
-                <div className="text-center p-8 bg-white/5 rounded-lg border border-white/20">
-                  <h4 className="text-xl font-magical text-white mb-4">Mental Health</h4>
-                  <p className="text-white/80">Content for mental health will be added here.</p>
+                <div className="text-left p-8 bg-white/5 rounded-lg border border-white/20 max-w-4xl mx-auto">
+                  <h4 className="text-2xl font-magical text-white mb-2 text-center">The Five-Minute Mental Reset: Small Moments, Big Impact</h4>
+                  <p className="text-white/70 text-center mb-6 italic">-Thalia Clem</p>
+                  
+                  <div className="prose prose-lg max-w-none text-white space-y-4">
+                    <p className="text-white/90 leading-relaxed">
+                      In a world that constantly asks for more—more productivity, more energy, more availability. It's easy to forget that your mind needs space to breathe. You don't always need a week-long vacation or an expensive retreat to feel better. Sometimes, all it takes is five minutes.
+                    </p>
+                    
+                    <h5 className="text-xl font-semibold text-white mt-6 mb-3">Why Five Minutes Works:</h5>
+                    <p className="text-white/90 leading-relaxed">
+                      Our nervous system responds quickly to small, intentional pauses. Even a few minutes of calm can lower heart rate, reduce stress hormones, and shift our focus. Think of it as a quick reboot for your brain.
+                    </p>
+                    
+                    <h5 className="text-xl font-semibold text-white mt-6 mb-3">Five Ways to Reset in Five Minutes:</h5>
+                    <ol className="list-decimal list-inside space-y-3 text-white/90">
+                      <li><strong>Box Breathing</strong>— Inhale for 4 counts, hold for 4, exhale for 4, hold for 4. Repeat.</li>
+                      <li><strong>Nature Glance</strong>— Step outside, notice the colors, textures, and shapes around you.</li>
+                      <li><strong>Brain Dump</strong>— Write down everything swirling in your head without editing. Clear mental clutter.</li>
+                      <li><strong>Stretch Break</strong>— Release tension with neck rolls, shoulder shrugs, and deep side stretches.</li>
+                      <li><strong>Mindful Sip</strong>— Make tea or coffee and focus entirely on the warmth, aroma, and taste.</li>
+                    </ol>
+                    
+                    <h5 className="text-xl font-semibold text-white mt-6 mb-3">The Takeaway</h5>
+                    <p className="text-white/90 leading-relaxed">
+                      You don't have to wait for burnout to take a break. By weaving tiny resets into your day, you train your mind to recover quickly, making you more resilient in the long run.
+                    </p>
+                  </div>
                 </div>
               )}
             </div>
