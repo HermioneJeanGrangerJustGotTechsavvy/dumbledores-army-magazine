@@ -15,6 +15,7 @@ import PotterPrints from "./pages/PotterPrints";
 import Performances from "./pages/Performances";
 import Issues from "./pages/Issues";
 import About from "./pages/About";
+import SPEW from "./pages/SPEW";
 import Layout from "./components/Layout";
 
 const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ const App = () => (
           <Route path="/performances" element={<Performances />} />
           <Route path="/issues" element={<Issues />} />
           <Route path="/about" element={<About />} />
+          <Route path="/spew" element={<SPEW />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
