@@ -160,6 +160,62 @@ const SPEW = () => {
                       </div>
                     </div>
                   </div>
+
+                  <div className="border-t border-white/20 pt-8">
+                    <h4 className="text-2xl font-magical text-white mb-2 text-center">Misunderstood</h4>
+                    <p className="text-white/70 text-center mb-6 italic">By Jenny Mylva</p>
+                    
+                    <div className="prose prose-lg max-w-none text-white space-y-4">
+                      <div className="text-white/90 leading-relaxed font-serif">
+                        <p>I'm tired....<br/>
+                        Of being misunderstood<br/>
+                        Of being taken for granted<br/>
+                        Of being disrespected by words and actions<br/>
+                        I'm tired of being tired.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="border-t border-white/20 pt-8">
+                    <p className="text-white/70 text-center mb-6 italic">By Thalia Clem</p>
+                    
+                    <div className="prose prose-lg max-w-none text-white space-y-4">
+                      <div className="text-white/90 leading-relaxed font-serif">
+                        <p>You don't need all the answers yet.<br/>
+                        Wander.<br/>
+                        Get lost.<br/>
+                        Ask the questions no one dares.<br/>
+                        Wings are built<br/>
+                        on the way down.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="border-t border-white/20 pt-8">
+                    <p className="text-white/70 text-center mb-6 italic">By Ash T</p>
+                    
+                    <div className="prose prose-lg max-w-none text-white space-y-4">
+                      <div className="text-white/90 leading-relaxed font-serif">
+                        <p>She refused to be held captive by<br/>
+                        her anxiety; instead, she embraces<br/>
+                        her beautiful heart, allowing its light<br/>
+                        to guide her through the shadows</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="border-t border-white/20 pt-8">
+                    <p className="text-white/70 text-center mb-6 italic">By Daniya</p>
+                    
+                    <div className="prose prose-lg max-w-none text-white space-y-4">
+                      <div className="text-white/90 leading-relaxed font-serif">
+                        <p>Silent storms inside my chest,<br/>
+                        Smiles worn thin, no time to rest.<br/>
+                        Shadows whisper, "You're not good enough,"<br/>
+                        Yet I keep walking - though the road is rough.</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
