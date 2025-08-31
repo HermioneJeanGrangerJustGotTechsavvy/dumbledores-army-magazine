@@ -59,6 +59,7 @@ interface Subscriber {
 
 const Issues = () => {
   const [loaded, setLoaded] = useState(false);
+  const [activeTab, setActiveTab] = useState("issues");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -211,12 +212,30 @@ const Issues = () => {
     <div className="container mx-auto px-4 py-12 max-w-6xl">
       <div className={`text-center mb-12 transition-all duration-700 transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Magazine Issues</h1>
-        <p className="text-white max-w-3xl mx-auto">
+        <p className="text-white max-w-3xl mx-auto mb-8">
           Browse and download all past issues of Dumbledore's Army Magazine in PDF format.
         </p>
+        
+        <div className="flex justify-center gap-4 mb-8">
+          <CustomButton
+            variant={activeTab === "issues" ? "default" : "outline"}
+            onClick={() => setActiveTab("issues")}
+            className={activeTab === "issues" ? "" : "text-white border-white/30 hover:bg-white/10"}
+          >
+            Magazine Issues
+          </CustomButton>
+          <CustomButton
+            variant={activeTab === "competitions" ? "default" : "outline"}
+            onClick={() => setActiveTab("competitions")}
+            className={activeTab === "competitions" ? "" : "text-white border-white/30 hover:bg-white/10"}
+          >
+            Competitions
+          </CustomButton>
+        </div>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {activeTab === "issues" && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {sampleIssues.map((issue, index) => (
           <div 
             key={issue.id}
@@ -245,7 +264,45 @@ const Issues = () => {
             </div>
           </div>
         ))}
-      </div>
+        </div>
+      )}
+      
+      {activeTab === "competitions" && (
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-midnight-dark/70 backdrop-blur-sm border border-white/10 rounded-lg p-8">
+            <h2 className="text-3xl font-bold text-white mb-6 text-center">Pensieve Prose</h2>
+            <p className="text-white/80 text-lg mb-8 text-center">
+              A writing competition celebrating the art of storytelling in the magical world
+            </p>
+            
+            <div className="text-center">
+              <CustomButton 
+                variant="default" 
+                className="mb-6"
+                onClick={() => window.open('/pensieve-prose', '_blank')}
+              >
+                View Competition Details
+              </CustomButton>
+            </div>
+            
+            <div className="bg-white/5 rounded-lg p-6 border border-white/20">
+              <h3 className="text-xl font-bold text-white mb-4">Recent Winner</h3>
+              <div className="flex items-center gap-4">
+                <img 
+                  src="/lovable-uploads/825a8aa9-40fa-4d6e-a7f9-7832b2ae0570.png" 
+                  alt="Lyra by Alexandra Renggli" 
+                  className="w-20 h-20 object-cover rounded-lg"
+                />
+                <div>
+                  <h4 className="text-lg font-semibold text-white">"Lyra"</h4>
+                  <p className="text-white/70">By Alexandra Renggli</p>
+                  <p className="text-primary font-medium">Winner of Pensieve Prose Competition</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       
       <div className={`mt-16 bg-primary/10 border border-primary/20 rounded-lg p-8 text-center transition-all duration-700 delay-450 transform ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
         <h2 className="text-2xl font-bold mb-3 text-white">Subscribe to Dumbledore's Army Magazine</h2>

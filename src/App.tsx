@@ -16,6 +16,7 @@ import Performances from "./pages/Performances";
 import Issues from "./pages/Issues";
 import About from "./pages/About";
 import SPEW from "./pages/SPEW";
+import PensieveProse from "./pages/PensieveProse";
 import Layout from "./components/Layout";
 
 const queryClient = new QueryClient();
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/issues" element={<Issues />} />
           <Route path="/about" element={<About />} />
           <Route path="/spew" element={<SPEW />} />
+          <Route path="/pensieve-prose" element={<PensieveProse />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>

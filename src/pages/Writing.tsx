@@ -87,6 +87,24 @@ even after taking a brutal beating`,
     category: "The Tortured Poets Department",
     month: "August",
     year: "2025"
+  },
+  {
+    id: "lyra-story",
+    title: "Lyra",
+    content: `"Tell me, Prince of Thrace, why you would walk through hell willingly."
+The Lord of the Dead's voice echoes through the obsidian chamber. You kneel before Hades and Persephone, trembling, your breath catching in your throat. A thousand answers swarm your mind. But in the end, it's simple.
+You are scarcely a prince. Certainly not a hero. Not really a poet.
+You are Orpheus.
+And you say the only truth that matters:
+"Eurydice."
+
+Winner of Pensieve Prose Competition.`,
+    date: "August 31, 2025",
+    author: "Alexandra Renggli",
+    image: "/lovable-uploads/825a8aa9-40fa-4d6e-a7f9-7832b2ae0570.png",
+    category: "Tales of Beedle the Bard",
+    month: "August",
+    year: "2025"
   }
 ];
 
