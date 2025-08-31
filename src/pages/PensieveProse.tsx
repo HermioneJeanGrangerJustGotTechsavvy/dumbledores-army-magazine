@@ -23,7 +23,7 @@ const PensieveProse = () => {
             </h2>
             <div className="prose prose-lg max-w-none text-white">
               <p className="text-lg leading-relaxed">
-                Welcome to <strong>The Angelica Marie</strong> - our premier writing competition where talented authors craft stories that transport us to magical realms and explore the depths of human emotion through the lens of fantasy and wonder.
+                Our collab with <strong>The Angelica Marie</strong> zine, the Pensieve Prose was a competition where talented writers moved us with powerful storytelling exploring the depths of human emotion through the lens of memories.
               </p>
             </div>
           </div>
