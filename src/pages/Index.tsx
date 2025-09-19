@@ -113,13 +113,13 @@ const Index = () => {
                 >
                   <div className="aspect-[3/4] bg-muted relative flex items-center justify-center magic-shine hover:scale-105 transition-transform duration-300">
                     <img 
-                      src="/lovable-uploads/emotions-magazine-cover.png" 
+                      src="/lovable-uploads/emotions-magazine-final.png" 
                       alt="Emotions magazine cover - Issue 1" 
                       className="object-cover w-full h-full" 
                       loading="lazy"
                     />
                     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                      <p className="text-white/80 text-sm">Volume 42 • Issue 1</p>
+                      <p className="text-white/80 text-sm">Issue 1</p>
                       <h3 className="text-white text-2xl font-bold font-magical">EMOTIONS</h3>
                     </div>
                   </div>

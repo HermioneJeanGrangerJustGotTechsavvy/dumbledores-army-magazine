@@ -10,9 +10,9 @@ const sampleIssues = [
     id: 1,
     title: "Emotions",
     description: "Exploring the depths of human emotion through magical storytelling",
-    coverImage: "/lovable-uploads/emotions-magazine-cover.png",
-    date: "Fall 2023",
-    volume: "Vol. 42",
+    coverImage: "/lovable-uploads/emotions-magazine-final.png",
+    date: "19th September, 2025",
+    volume: "",
     issue: "Issue 1",
     pdfUrl: "https://www.canva.com/design/DAGuAP8JRf4/u2vPt1oFOFxGBFMMKiwL5A/edit?utm_content=DAGuAP8JRf4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
   }
@@ -218,7 +218,7 @@ const Issues = () => {
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
-                <div className="text-white/80 text-sm">{issue.volume} • {issue.issue}</div>
+                <div className="text-white/80 text-sm">{issue.issue}</div>
                 <div className="text-primary text-sm font-medium">{issue.date}</div>
                 <h3 className="text-lg font-bold text-white mt-1">{issue.title}</h3>
               </div>
