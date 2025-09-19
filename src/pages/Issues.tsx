@@ -8,12 +8,12 @@ import { Input } from "@/components/ui/input";
 const sampleIssues = [
   {
     id: 1,
-    title: "The Art of Magical Writing",
-    description: "Featuring exclusive interviews with renowned wizarding authors",
-    coverImage: "https://images.unsplash.com/photo-1472396961693-142e6e269027",
-    date: "Summer 2023",
+    title: "Emotions",
+    description: "Exploring the depths of human emotion through magical storytelling",
+    coverImage: "/lovable-uploads/emotions-issue-cover.png",
+    date: "Fall 2023",
     volume: "Vol. 42",
-    issue: "Issue 7",
+    issue: "Issue 1",
     pdfUrl: "#"
   },
   {
