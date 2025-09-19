@@ -67,13 +67,20 @@ const Index = () => {
       </section>
 
       {/* Latest Issue Preview */}
-      <section className="w-full py-16 bg-muted/50">
+      <section className="w-full py-16 bg-blue-50/50">
         <div className="container px-4 mx-auto">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col lg:flex-row gap-8 items-center">
               <div className="w-full lg:w-1/2">
                 <p className="text-sm font-medium text-secondary mb-2">LATEST ISSUE</p>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">EMOTIONS</h2>
+                <a 
+                  href="https://www.canva.com/design/DAGuAP8JRf4/u2vPt1oFOFxGBFMMKiwL5A/edit?utm_content=DAGuAP8JRf4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block"
+                >
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4 hover:text-primary transition-colors cursor-pointer">EMOTIONS</h2>
+                </a>
                 <p className="text-foreground/70 mb-6">
                   Editor-in-Chief Jiya Doshi starts the magazine with a bang with a poetic detonation, an issue carved from heartbreak, stitched with rage, dipped in longing, and sealed with the quiet ache of words unsaid.
                 </p>
@@ -98,19 +105,25 @@ const Index = () => {
               </div>
               
               <div className="w-full lg:w-1/2 rounded-xl overflow-hidden shadow-lg">
-                <div className="aspect-[3/4] bg-muted relative flex items-center justify-center magic-shine">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20"></div>
-                  <img 
-                    src="https://images.unsplash.com/photo-1472396961693-142e6e269027" 
-                    alt="Magazine cover featuring a magical landscape" 
-                    className="object-cover w-full h-full opacity-90 mix-blend-overlay" 
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                    <p className="text-white/80 text-sm">Volume 42 • Issue 7</p>
-                    <h3 className="text-white text-2xl font-bold font-magical">EMOTIONS</h3>
+                <a 
+                  href="https://www.canva.com/design/DAGuAP8JRf4/u2vPt1oFOFxGBFMMKiwL5A/edit?utm_content=DAGuAP8JRf4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <div className="aspect-[3/4] bg-muted relative flex items-center justify-center magic-shine hover:scale-105 transition-transform duration-300">
+                    <img 
+                      src="/lovable-uploads/emotions-magazine-cover.png" 
+                      alt="Emotions magazine cover - Issue 1" 
+                      className="object-cover w-full h-full" 
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                      <p className="text-white/80 text-sm">Volume 42 • Issue 1</p>
+                      <h3 className="text-white text-2xl font-bold font-magical">EMOTIONS</h3>
+                    </div>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
           </div>

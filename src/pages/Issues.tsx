@@ -10,41 +10,11 @@ const sampleIssues = [
     id: 1,
     title: "Emotions",
     description: "Exploring the depths of human emotion through magical storytelling",
-    coverImage: "/lovable-uploads/emotions-issue-cover.png",
+    coverImage: "/lovable-uploads/emotions-magazine-cover.png",
     date: "Fall 2023",
     volume: "Vol. 42",
     issue: "Issue 1",
-    pdfUrl: "#"
-  },
-  {
-    id: 2,
-    title: "Magical Creatures and Where to Write Them",
-    description: "A deep dive into creating fantastical beings in your stories",
-    coverImage: "https://images.unsplash.com/photo-1618944847828-82e943c3bdb7",
-    date: "Spring 2023",
-    volume: "Vol. 42",
-    issue: "Issue 6",
-    pdfUrl: "#"
-  },
-  {
-    id: 3,
-    title: "Potions for the Creative Mind",
-    description: "Breaking writer's block and unleashing your magical creativity",
-    coverImage: "https://images.unsplash.com/photo-1519751138087-5bf79df62d5b",
-    date: "Winter 2022",
-    volume: "Vol. 42",
-    issue: "Issue 5",
-    pdfUrl: "#"
-  },
-  {
-    id: 4,
-    title: "The Prophecy of New Voices",
-    description: "Highlighting emerging talents in magical literature",
-    coverImage: "https://images.unsplash.com/photo-1535905557558-afc4877a26fc",
-    date: "Fall 2022",
-    volume: "Vol. 42",
-    issue: "Issue 4",
-    pdfUrl: "#"
+    pdfUrl: "https://www.canva.com/design/DAGuAP8JRf4/u2vPt1oFOFxGBFMMKiwL5A/edit?utm_content=DAGuAP8JRf4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
   }
 ];
 
