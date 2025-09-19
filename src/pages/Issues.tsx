@@ -10,7 +10,7 @@ const sampleIssues = [
     id: 1,
     title: "Emotions",
     description: "Exploring the depths of human emotion through magical storytelling",
-    coverImage: "/lovable-uploads/emotions-magazine-final.png",
+    coverImage: "/lovable-uploads/emotions-issue-cover.png",
     date: "19th September, 2025",
     volume: "",
     issue: "Issue 1",

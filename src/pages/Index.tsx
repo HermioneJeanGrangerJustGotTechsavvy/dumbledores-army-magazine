@@ -113,14 +113,10 @@ const Index = () => {
                 >
                   <div className="aspect-[3/4] bg-gray-200 relative flex items-center justify-center hover:scale-105 transition-transform duration-300 rounded-lg overflow-hidden">
                     <img 
-                      src="https://images.unsplash.com/photo-1472396961693-142e6e269027" 
+                      src="/lovable-uploads/emotions-issue-cover.png" 
                       alt="Emotions magazine cover - Issue 1" 
                       className="object-cover w-full h-full" 
                       loading="lazy"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = "/lovable-uploads/emotions-magazine-final.png";
-                      }}
                     />
                     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                       <p className="text-white/80 text-sm">Issue 1</p>
