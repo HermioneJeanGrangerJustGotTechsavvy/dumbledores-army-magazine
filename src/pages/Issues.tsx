@@ -15,6 +15,16 @@ const sampleIssues = [
     volume: "",
     issue: "Issue 1",
     pdfUrl: "https://www.canva.com/design/DAGuAP8JRf4/u2vPt1oFOFxGBFMMKiwL5A/edit?utm_content=DAGuAP8JRf4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+  },
+  {
+    id: 2,
+    title: "S.P.E.W.",
+    description: "Society for the Promotion of Everyone's Welfare - Founded by Jiya Doshi",
+    coverImage: "/lovable-uploads/spew-mini-issue-1.png",
+    date: "28th September, 2025",
+    volume: "",
+    issue: "Mini Issue 1",
+    pdfUrl: "https://www.canva.com/design/DAGz_sAwpnQ/Z9sJsE6VSDdmf3lMk-eipA/edit"
   }
 ];
 
