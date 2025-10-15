@@ -19,7 +19,7 @@ const sampleIssues = [
   {
     id: 2,
     title: "S.P.E.W.",
-    description: "Mental Health",
+    description: "S.P.E.W is founded by Jiya Doshi. The theme for this issue is Mental Health.",
     coverImage: "/lovable-uploads/spew-mini-issue-1.png",
     date: "28th September, 2025",
     volume: "",
