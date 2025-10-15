@@ -19,12 +19,22 @@ const sampleIssues = [
   {
     id: 2,
     title: "S.P.E.W.",
-    description: "Society for the Promotion of Everyone's Welfare - Founded by Jiya Doshi",
+    description: "Mental Health",
     coverImage: "/lovable-uploads/spew-mini-issue-1.png",
     date: "28th September, 2025",
     volume: "",
     issue: "Mini Issue 1",
     pdfUrl: "https://www.canva.com/design/DAGz_sAwpnQ/Z9sJsE6VSDdmf3lMk-eipA/edit"
+  },
+  {
+    id: 3,
+    title: "S.P.E.W. Presents 'Neurodivergence'",
+    description: "Exploring neurodivergence through the magical lens - by Jenny Mylva",
+    coverImage: "/lovable-uploads/spew-neurodivergence.png",
+    date: "TBA",
+    volume: "",
+    issue: "Mini Issue 2",
+    pdfUrl: "https://www.canva.com/design/DAG11hFXwPY/AF6H2l6knKGchfAhUP-vPw/edit?utm_content=DAG11hFXwPY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
   }
 ];
 
