@@ -320,7 +320,7 @@ const PensieveProse = () => {
 
                   <div className="space-y-6">
                     <div>
-                      <p className="text-primary font-semibold mb-2">Q1 – Hi Alex! Can you please throw some light on what or who inspires you to write?</p>
+                      <p className="text-stars font-semibold mb-2">Q1 – Hi Alex! Can you please throw some light on what or who inspires you to write?</p>
                       <div className="text-white/90 leading-relaxed space-y-4">
                         <p>I've never had a single, specific reason—or even a particular person—that inspires me to write. My inspiration feels more like a collection of moments, feelings, and stories that I've gathered along the way, all stitched together. I think the simplest way to put it is this: I write for the joy of it. Writing has always been a place where I can freely express myself without worrying about whether it's "too much" or "too little."</p>
                         <p>There's something magical about being able to create entire worlds and characters that feel, think, and breathe just as vividly as I do—simply by stringing words together. It's a kind of alchemy that never loses its wonder.</p>
