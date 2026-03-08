@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const PensieveProse = () => {
   const [selectedStory, setSelectedStory] = useState<string | null>(null);
+  const [showInterview, setShowInterview] = useState(false);
 
   return (
     <>
