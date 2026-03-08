@@ -346,7 +346,7 @@ const PensieveProse = () => {
                     </div>
 
                     <div className="border-t border-white/20 pt-6">
-                      <p className="text-primary font-semibold mb-2">Q3 – Which piece of yours is your absolute favorite?</p>
+                      <p className="text-stars font-semibold mb-2">Q3 – Which piece of yours is your absolute favorite?</p>
                       <div className="text-white/90 leading-relaxed space-y-4">
                         <p>I don't think I can name just one piece forever, because my "favorite" tends to be whatever I've written most recently. That's because each work I create feels like a snapshot of who I am at that exact moment in time.</p>
                         <p>We all go through phases, but those phases aren't random—they're different versions of ourselves, each one temporary and unique. Writing captures those versions in a way nothing else does. Even my older works—the awkward, cringeworthy, "what was I thinking?" ones—have a place in my heart because they're pieces of who I used to be.</p>
