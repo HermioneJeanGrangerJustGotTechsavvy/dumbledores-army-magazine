@@ -333,7 +333,7 @@ const PensieveProse = () => {
                     </div>
 
                     <div className="border-t border-white/20 pt-6">
-                      <p className="text-primary font-semibold mb-2">Q2 – Describe your writing journey!</p>
+                      <p className="text-stars font-semibold mb-2">Q2 – Describe your writing journey!</p>
                       <div className="text-white/90 leading-relaxed space-y-4">
                         <p>I've loved reading for as long as I can remember. And honestly, I think that's how it starts for most writers—reading is the ignition, and writing becomes the fuse that burns after it.</p>
                         <p>When I was younger, I used to write silly comics and "sell" them to my classmates for fake money (which in hindsight was less about capitalism and more about letting people read my works). But actual writing—the kind where I sit down and pour genuine emotion and thought into every word—didn't start until about a year ago, in Grade 7.</p>
