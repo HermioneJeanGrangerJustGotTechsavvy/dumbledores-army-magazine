@@ -355,7 +355,7 @@ const PensieveProse = () => {
                     </div>
 
                     <div className="border-t border-white/20 pt-6">
-                      <p className="text-primary font-semibold mb-2">Q4 – Your favorite authors/poets?</p>
+                      <p className="text-stars font-semibold mb-2">Q4 – Your favorite authors/poets?</p>
                       <div className="text-white/90 leading-relaxed space-y-4">
                         <p>Madeline Miller is probably my biggest inspiration when it comes to style. She writes about Greek mythology with such precision and beauty—it's lyrical, emotional, and poetic, but also sharp and deeply intellectual. She's one of those rare authors whose writing feels like art and scholarship in equal measure, and that's the balance I hope to one day capture in my own work.</p>
                         <p>That said, my favorite books overall are actually children's classics. The Secret Garden is my all-time favorite, and right now I'm reading the original Alice in Wonderland. Those stories bring back that childlike wonder—the ability to be fascinated by the smallest, strangest, most magical details. They make me feel strangely free, like I've stepped back into a version of myself that still believed in everything impossible.</p>
