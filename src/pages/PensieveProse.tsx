@@ -302,6 +302,90 @@ const PensieveProse = () => {
                 </div>
               )}
             </div>
+
+            {/* Interview Section */}
+            <div className="mt-8">
+              <Button
+                onClick={() => setShowInterview(!showInterview)}
+                variant="outline"
+                className="w-full h-auto p-6 flex flex-col items-start gap-2 bg-white/10 border-white/20 text-white hover:bg-white/20 hover:text-white transition-all duration-300"
+              >
+                <h4 className="text-xl font-semibold">Interview With the Winner: Alexandra Renggli</h4>
+                <p className="text-white/70 text-sm">Click to {showInterview ? 'hide' : 'read'} the interview</p>
+              </Button>
+
+              {showInterview && (
+                <div className="bg-white/5 rounded-lg border border-white/20 p-8 mt-4 space-y-8">
+                  <p className="text-white/70 italic text-center text-lg">Interview conducted by Jiya Doshi.</p>
+
+                  <div className="space-y-6">
+                    <div>
+                      <p className="text-primary font-semibold mb-2">Q1 – Hi Alex! Can you please throw some light on what or who inspires you to write?</p>
+                      <div className="text-white/90 leading-relaxed space-y-4">
+                        <p>I've never had a single, specific reason—or even a particular person—that inspires me to write. My inspiration feels more like a collection of moments, feelings, and stories that I've gathered along the way, all stitched together. I think the simplest way to put it is this: I write for the joy of it. Writing has always been a place where I can freely express myself without worrying about whether it's "too much" or "too little."</p>
+                        <p>There's something magical about being able to create entire worlds and characters that feel, think, and breathe just as vividly as I do—simply by stringing words together. It's a kind of alchemy that never loses its wonder.</p>
+                        <p>And while it might sound cliché, Mr. Keating from Dead Poet's Society put it perfectly:</p>
+                        <blockquote className="border-l-4 border-primary/50 pl-4 italic text-white/80">
+                          "We don't read and write poetry because it's cute. We read and write poetry because we are members of the human race. And the human race is filled with passion. And medicine, law, business, engineering—these are noble pursuits and necessary to sustain life. But poetry, beauty, romance, love… these are what we stay alive for."
+                        </blockquote>
+                        <p>That's it for me. We create not always because there's a grand purpose, but simply because we're human, and humans have always created for the sake of creating. I don't think there's a better—or more passionate—reason than that.</p>
+                      </div>
+                    </div>
+
+                    <div className="border-t border-white/20 pt-6">
+                      <p className="text-primary font-semibold mb-2">Q2 – Describe your writing journey!</p>
+                      <div className="text-white/90 leading-relaxed space-y-4">
+                        <p>I've loved reading for as long as I can remember. And honestly, I think that's how it starts for most writers—reading is the ignition, and writing becomes the fuse that burns after it.</p>
+                        <p>When I was younger, I used to write silly comics and "sell" them to my classmates for fake money (which in hindsight was less about capitalism and more about letting people read my works). But actual writing—the kind where I sit down and pour genuine emotion and thought into every word—didn't start until about a year ago, in Grade 7.</p>
+                        <p>That year, I had an incredible Literature & English teacher who I admired so much. At first, my essays weren't impressive—neither were my test scores. But I kept trying, and my teacher encouraged me every step of the way. They probably don't know it, but they changed my life in a way that's impossible to undo, leaving a mark on my dreams and the way I see myself as a writer.</p>
+                        <p>Our final project was a free piece on the themes of sustainability, and it was during that process that two things became clear to me:</p>
+                        <p>I had a lot of room to grow as a writer.</p>
+                        <p>I loved writing more than I had realized.</p>
+                        <p>That project taught me to see my mistakes, and which ones to keep.</p>
+                      </div>
+                    </div>
+
+                    <div className="border-t border-white/20 pt-6">
+                      <p className="text-primary font-semibold mb-2">Q3 – Which piece of yours is your absolute favorite?</p>
+                      <div className="text-white/90 leading-relaxed space-y-4">
+                        <p>I don't think I can name just one piece forever, because my "favorite" tends to be whatever I've written most recently. That's because each work I create feels like a snapshot of who I am at that exact moment in time.</p>
+                        <p>We all go through phases, but those phases aren't random—they're different versions of ourselves, each one temporary and unique. Writing captures those versions in a way nothing else does. Even my older works—the awkward, cringeworthy, "what was I thinking?" ones—have a place in my heart because they're pieces of who I used to be.</p>
+                        <p>But my newest work currently holds the top spot for me. Right now, that's Lyra, my retelling of the myth of Orpheus & Eurydice. It feels like a mosaic, made up of all the fragments left behind by my previous pieces, but arranged into something new.</p>
+                      </div>
+                    </div>
+
+                    <div className="border-t border-white/20 pt-6">
+                      <p className="text-primary font-semibold mb-2">Q4 – Your favorite authors/poets?</p>
+                      <div className="text-white/90 leading-relaxed space-y-4">
+                        <p>Madeline Miller is probably my biggest inspiration when it comes to style. She writes about Greek mythology with such precision and beauty—it's lyrical, emotional, and poetic, but also sharp and deeply intellectual. She's one of those rare authors whose writing feels like art and scholarship in equal measure, and that's the balance I hope to one day capture in my own work.</p>
+                        <p>That said, my favorite books overall are actually children's classics. The Secret Garden is my all-time favorite, and right now I'm reading the original Alice in Wonderland. Those stories bring back that childlike wonder—the ability to be fascinated by the smallest, strangest, most magical details. They make me feel strangely free, like I've stepped back into a version of myself that still believed in everything impossible.</p>
+                        <p>As for poetry, I don't have one "favorite" poet. I genuinely believe you can find poetry in almost any kind of good writing if you pay attention. That being said, I do love Edgar Allan Poe's "The Raven," and many of his other works. (Though, I wouldn't necessarily recommend following his personal life choices just because of his talent.)</p>
+                        <p>Most of the poems I'm drawn to are steeped in sadness and grief. I think it's because, as Vision once said, "What is grief, if not love persevering?" Those kinds of poems carry the echo of love in such a raw, unfiltered way, and there's a beauty in that I can't resist.</p>
+                      </div>
+                    </div>
+
+                    <div className="border-t border-white/20 pt-6">
+                      <p className="text-primary font-semibold mb-2">Q5 – What advice will you give young writers?</p>
+                      <div className="text-white/90 leading-relaxed space-y-4">
+                        <p>I'm a young writer myself, so I'm still collecting advice more than I'm giving it. But if I could share one thing, it's this: write something you love. Not what you think will be popular, not what you think other people will approve of—something that you care about.</p>
+                        <p>Half of writing is passion. The other half is finding the right words to describe it. And if you write about something you genuinely care for, your readers will feel it too.</p>
+                      </div>
+                    </div>
+
+                    <div className="border-t border-white/20 pt-6">
+                      <p className="text-primary font-semibold mb-2">Q6 – Is there anything else you would like to mention?</p>
+                      <div className="text-white/90 leading-relaxed space-y-4">
+                        <p>I just want to say I hope you have a wonderful day! And I'll leave you with one of my favorite quotes:</p>
+                        <blockquote className="border-l-4 border-primary/50 pl-4 italic text-white/80">
+                          "Always aim for the moon; even if you miss, you'll land amongst the stars."
+                        </blockquote>
+                        <p>Dream big—every single thing that exists now was once just an idea in someone's mind.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
