@@ -365,7 +365,7 @@ const PensieveProse = () => {
                     </div>
 
                     <div className="border-t border-white/20 pt-6">
-                      <p className="text-primary font-semibold mb-2">Q5 – What advice will you give young writers?</p>
+                      <p className="text-stars font-semibold mb-2">Q5 – What advice will you give young writers?</p>
                       <div className="text-white/90 leading-relaxed space-y-4">
                         <p>I'm a young writer myself, so I'm still collecting advice more than I'm giving it. But if I could share one thing, it's this: write something you love. Not what you think will be popular, not what you think other people will approve of—something that you care about.</p>
                         <p>Half of writing is passion. The other half is finding the right words to describe it. And if you write about something you genuinely care for, your readers will feel it too.</p>
