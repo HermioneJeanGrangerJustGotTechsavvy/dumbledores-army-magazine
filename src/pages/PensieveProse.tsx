@@ -373,7 +373,7 @@ const PensieveProse = () => {
                     </div>
 
                     <div className="border-t border-white/20 pt-6">
-                      <p className="text-primary font-semibold mb-2">Q6 – Is there anything else you would like to mention?</p>
+                      <p className="text-stars font-semibold mb-2">Q6 – Is there anything else you would like to mention?</p>
                       <div className="text-white/90 leading-relaxed space-y-4">
                         <p>I just want to say I hope you have a wonderful day! And I'll leave you with one of my favorite quotes:</p>
                         <blockquote className="border-l-4 border-primary/50 pl-4 italic text-white/80">
